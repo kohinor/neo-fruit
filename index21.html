@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>НЕО-ФРУТ - Природная энергия каждый день</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            accent: "#f48a3a",
+                            mint: "#eaf9ef",
+                            teal: "#06a68a",
+                            muted: "#7b7b7b",
+                            cream: "#fff8f0",
+                            peach: "#ffe8d6",
+                            sage: "#d4e8de",
+                        },
+                        fontFamily: {
+                            sans: [
+                                "Montserrat",
+                                "system-ui",
+                                "Arial",
+                                "sans-serif",
+                            ],
+                            display: ["Playfair Display", "serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #ffffff;
+                color: #333;
+            }
+
+            /* Enhanced animations */
+            @keyframes gentleFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(15px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes gentleSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes floatSlow {
+                0%,
+                100% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                50% {
+                    transform: translateY(-20px) rotate(3deg);
+                }
+            }
+
+            @keyframes pulse {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.7;
+                }
+            }
+
+            @keyframes shimmer {
+                0% {
+                    background-position: -1000px 0;
+                }
+                100% {
+                    background-position: 1000px 0;
+                }
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .gentle-fade {
+                animation: gentleFadeIn 1s ease-out forwards;
+            }
+
+            .gentle-slide {
+                animation: gentleSlideIn 1s ease-out forwards;
+            }
+
+            .float-slow {
+                animation: floatSlow 5s ease-in-out infinite;
+            }
+
+            .delay-1 {
+                animation-delay: 0.1s;
+                opacity: 0;
+            }
+            .delay-2 {
+                animation-delay: 0.2s;
+                opacity: 0;
+            }
+            .delay-3 {
+                animation-delay: 0.3s;
+                opacity: 0;
+            }
+            .delay-4 {
+                animation-delay: 0.4s;
+                opacity: 0;
+            }
+            .delay-5 {
+                animation-delay: 0.5s;
+                opacity: 0;
+            }
+            .delay-6 {
+                animation-delay: 0.6s;
+                opacity: 0;
+            }
+
+            /* Decorative elements with animation */
+            .decorative-circle {
+                position: absolute;
+                border-radius: 50%;
+                --tw-bg-opacity: 0.3 !important;
+                animation: pulse 6s ease-in-out infinite;
+            }
+
+            /* Glassmorphism effects */
+            .glass-card {
+                background: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            /* Enhanced shadows */
+            .soft-shadow {
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            }
+
+            .soft-shadow-lg {
+                box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1);
+            }
+
+            .glow-shadow {
+                box-shadow: 0 0 40px rgba(6, 166, 138, 0.3);
+            }
+
+            /* Product card with enhanced hover */
+            .product-card {
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .product-card:hover {
+                transform: translateY(-15px) scale(1.02);
+            }
+
+            .product-card:hover .product-image {
+                transform: scale(1.08) rotate(2deg);
+            }
+
+            .product-image {
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* Angled image styles */
+            .angle-image-container {
+                transform: rotate(-3deg);
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .angle-image-container:hover {
+                transform: rotate(0deg) scale(1.05);
+            }
+
+            .angle-image-reverse {
+                transform: rotate(3deg);
+            }
+
+            .angle-image-reverse:hover {
+                transform: rotate(0deg) scale(1.05);
+            }
+
+            /* Light card hover with glow */
+            .light-card {
+                transition: all 0.4s ease;
+                position: relative;
+            }
+
+            .light-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                padding: 2px;
+                background: linear-gradient(135deg, transparent, transparent);
+                -webkit-mask:
+                    linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .light-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 25px 60px rgba(6, 166, 138, 0.2);
+            }
+
+            .light-card:hover::before {
+                background: linear-gradient(135deg, #06a68a, #f48a3a);
+                opacity: 1;
+            }
+
+            /* Pill badge with shimmer */
+            .pill-badge {
+                display: inline-block;
+                padding: 0.5rem 1.25rem;
+                border-radius: 50px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                background: linear-gradient(135deg, #eaf9ef, #d4e8de);
+                color: #06a68a;
+                border: 2px solid rgba(6, 166, 138, 0.2);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .pill-badge::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent
+                );
+                animation: shimmer 3s infinite;
+            }
+
+            /* Enhanced button */
+            .soft-button {
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 4px 20px rgba(244, 138, 58, 0.3);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .soft-button::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                transform: translate(-50%, -50%);
+                transition:
+                    width 0.6s,
+                    height 0.6s;
+            }
+
+            .soft-button:hover::before {
+                width: 300px;
+                height: 300px;
+            }
+
+            .soft-button:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 12px 35px rgba(244, 138, 58, 0.4);
+            }
+
+            /* Outlined card */
+            .outlined-card {
+                border: 2px solid;
+                background: #ffffff;
+                transition: all 0.3s ease;
+            }
+
+            .outlined-card:hover {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            }
+
+            /* Top navigation with blur */
+            .top-nav {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            /* Timeline connector */
+            .timeline-dot {
+                width: 14px;
+                height: 14px;
+                background: #06a68a;
+                border-radius: 50%;
+                position: relative;
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            .timeline-dot::before {
+                content: "";
+                position: absolute;
+                width: 28px;
+                height: 28px;
+                border: 2px solid #06a68a;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.3;
+            }
+
+            /* Mobile menu */
+            .mobile-drawer {
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .mobile-drawer.open {
+                transform: translateX(0);
+            }
+
+            /* Floating emoji badges */
+            .emoji-badge {
+                width: 70px;
+                height: 70px;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .emoji-badge:hover {
+                transform: scale(1.1) rotate(10deg);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            /* Gradient text animation */
+            .gradient-text {
+                background: linear-gradient(90deg, #06a68a, #f48a3a, #06a68a);
+                background-size: 200% auto;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: shimmer 4s linear infinite;
+            }
+
+            /* Stats counter animation */
+            .stat-number {
+                display: inline-block;
+                font-weight: 900;
+                background: linear-gradient(135deg, #06a68a, #0a8c72);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+        </style>
+    </head>
+    <body class="bg-white">
+        <!-- Top Navigation -->
+        <nav class="top-nav fixed top-0 left-0 right-0 z-50 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center space-x-3">
+                        <div>
+                            <div
+                                class="font-bold text-teal text-lg leading-none"
+                            >
+                                НПК НЕОФРУТ
+                            </div>
+                            <div class="text-md text-muted">
+                                Здоровое питание для активной жизни
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="#about"
+                            class="text-gray-700 hover:text-teal transition font-medium"
+                            >О компании</a
+                        >
+                        <a
+                            href="#products"
+                            class="text-gray-700 hover:text-teal transition font-medium"
+                            >Продукция</a
+                        >
+                        <a
+                            href="#contacts"
+                            class="text-gray-700 hover:text-teal transition font-medium"
+                            >Контакты</a
+                        >
+                    </div>
+
+                    <!-- CTA -->
+                    <button
+                        class="hidden md:block soft-button bg-accent text-white px-6 py-2.5 rounded-full font-semibold"
+                    >
+                        Заказать
+                    </button>
+
+                    <!-- Mobile Toggle -->
+                    <button id="menuToggle" class="md:hidden text-teal">
+                        <svg
+                            class="w-7 h-7"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer -->
+        <div
+            id="mobileDrawer"
+            class="mobile-drawer fixed top-0 right-0 bottom-0 w-80 bg-white shadow-2xl z-50"
+        >
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <button
+                        id="closeDrawer"
+                        class="text-gray-500 hover:text-teal"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="space-y-4">
+                    <a
+                        href="#about"
+                        class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
+                        >О компании</a
+                    >
+                    <a
+                        href="#products"
+                        class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
+                        >Продукция</a
+                    >
+
+                    <a
+                        href="#contacts"
+                        class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
+                        >Контакты</a
+                    >
+                </nav>
+                <button
+                    class="w-full mt-8 soft-button bg-accent text-white px-6 py-3 rounded-full font-semibold"
+                >
+                    Заказать
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Overlay -->
+        <div
+            id="drawerOverlay"
+            class="fixed inset-0 bg-black/30 z-40 hidden"
+        ></div>
+
+        <!-- Hero Section -->
+        <section
+            id="hero"
+            class="pt-32 pb-20 bg-gradient-to-br from-cream via-white to-sage relative overflow-hidden"
+        >
+            <!-- Decorative circles with animation -->
+            <div
+                class="decorative-circle w-96 h-96 bg-teal absolute -top-20 -right-20"
+            ></div>
+            <div
+                class="decorative-circle w-80 h-80 bg-accent absolute -bottom-40 -left-40"
+                style="animation-delay: 1s"
+            ></div>
+            <div
+                class="decorative-circle w-64 h-64 bg-peach absolute top-1/2 right-1/4"
+                style="animation-delay: 2s"
+            ></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Merged Layout -->
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                >
+                    <!-- Left: Text Content -->
+                    <div class="text-left lg:pr-8">
+                        <div class="pill-badge gentle-fade mb-6">
+                            С 2005 года на рынке здорового питания
+                        </div>
+                        <h1
+                            class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 gentle-fade delay-1"
+                        >
+                            Фруктовые палочки
+                            <span class="gradient-text block mt-2"
+                                >НЕОФРУТ</span
+                            >
+                        </h1>
+                        <p
+                            class="text-lg md:text-xl text-gray-600 mb-8 gentle-fade delay-2 leading-relaxed"
+                        >
+                            Заряди тело и ум энергией природы! 100% натуральный
+                            продукт функционального питания для активной жизни.
+                        </p>
+                        <div class="flex flex-wrap gap-4 gentle-fade delay-3">
+                            <button
+                                class="soft-button bg-teal text-white px-8 py-4 rounded-full font-semibold text-lg relative z-10"
+                            >
+                                Смотреть продукцию
+                            </button>
+                            <button
+                                class="glass-card text-teal px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition"
+                            >
+                                Узнать больше
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Image with enhanced effects -->
+                    <div class="gentle-fade delay-4">
+                        <div class="relative angle-image-container">
+                            <div
+                                class="absolute -inset-4 bg-gradient-to-r from-teal to-accent rounded-[3.5rem] opacity-20 blur-2xl"
+                            ></div>
+                            <div
+                                class="relative soft-shadow-lg rounded-3xl overflow-hidden bg-white p-4"
+                            >
+                                <img
+                                    src="images/hero.jpg"
+                                    alt="Products"
+                                    class="w-full rounded-2xl"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section with enhanced design -->
+        <section class="py-12 bg-white relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-sage/10 to-cream/10"
+            ></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+                    <div class="text-center gentle-fade delay-1">
+                        <div
+                            class="stat-number text-5xl md:text-6xl font-black mb-2"
+                        >
+                            100%
+                        </div>
+                        <div class="text-gray-600 font-medium">
+                            Натуральный состав
+                        </div>
+                    </div>
+                    <div class="text-center gentle-fade delay-2">
+                        <div
+                            class="text-5xl md:text-6xl font-black text-accent mb-2"
+                        >
+                            20+
+                        </div>
+                        <div class="text-gray-600 font-medium">Лет опыта</div>
+                    </div>
+
+                    <!-- Jumping Apple Logo -->
+                    <div
+                        class="text-center col-span-2 md:col-span-1 gentle-fade delay-3"
+                    >
+                        <img
+                            src="images/logo-jump.gif"
+                            alt="NEOFRUIT"
+                            class="w-28 md:w-36 mx-auto float-slow drop-shadow-xl"
+                        />
+                    </div>
+
+                    <div class="text-center gentle-fade delay-4">
+                        <div
+                            class="stat-number text-5xl md:text-6xl font-black mb-2"
+                        >
+                            2009
+                        </div>
+                        <div class="text-gray-600 font-medium">
+                            В рационах МО РФ
+                        </div>
+                    </div>
+                    <div class="text-center gentle-fade delay-5">
+                        <div
+                            class="text-5xl md:text-6xl font-black text-accent mb-2"
+                        >
+                            3
+                        </div>
+                        <div class="text-gray-600 font-medium">
+                            Вкуса на выбор
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section with enhanced card -->
+        <section
+            id="about"
+            class="py-24 bg-gradient-to-br from-sage to-mint relative overflow-hidden"
+        >
+            <div
+                class="decorative-circle w-72 h-72 bg-white absolute top-10 right-10"
+            ></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
+                >
+                    <div class="relative group angle-image-reverse">
+                        <div
+                            class="absolute -inset-3 bg-gradient-to-r from-teal to-accent rounded-[3.5rem] opacity-30 blur-2xl group-hover:opacity-40 transition"
+                        ></div>
+                        <div
+                            class="relative soft-shadow-lg rounded-3xl overflow-hidden bg-white p-4"
+                        >
+                            <img
+                                src="images/options.jpg"
+                                alt="Products Options"
+                                class="w-full rounded-2xl transform group-hover:scale-105 transition duration-500"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <h2
+                            class="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6"
+                        >
+                            Что такое
+                            <span class="gradient-text">НЕОФРУТ</span>?
+                        </h2>
+                        <div
+                            class="w-24 h-1.5 bg-gradient-to-r from-teal to-accent rounded-full mb-6"
+                        ></div>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            Фруктовые палочки НЕОФРУТ — это 100% натуральный
+                            продукт функционального питания, созданный по
+                            уникальной запатентованной технологии, сохраняющей
+                            максимум пользы орехов и сухофруктов на долгий срок.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                            Идеальный выбор для спортсменов, туристов, военных и
+                            всех, кто всегда в движении. Для тех, кто идёт
+                            вперёд — без компромиссов.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="timeline-dot"></div>
+                            <span class="text-teal font-semibold text-lg"
+                                >Проверено временем и профессионалами</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section with unique asymmetric layout -->
+        <section
+            id="products"
+            class="py-24 bg-gradient-to-br from-white via-cream to-sage relative overflow-hidden"
+        >
+            <!-- Decorative elements -->
+            <div
+                class="decorative-circle w-96 h-96 bg-teal absolute -top-40 -left-40"
+            ></div>
+            <div
+                class="decorative-circle w-80 h-80 bg-accent absolute -bottom-20 -right-20"
+                style="animation-delay: 1.5s"
+            ></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Header -->
+                <div class="text-center mb-24">
+                    <h2
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                    >
+                        Наш <span class="gradient-text">ассортимент</span>
+                    </h2>
+                    <div
+                        class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto mb-8"
+                    ></div>
+                    <p
+                        class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light"
+                    >
+                        Откройте для себя природные энергию и вкус в каждом
+                        кусочке
+                    </p>
+                </div>
+
+                <!-- Products Asymmetric Layout -->
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+                >
+                    <!-- Product 1 - Large Left -->
+                    <div class="lg:col-span-5 product-card group">
+                        <div class="relative">
+                            <div
+                                class="absolute -top-8 -left-8 w-40 h-40 bg-gradient-to-br from-orange-300 to-peach rounded-full opacity-60 blur-3xl"
+                            ></div>
+                            <div
+                                class="relative bg-gradient-to-br from-orange-50 to-peach rounded-[3rem] p-10 soft-shadow-lg overflow-hidden"
+                            >
+                                <div
+                                    class="emoji-badge absolute top-6 right-6 rounded-full flex items-center justify-center text-4xl"
+                                >
+                                    ☀️
+                                </div>
+                                <img
+                                    src="images/options.jpg"
+                                    alt="Абрикосовая с фундуком"
+                                    class="product-image w-full rounded-3xl"
+                                />
+                            </div>
+                        </div>
+                        <div class="mt-8 text-center px-4 pb-4">
+                            <h3
+                                class="font-display text-3xl md:text-4xl font-bold text-gray-800 mb-8 leading-tight"
+                            >
+                                Абрикосовая с фундуком
+                            </h3>
+                            <button
+                                class="soft-button bg-teal text-white px-10 py-4 rounded-full font-bold text-lg relative z-10"
+                            >
+                                Узнать больше
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 & 3 - Right side -->
+                    <div class="lg:col-span-7 lg:col-start-6 lg:-mt-16">
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start"
+                        >
+                            <!-- Product 2 - Elevated -->
+                            <div class="product-card group md:mt-20">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-purple-300 to-orange-300 rounded-full opacity-60 blur-3xl"
+                                    ></div>
+                                    <div
+                                        class="relative bg-gradient-to-br from-purple-50 to-orange-50 rounded-[3rem] p-8 soft-shadow-lg overflow-hidden"
+                                    >
+                                        <div
+                                            class="emoji-badge absolute top-5 right-5 rounded-full flex items-center justify-center text-3xl"
+                                        >
+                                            🍑
+                                        </div>
+                                        <img
+                                            src="images/options.jpg"
+                                            alt="Абрикосово-сливовая с фундуком"
+                                            class="product-image w-full rounded-3xl"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="mt-6 text-center px-4 pb-4">
+                                    <h3
+                                        class="font-display text-2xl md:text-2xl font-bold text-gray-800 mb-6 leading-tight"
+                                    >
+                                        Абрикосово-сливовая с фундуком
+                                    </h3>
+                                    <button
+                                        class="soft-button bg-accent text-white px-8 py-3.5 rounded-full font-bold relative z-10"
+                                    >
+                                        Узнать больше
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 - Right -->
+                            <div class="product-card group">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-br from-purple-300 to-purple-400 rounded-full opacity-60 blur-3xl"
+                                    ></div>
+                                    <div
+                                        class="relative bg-gradient-to-br from-purple-50 to-purple-100 rounded-[3rem] p-8 soft-shadow-lg overflow-hidden"
+                                    >
+                                        <div
+                                            class="emoji-badge absolute top-5 right-5 rounded-full flex items-center justify-center text-3xl"
+                                        >
+                                            🌰
+                                        </div>
+                                        <img
+                                            src="images/options.jpg"
+                                            alt="Чернослив с орехами"
+                                            class="product-image w-full rounded-3xl"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="mt-6 text-center px-4 pb-4">
+                                    <h3
+                                        class="font-display text-2xl md:text-2xl font-bold text-gray-800 mb-6 leading-tight"
+                                    >
+                                        Чернослив с орехами
+                                    </h3>
+                                    <button
+                                        class="soft-button bg-teal text-white px-8 py-3.5 rounded-full font-bold relative z-10"
+                                    >
+                                        Узнать больше
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section with enhanced cards -->
+        <section
+            id="benefits"
+            class="py-24 bg-gradient-to-br from-cream to-white relative overflow-hidden"
+        >
+            <div
+                class="decorative-circle w-64 h-64 bg-sage absolute -top-20 right-1/4"
+                style="animation-delay: 0.5s"
+            ></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-20">
+                    <h2
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                    >
+                        Почему выбирают
+                        <span class="gradient-text">НЕОФРУТ</span>?
+                    </h2>
+                    <div
+                        class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto"
+                    ></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Benefit 1 -->
+                    <div
+                        class="light-card outlined-card border-teal/30 rounded-3xl p-10 bg-white text-center"
+                    >
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-sage to-mint rounded-full flex items-center justify-center text-5xl mx-auto mb-6 glow-shadow"
+                        >
+                            🌿
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-5">
+                            100% натуральный
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            Содержит отборные исключительно натуральные
+                            растительные компоненты и биологически активные
+                            вещества высокого качества.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div
+                        class="light-card outlined-card border-accent/30 rounded-3xl p-10 bg-white text-center"
+                    >
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-peach to-orange-100 rounded-full flex items-center justify-center text-5xl mx-auto mb-6 glow-shadow"
+                        >
+                            ⚡
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-5">
+                            Природная польза
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            Растительные белки и жиры, быстрые углеводы,
+                            витамины и микроэлементы улучшают функции ЖКТ,
+                            сердца, глаз и мозга.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div
+                        class="light-card outlined-card border-teal/30 rounded-3xl p-10 bg-white text-center"
+                    >
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-sage to-mint rounded-full flex items-center justify-center text-5xl mx-auto mb-6 glow-shadow"
+                        >
+                            🛡️
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-5">
+                            Проверено профессионалами
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            С 2009 года включены в специальные индивидуальные
+                            рационы питания силовых структур РФ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section with enhanced design -->
+        <section
+            class="py-24 bg-gradient-to-br from-teal via-teal to-accent relative overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC00Yy0xLjEgMC0yIC45LTIgMnY0YzAgMS4xLjkgMiAyIDJoNGMxLjEgMCAyLS45IDItMnYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"
+            ></div>
+            <div
+                class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10"
+            >
+                <h2
+                    class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg"
+                >
+                    Попробуйте! Вам понравится!
+                </h2>
+                <p
+                    class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed"
+                >
+                    Каждая палочка НЕОФРУТ — это 100% натуральный,
+                    высококалорийный перекус, который питает тело, поддерживает
+                    активность и заряжает энергией на весь день!
+                </p>
+                <button
+                    class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105"
+                >
+                    Заказать сейчас
+                </button>
+            </div>
+        </section>
+
+        <!-- Contacts Section -->
+        <footer
+            id="contacts"
+            class="py-24 bg-gradient-to-br from-gray-50 to-white"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <h2
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                    >
+                        Свяжитесь <span class="gradient-text">с нами</span>
+                    </h2>
+                    <div
+                        class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto"
+                    ></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                    <!-- Office & Production Merged -->
+                    <div
+                        class="outlined-card border-gray-200 rounded-3xl p-8 text-center hover:border-teal transition"
+                    >
+                        <div class="text-6xl mb-6">🏢</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                            Наши адреса
+                        </h3>
+                        <div class="space-y-5">
+                            <div>
+                                <p class="text-gray-700 font-bold text-sm mb-3">
+                                    Офис:
+                                </p>
+                                <p
+                                    class="text-gray-600 text-base leading-relaxed"
+                                >
+                                    115035, Россия, г. Москва, Космодамианская
+                                    наб., д. 40-42, стр. 3, эт. 1, пом. XVII,
+                                    ком. 1
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t-2 border-gray-200">
+                                <p class="text-gray-700 font-bold text-sm mb-3">
+                                    Производство/Склад:
+                                </p>
+                                <p
+                                    class="text-gray-600 text-base leading-relaxed"
+                                >
+                                    143980, Россия, Московская область, г.
+                                    Железнодорожный, ул. Автозаводская, 50А
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wholesale -->
+                    <div
+                        class="outlined-card border-gray-200 rounded-3xl p-8 text-center hover:border-teal transition"
+                    >
+                        <div class="text-6xl mb-6">📦</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            Оптовые продажи
+                        </h3>
+                        <p class="text-gray-600 text-base mb-5">
+                            Госзакупки (44-ФЗ, 223-ФЗ)
+                        </p>
+                        <div class="space-y-3 text-base text-gray-700">
+                            <p>
+                                <a
+                                    href="tel:+74993913908"
+                                    class="hover:text-teal transition font-semibold"
+                                    >+7 (499) 391-39-08</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="tel:+79267820032"
+                                    class="hover:text-teal transition font-semibold"
+                                    >+7 (926) 782-00-32</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="tel:+79165555542"
+                                    class="hover:text-teal transition font-semibold"
+                                    >+7 (916) 555-55-42</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="mailto:npkneofruit@yandex.ru"
+                                    class="hover:text-teal transition font-semibold"
+                                    >npkneofruit@yandex.ru</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retail Distributor -->
+                <div
+                    class="outlined-card border-accent/30 rounded-3xl p-10 bg-gradient-to-br from-peach/30 to-white"
+                >
+                    <div class="text-center">
+                        <div class="text-6xl mb-6">🛒</div>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                            Мелкоптовые продажи / Ритейл
+                        </h3>
+                        <p class="text-gray-700 font-bold mb-3 text-lg">
+                            Официальный дистрибьютор ООО «БАРРАКУДА»
+                        </p>
+                        <p class="text-gray-600 text-base mb-6">
+                            127083 г. Москва, улица Юннатов дом 18, офис 104
+                        </p>
+                        <div
+                            class="flex flex-wrap justify-center gap-8 text-base text-gray-700"
+                        >
+                            <a
+                                href="tel:+79646351188"
+                                class="hover:text-teal transition font-semibold"
+                                >+7 (964) 635-11-88</a
+                            >
+                            <a
+                                href="tel:+74957445595"
+                                class="hover:text-teal transition font-semibold"
+                                >+7 (495) 744-55-95</a
+                            >
+                            <a
+                                href="mailto:info@barrakuda.biz"
+                                class="hover:text-teal transition font-semibold"
+                                >info@barrakuda.biz</a
+                            >
+                            <a
+                                href="http://www.armilit.ru"
+                                target="_blank"
+                                class="hover:text-teal transition font-semibold"
+                                >www.armilit.ru</a
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="mt-16 pt-10 border-t-2 border-gray-200 text-center">
+                    <p class="text-gray-600 text-lg">
+                        © 2005 - 2025 OOO "НЕО-Фрут". Все права защищены.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile menu
+            const menuToggle = document.getElementById("menuToggle");
+            const closeDrawer = document.getElementById("closeDrawer");
+            const mobileDrawer = document.getElementById("mobileDrawer");
+            const drawerOverlay = document.getElementById("drawerOverlay");
+
+            function openDrawer() {
+                mobileDrawer.classList.add("open");
+                drawerOverlay.classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeDrawerFn() {
+                mobileDrawer.classList.remove("open");
+                drawerOverlay.classList.add("hidden");
+                document.body.style.overflow = "auto";
+            }
+
+            menuToggle.addEventListener("click", openDrawer);
+            closeDrawer.addEventListener("click", closeDrawerFn);
+            drawerOverlay.addEventListener("click", closeDrawerFn);
+
+            // Close on link click
+            const drawerLinks = mobileDrawer.querySelectorAll("a");
+            drawerLinks.forEach((link) => {
+                link.addEventListener("click", closeDrawerFn);
+            });
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(
+                        this.getAttribute("href"),
+                    );
+                    if (target) {
+                        const offset = 80;
+                        const targetPosition =
+                            target.getBoundingClientRect().top +
+                            window.pageYOffset -
+                            offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: "smooth",
+                        });
+                    }
+                });
+            });
+
+            // Navbar scroll effect
+            const nav = document.querySelector(".top-nav");
+            let lastScroll = 0;
+
+            window.addEventListener("scroll", () => {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 50) {
+                    nav.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+                } else {
+                    nav.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.05)";
+                }
+
+                lastScroll = currentScroll;
+            });
+        </script>
+    </body>
+</html>
