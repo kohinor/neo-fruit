@@ -120,6 +120,10 @@
                 animation: floatSlow 5s ease-in-out infinite;
             }
 
+            .hover-float:hover {
+                animation: floatSlow 5s ease-in-out infinite;
+            }
+
             .delay-1 {
                 animation-delay: 0.1s;
                 opacity: 0;
@@ -197,15 +201,16 @@
             }
 
             .angle-image-container:hover {
-                transform: rotate(0deg) scale(1.05);
+                transform: rotate(0deg);
             }
 
             .angle-image-reverse {
                 transform: rotate(3deg);
+                transition: transform 0.5s ease;
             }
 
             .angle-image-reverse:hover {
-                transform: rotate(0deg) scale(1.05);
+                transform: rotate(0deg);
             }
 
             /* Light card hover with glow */
@@ -540,7 +545,7 @@
                     <!-- Left: Text Content -->
                     <div class="text-left lg:pr-8">
                         <div class="pill-badge gentle-fade mb-6">
-                            С 2005 года на рынке здорового питания
+                            С 2003 года на рынке здорового питания
                         </div>
                         <h1
                             class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 gentle-fade delay-1"
@@ -561,11 +566,6 @@
                                 class="soft-button bg-teal text-white px-8 py-4 rounded-full font-semibold text-lg relative z-10"
                             >
                                 Смотреть продукцию
-                            </button>
-                            <button
-                                class="glass-card text-teal px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition"
-                            >
-                                Узнать больше
                             </button>
                         </div>
                     </div>
@@ -632,10 +632,10 @@
                         <div
                             class="stat-number text-5xl md:text-6xl font-black mb-2"
                         >
-                            2009
+                            c 2009
                         </div>
                         <div class="text-gray-600 font-medium">
-                            В рационах МО РФ
+                            входят в ИРП МО РФ
                         </div>
                     </div>
                     <div class="text-center gentle-fade delay-5">
@@ -674,7 +674,7 @@
                             <img
                                 src="images/options.jpg"
                                 alt="Products Options"
-                                class="w-full rounded-2xl transform group-hover:scale-105 transition duration-500"
+                                class="w-full rounded-2xl"
                             />
                         </div>
                     </div>
@@ -696,8 +696,10 @@
                         </p>
                         <p class="text-lg text-gray-700 mb-8 leading-relaxed">
                             Идеальный выбор для спортсменов, туристов, военных и
-                            всех, кто всегда в движении. Для тех, кто идёт
-                            вперёд — без компромиссов.
+                            всех, кто всегда в движении.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                            Для тех, кто идёт вперёд — без компромиссов.
                         </p>
                         <div class="flex items-center space-x-4">
                             <div class="timeline-dot"></div>
@@ -762,7 +764,7 @@
                                     ☀️
                                 </div>
                                 <img
-                                    src="images/options.jpg"
+                                    src="images/products/1 Абрикос.jpg"
                                     alt="Абрикосовая с фундуком"
                                     class="product-image w-full rounded-3xl"
                                 />
@@ -802,7 +804,7 @@
                                             🍑
                                         </div>
                                         <img
-                                            src="images/options.jpg"
+                                            src="images/products/3 Чернослив-с-орехом.jpg"
                                             alt="Абрикосово-сливовая с фундуком"
                                             class="product-image w-full rounded-3xl"
                                         />
@@ -957,7 +959,7 @@
                 <h2
                     class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg"
                 >
-                    Попробуйте! Вам понравится!
+                    Попробуйте! <br />Вам понравится!
                 </h2>
                 <p
                     class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed"

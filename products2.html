@@ -120,10 +120,20 @@
             /* Angled image styles */
             .angle-image-container {
                 transform: rotate(-3deg);
+                transition: transform 0.4s ease;
+            }
+
+            .angle-image-container:hover {
+                transform: rotate(0deg);
             }
 
             .angle-image-reverse {
                 transform: rotate(3deg);
+                transition: transform 0.4s ease;
+            }
+
+            .angle-image-reverse:hover {
+                transform: rotate(0deg);
             }
 
             /* Enhanced shadows */
@@ -204,12 +214,6 @@
 
             /* Product detail card */
             .product-detail-card {
-                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .product-detail-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
             }
 
             /* Stylish product image wrapper */
@@ -218,10 +222,14 @@
             }
 
             .stylish-image-wrapper::before {
-                content: '';
+                content: "";
                 position: absolute;
                 inset: -8px;
-                background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+                background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.9),
+                    rgba(255, 255, 255, 0.6)
+                );
                 border-radius: 2rem;
                 transform: rotate(-2deg);
                 z-index: 1;
@@ -229,7 +237,7 @@
             }
 
             .stylish-image-wrapper::after {
-                content: '';
+                content: "";
                 position: absolute;
                 inset: -4px;
                 background: white;
@@ -393,9 +401,7 @@
                             class="text-gray-700 hover:text-teal transition font-medium"
                             >О компании</a
                         >
-                        <a
-                            href="products2.html"
-                            class="text-teal font-bold"
+                        <a href="products2.html" class="text-teal font-bold"
                             >Продукция</a
                         >
                         <a
@@ -512,8 +518,12 @@
                     <div
                         class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto mb-8"
                     ></div>
-                    <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed gentle-fade delay-1">
-                        Три уникальных вкуса натуральных фруктовых палочек, созданных по запатентованной технологии для максимальной пользы и энергии
+                    <p
+                        class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed gentle-fade delay-1"
+                    >
+                        Три уникальных вкуса натуральных фруктовых палочек,
+                        созданных по запатентованной технологии для максимальной
+                        пользы и энергии
                     </p>
                 </div>
             </div>
@@ -521,16 +531,27 @@
 
         <!-- Product 1: Абрикосовая с фундуком -->
         <section class="py-20 bg-white relative overflow-hidden">
-            <div class="decorative-circle w-72 h-72 bg-peach absolute top-20 right-10"></div>
+            <div
+                class="decorative-circle w-72 h-72 bg-peach absolute top-20 right-10"
+            ></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="product-detail-card bg-gradient-to-br from-orange-50 to-peach rounded-[3rem] overflow-hidden soft-shadow-lg">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+                <div
+                    class="product-detail-card bg-gradient-to-br from-orange-50 to-peach rounded-[3rem] overflow-hidden soft-shadow-lg"
+                >
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center"
+                    >
                         <!-- Image -->
-                        <div class="p-8 lg:p-10 flex items-center justify-center angle-image-container">
+                        <div
+                            class="p-8 lg:p-10 flex items-center justify-center angle-image-container"
+                        >
                             <div class="relative w-full">
                                 <!-- Layered photo effect - Image 1 -->
-                                <div class="stylish-image-wrapper product-image-clickable mb-12" onclick="openLightbox('product1', 0)">
+                                <div
+                                    class="stylish-image-wrapper product-image-clickable mb-12"
+                                    onclick="openLightbox('product1', 0)"
+                                >
                                     <img
                                         src="images/products/1 Абрикосовая с фундуком.jpg"
                                         alt="Абрикосовая с фундуком"
@@ -538,7 +559,10 @@
                                     />
                                 </div>
                                 <!-- Layered photo effect - Image 2 -->
-                                <div class="stylish-image-wrapper product-image-clickable" onclick="openLightbox('product1', 1)">
+                                <div
+                                    class="stylish-image-wrapper product-image-clickable"
+                                    onclick="openLightbox('product1', 1)"
+                                >
                                     <img
                                         src="images/products/1 Абрикос.jpg"
                                         alt="Абрикосовая с фундуком - вид 2"
@@ -552,75 +576,141 @@
                         <div class="p-12 flex flex-col justify-center">
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="text-6xl">☀️</div>
-                                <span class="text-sm font-bold text-orange-600 bg-white px-4 py-2 rounded-full">
+                                <span
+                                    class="text-sm font-bold text-orange-600 bg-white px-4 py-2 rounded-full"
+                                >
                                     Бестселлер
                                 </span>
                             </div>
 
-                            <h2 class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6">
+                            <h2
+                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                            >
                                 Абрикосовая с фундуком
                             </h2>
 
-                            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                                Солнечный вкус спелого абрикоса в идеальном сочетании с насыщенным ореховым фундуком. Эта палочка — настоящий заряд энергии и витаминов для активного дня!
+                            <p
+                                class="text-lg text-gray-700 mb-6 leading-relaxed"
+                            >
+                                Солнечный вкус спелого абрикоса в идеальном
+                                сочетании с насыщенным ореховым фундуком. Эта
+                                палочка — настоящий заряд энергии и витаминов
+                                для активного дня!
                             </p>
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
-                                <h3 class="font-bold text-gray-800 mb-4 text-xl">Состав:</h3>
+                                <h3
+                                    class="font-bold text-gray-800 mb-4 text-xl"
+                                >
+                                    Состав:
+                                </h3>
                                 <p class="text-gray-700 leading-relaxed mb-4">
                                     Абрикос обезвоженный, фундук, сахар
                                 </p>
-                                <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div
+                                    class="grid grid-cols-2 gap-4 text-sm text-gray-600"
+                                >
                                     <div>
-                                        <span class="font-semibold">Вес Нетто:</span> 50г
+                                        <span class="font-semibold"
+                                            >Вес Нетто:</span
+                                        >
+                                        50г
                                     </div>
                                     <div>
-                                        <span class="font-semibold">Срок хранения:</span> 12 месяцев
+                                        <span class="font-semibold"
+                                            >Срок хранения:</span
+                                        >
+                                        12 месяцев
                                     </div>
                                 </div>
                             </div>
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
-                                <h3 class="font-bold text-gray-800 mb-3 text-lg">Форма выпуска:</h3>
-                                <p class="text-gray-700 leading-relaxed text-sm mb-3">
-                                    Батончик, упакованный в комбинированную полимерную пленку с самоклеющейся этикеткой.
+                                <h3
+                                    class="font-bold text-gray-800 mb-3 text-lg"
+                                >
+                                    Форма выпуска:
+                                </h3>
+                                <p
+                                    class="text-gray-700 leading-relaxed text-sm mb-3"
+                                >
+                                    Батончик, упакованный в комбинированную
+                                    полимерную пленку с самоклеющейся этикеткой.
                                 </p>
                                 <p class="text-gray-600 text-sm">
-                                    <span class="font-semibold">Транспортная тара:</span> Картонная коробка по 120шт.
+                                    <span class="font-semibold"
+                                        >Транспортная тара:</span
+                                    >
+                                    Гофрокороб по 150 штук.
                                 </p>
                                 <p class="text-gray-500 text-xs mt-3">
-                                    ТУ 10.39.25-001-12681583-2017
+                                    <span class="font-semibold">ТУ</span>
+                                    10.39.25-001-12681583-2017
                                 </p>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         💪
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Высокая энергетическая ценность</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Высокая энергетическая ценность
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         🌱
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Натуральные витамины A, E</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Натуральные витамины A, E
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         ⚡
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Быстрый заряд энергии</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Быстрый заряд энергии
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         ❤️
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Полезно для сердца</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Полезно для сердца
+                                    </p>
                                 </div>
                             </div>
 
-                            <button class="soft-button bg-teal text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10">
+                            <button
+                                class="soft-button bg-teal text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10"
+                            >
                                 Заказать сейчас
                             </button>
                         </div>
@@ -630,94 +720,177 @@
         </section>
 
         <!-- Product 2: Абрикосово-сливовая с фундуком -->
-        <section class="py-20 bg-gradient-to-br from-sage to-mint relative overflow-hidden">
-            <div class="decorative-circle w-72 h-72 bg-white absolute bottom-20 left-10"></div>
+        <section
+            class="py-20 bg-gradient-to-br from-sage to-mint relative overflow-hidden"
+        >
+            <div
+                class="decorative-circle w-72 h-72 bg-white absolute bottom-20 left-10"
+            ></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="product-detail-card bg-gradient-to-br from-purple-50 to-orange-50 rounded-[3rem] overflow-hidden soft-shadow-lg">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+                <div
+                    class="product-detail-card bg-gradient-to-br from-purple-50 to-orange-50 rounded-[3rem] overflow-hidden soft-shadow-lg"
+                >
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center"
+                    >
                         <!-- Content -->
-                        <div class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+                        <div
+                            class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1"
+                        >
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="text-6xl">🍑</div>
-                                <span class="text-sm font-bold text-purple-600 bg-white px-4 py-2 rounded-full">
+                                <span
+                                    class="text-sm font-bold text-purple-600 bg-white px-4 py-2 rounded-full"
+                                >
                                     Сбалансированный вкус
                                 </span>
                             </div>
 
-                            <h2 class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6">
+                            <h2
+                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                            >
                                 Абрикосово-сливовая с фундуком
                             </h2>
 
-                            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                                Гармоничный дуэт солнечного абрикоса и ароматного чернослива создает многогранный вкус. Богатый фундук добавляет текстуру и питательность, делая эту палочку идеальным перекусом для гурманов.
+                            <p
+                                class="text-lg text-gray-700 mb-6 leading-relaxed"
+                            >
+                                Гармоничный дуэт солнечного абрикоса и
+                                ароматного чернослива создает многогранный вкус.
+                                Богатый фундук добавляет текстуру и
+                                питательность, делая эту палочку идеальным
+                                перекусом для гурманов.
                             </p>
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
-                                <h3 class="font-bold text-gray-800 mb-4 text-xl">Состав:</h3>
+                                <h3
+                                    class="font-bold text-gray-800 mb-4 text-xl"
+                                >
+                                    Состав:
+                                </h3>
                                 <p class="text-gray-700 leading-relaxed mb-4">
-                                    Абрикос обезвоженный, чернослив обезвоженный, фундук, сахар
+                                    Абрикос обезвоженный, чернослив
+                                    обезвоженный, фундук, сахар
                                 </p>
-                                <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div
+                                    class="grid grid-cols-2 gap-4 text-sm text-gray-600"
+                                >
                                     <div>
-                                        <span class="font-semibold">Вес Нетто:</span> 50г
+                                        <span class="font-semibold"
+                                            >Вес Нетто:</span
+                                        >
+                                        50г
                                     </div>
                                     <div>
-                                        <span class="font-semibold">Срок хранения:</span> 12 месяцев
+                                        <span class="font-semibold"
+                                            >Срок хранения:</span
+                                        >
+                                        12 месяцев
                                     </div>
                                 </div>
                             </div>
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
-                                <h3 class="font-bold text-gray-800 mb-3 text-lg">Форма выпуска:</h3>
-                                <p class="text-gray-700 leading-relaxed text-sm mb-3">
-                                    Батончик, упакованный в комбинированную полимерную пленку с самоклеющейся этикеткой.
+                                <h3
+                                    class="font-bold text-gray-800 mb-3 text-lg"
+                                >
+                                    Форма выпуска:
+                                </h3>
+                                <p
+                                    class="text-gray-700 leading-relaxed text-sm mb-3"
+                                >
+                                    Батончик, упакованный в комбинированную
+                                    полимерную пленку с самоклеющейся этикеткой.
                                 </p>
                                 <p class="text-gray-600 text-sm">
-                                    <span class="font-semibold">Транспортная тара:</span> Картонная коробка по 120шт.
+                                    <span class="font-semibold"
+                                        >Транспортная тара:</span
+                                    >
+                                    Гофрокороб по 150 штук.
                                 </p>
                                 <p class="text-gray-500 text-xs mt-3">
-                                    ТУ 10.39.25-001-12681583-2017
+                                    <span class="font-semibold">ТУ</span>
+                                    10.39.25-001-12681583-2017
                                 </p>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         🧠
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Улучшает работу мозга</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Улучшает работу мозга
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         🍃
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Богат клетчаткой</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Богат клетчаткой
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         💎
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Антиоксиданты</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Антиоксиданты
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         🌟
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Поддержка иммунитета</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Поддержка иммунитета
+                                    </p>
                                 </div>
                             </div>
 
-                            <button class="soft-button bg-accent text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10">
+                            <button
+                                class="soft-button bg-accent text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10"
+                            >
                                 Заказать сейчас
                             </button>
                         </div>
 
                         <!-- Image -->
-                        <div class="p-8 lg:p-10 flex items-center justify-center order-1 lg:order-2 angle-image-reverse">
+                        <div
+                            class="p-8 lg:p-10 flex items-center justify-center order-1 lg:order-2 angle-image-reverse"
+                        >
                             <div class="relative w-full">
                                 <!-- Layered photo effect - Image 1 -->
-                                <div class="stylish-image-wrapper product-image-clickable mb-12" onclick="openLightbox('product2', 0)">
+                                <div
+                                    class="stylish-image-wrapper product-image-clickable mb-12"
+                                    onclick="openLightbox('product2', 0)"
+                                >
                                     <img
                                         src="images/products/2 Абриосово-сливовая с фундуко.jpg"
                                         alt="Абрикосово-сливовая с фундуком"
@@ -725,7 +898,10 @@
                                     />
                                 </div>
                                 <!-- Layered photo effect - Image 2 -->
-                                <div class="stylish-image-wrapper product-image-clickable" onclick="openLightbox('product2', 1)">
+                                <div
+                                    class="stylish-image-wrapper product-image-clickable"
+                                    onclick="openLightbox('product2', 1)"
+                                >
                                     <img
                                         src="images/products/2 Абрикосово-сливовая.jpg"
                                         alt="Абрикосово-сливовая с фундуком - вид 2"
@@ -741,16 +917,27 @@
 
         <!-- Product 3: Чернослив с орехами -->
         <section class="py-20 bg-white relative overflow-hidden">
-            <div class="decorative-circle w-72 h-72 bg-purple-200 absolute top-20 left-10"></div>
+            <div
+                class="decorative-circle w-72 h-72 bg-purple-200 absolute top-20 left-10"
+            ></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="product-detail-card bg-gradient-to-br from-purple-50 to-purple-100 rounded-[3rem] overflow-hidden soft-shadow-lg">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+                <div
+                    class="product-detail-card bg-gradient-to-br from-purple-50 to-purple-100 rounded-[3rem] overflow-hidden soft-shadow-lg"
+                >
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center"
+                    >
                         <!-- Image -->
-                        <div class="p-8 lg:p-10 flex items-center justify-center angle-image-container">
+                        <div
+                            class="p-8 lg:p-10 flex items-center justify-center angle-image-container"
+                        >
                             <div class="relative w-full">
                                 <!-- Layered photo effect - Image 1 -->
-                                <div class="stylish-image-wrapper product-image-clickable mb-12" onclick="openLightbox('product3', 0)">
+                                <div
+                                    class="stylish-image-wrapper product-image-clickable mb-12"
+                                    onclick="openLightbox('product3', 0)"
+                                >
                                     <img
                                         src="images/products/3 Чернослив с орехами.jpg"
                                         alt="Чернослив с орехами"
@@ -758,7 +945,10 @@
                                     />
                                 </div>
                                 <!-- Layered photo effect - Image 2 -->
-                                <div class="stylish-image-wrapper product-image-clickable" onclick="openLightbox('product3', 1)">
+                                <div
+                                    class="stylish-image-wrapper product-image-clickable"
+                                    onclick="openLightbox('product3', 1)"
+                                >
                                     <img
                                         src="images/products/3 Чернослив-с-орехом.jpg"
                                         alt="Чернослив с орехами - вид 2"
@@ -772,75 +962,141 @@
                         <div class="p-8 lg:p-12 flex flex-col justify-center">
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="text-6xl">🌰</div>
-                                <span class="text-sm font-bold text-purple-700 bg-white px-4 py-2 rounded-full">
+                                <span
+                                    class="text-sm font-bold text-purple-700 bg-white px-4 py-2 rounded-full"
+                                >
                                     Максимум пользы
                                 </span>
                             </div>
 
-                            <h2 class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6">
+                            <h2
+                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                            >
                                 Чернослив с орехами
                             </h2>
 
-                            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                                Насыщенный, глубокий вкус отборного чернослива в сочетании с хрустящим фундуком. Эта палочка — кладезь витаминов и минералов, незаменимый помощник для здоровья и долголетия.
+                            <p
+                                class="text-lg text-gray-700 mb-6 leading-relaxed"
+                            >
+                                Насыщенный, глубокий вкус отборного чернослива в
+                                сочетании с ароматным фундуком. Эта палочка —
+                                кладезь витаминов и минералов, незаменимый
+                                помощник для здоровья и долголетия.
                             </p>
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
-                                <h3 class="font-bold text-gray-800 mb-4 text-xl">Состав:</h3>
+                                <h3
+                                    class="font-bold text-gray-800 mb-4 text-xl"
+                                >
+                                    Состав:
+                                </h3>
                                 <p class="text-gray-700 leading-relaxed mb-4">
                                     Чернослив обезвоженный, фундук, сахар
                                 </p>
-                                <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div
+                                    class="grid grid-cols-2 gap-4 text-sm text-gray-600"
+                                >
                                     <div>
-                                        <span class="font-semibold">Вес Нетто:</span> 50г
+                                        <span class="font-semibold"
+                                            >Вес Нетто:</span
+                                        >
+                                        50г
                                     </div>
                                     <div>
-                                        <span class="font-semibold">Срок хранения:</span> 12 месяцев
+                                        <span class="font-semibold"
+                                            >Срок хранения:</span
+                                        >
+                                        12 месяцев
                                     </div>
                                 </div>
                             </div>
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
-                                <h3 class="font-bold text-gray-800 mb-3 text-lg">Форма выпуска:</h3>
-                                <p class="text-gray-700 leading-relaxed text-sm mb-3">
-                                    Батончик, упакованный в комбинированную полимерную пленку с самоклеющейся этикеткой.
+                                <h3
+                                    class="font-bold text-gray-800 mb-3 text-lg"
+                                >
+                                    Форма выпуска:
+                                </h3>
+                                <p
+                                    class="text-gray-700 leading-relaxed text-sm mb-3"
+                                >
+                                    Батончик, упакованный в комбинированную
+                                    полимерную пленку с самоклеющейся этикеткой.
                                 </p>
                                 <p class="text-gray-600 text-sm">
-                                    <span class="font-semibold">Транспортная тара:</span> Картонная коробка по 120шт.
+                                    <span class="font-semibold"
+                                        >Транспортная тара:</span
+                                    >
+                                    Гофрокороб по 150 штук.
                                 </p>
                                 <p class="text-gray-500 text-xs mt-3">
-                                    ТУ 10.39.25-001-12681583-2017
+                                    <span class="font-semibold">ТУ</span>
+                                    10.39.25-001-12681583-2017
                                 </p>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         🦴
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Укрепляет кости</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Укрепляет кости
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         👁️
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Полезно для зрения</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Полезно для зрения
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         🌿
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Улучшает пищеварение</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Улучшает пищеварение
+                                    </p>
                                 </div>
-                                <div class="bg-white/80 rounded-xl p-4 text-center">
-                                    <div class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
+                                    >
                                         ⭐
                                     </div>
-                                    <p class="text-sm font-semibold text-gray-800">Долгое насыщение</p>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800"
+                                    >
+                                        Долгое насыщение
+                                    </p>
                                 </div>
                             </div>
 
-                            <button class="soft-button bg-teal text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10">
+                            <button
+                                class="soft-button bg-teal text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10"
+                            >
                                 Заказать сейчас
                             </button>
                         </div>
@@ -850,20 +1106,37 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-24 bg-gradient-to-br from-teal via-teal to-accent relative overflow-hidden">
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC00Yy0xLjEgMC0yIC45LTIgMnY0YzAgMS4xLjkgMiAyIDJoNGMxLjEgMCAyLS45IDItMnYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
-                <h2 class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg">
+        <section
+            class="py-24 bg-gradient-to-br from-teal via-teal to-accent relative overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC00Yy0xLjEgMC0yIC45LTIgMnY0YzAgMS4xLjkgMiAyIDJoNGMxLjEgMCAyLS45IDItMnYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"
+            ></div>
+            <div
+                class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10"
+            >
+                <h2
+                    class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg"
+                >
                     Выберите свой вкус!
                 </h2>
-                <p class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed">
-                    Все три вкуса доступны для заказа. Попробуйте каждый и найдите свой любимый, или наслаждайтесь разнообразием каждый день!
+                <p
+                    class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed"
+                >
+                    Все три вкуса доступны для заказа. Попробуйте каждый и
+                    найдите свой любимый, или наслаждайтесь разнообразием каждый
+                    день!
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <button class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105">
+                    <button
+                        class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105"
+                    >
                         Оформить заказ
                     </button>
-                    <a href="index21.html#contacts" class="bg-white/20 backdrop-blur-sm text-white px-12 py-5 rounded-full font-black text-xl hover:bg-white/30 transition border-2 border-white">
+                    <a
+                        href="index21.html#contacts"
+                        class="bg-white/20 backdrop-blur-sm text-white px-12 py-5 rounded-full font-black text-xl hover:bg-white/30 transition border-2 border-white"
+                    >
                         Связаться с нами
                     </a>
                 </div>
@@ -1015,9 +1288,6 @@
                     <p class="text-gray-600 text-lg mb-4">
                         © 2005 - 2025 OOO "НЕО-Фрут". Все права защищены.
                     </p>
-                    <a href="index21.html" class="text-teal hover:text-accent transition font-semibold text-lg">
-                        ← Вернуться на главную
-                    </a>
                 </div>
             </div>
         </footer>
@@ -1025,8 +1295,10 @@
         <!-- Lightbox -->
         <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
             <div class="lightbox-content">
-                <button class="lightbox-close" onclick="closeLightbox(event)">×</button>
-                <img id="lightbox-img" src="" alt="">
+                <button class="lightbox-close" onclick="closeLightbox(event)">
+                    ×
+                </button>
+                <img id="lightbox-img" src="" alt="" />
             </div>
         </div>
 
@@ -1034,37 +1306,40 @@
             // Product images data
             const productImages = {
                 product1: [
-                    'images/products/1 Абрикосовая с фундуком.jpg',
-                    'images/products/1 Абрикос.jpg'
+                    "images/products/1 Абрикосовая с фундуком.jpg",
+                    "images/products/1 Абрикос.jpg",
                 ],
                 product2: [
-                    'images/products/2 Абриосово-сливовая с фундуко.jpg',
-                    'images/products/2 Абрикосово-сливовая.jpg'
+                    "images/products/2 Абриосово-сливовая с фундуко.jpg",
+                    "images/products/2 Абрикосово-сливовая.jpg",
                 ],
                 product3: [
-                    'images/products/3 Чернослив с орехами.jpg',
-                    'images/products/3 Чернослив-с-орехом.jpg'
-                ]
+                    "images/products/3 Чернослив с орехами.jpg",
+                    "images/products/3 Чернослив-с-орехом.jpg",
+                ],
             };
 
-            let currentProduct = '';
+            let currentProduct = "";
             let currentImageIndex = 0;
 
             function openLightbox(product, index) {
                 currentProduct = product;
                 currentImageIndex = index;
-                const lightbox = document.getElementById('lightbox');
-                const img = document.getElementById('lightbox-img');
+                const lightbox = document.getElementById("lightbox");
+                const img = document.getElementById("lightbox-img");
                 img.src = productImages[product][index];
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden";
             }
 
             function closeLightbox(event) {
-                if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
-                    const lightbox = document.getElementById('lightbox');
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+                if (
+                    event.target.id === "lightbox" ||
+                    event.target.classList.contains("lightbox-close")
+                ) {
+                    const lightbox = document.getElementById("lightbox");
+                    lightbox.classList.remove("active");
+                    document.body.style.overflow = "auto";
                     event.stopPropagation();
                 }
             }
@@ -1072,20 +1347,23 @@
             function navigateLightbox(direction, event) {
                 event.stopPropagation();
                 const images = productImages[currentProduct];
-                currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
-                document.getElementById('lightbox-img').src = images[currentImageIndex];
+                currentImageIndex =
+                    (currentImageIndex + direction + images.length) %
+                    images.length;
+                document.getElementById("lightbox-img").src =
+                    images[currentImageIndex];
             }
 
             // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                const lightbox = document.getElementById('lightbox');
-                if (lightbox.classList.contains('active')) {
-                    if (e.key === 'Escape') {
-                        lightbox.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    } else if (e.key === 'ArrowLeft') {
+            document.addEventListener("keydown", function (e) {
+                const lightbox = document.getElementById("lightbox");
+                if (lightbox.classList.contains("active")) {
+                    if (e.key === "Escape") {
+                        lightbox.classList.remove("active");
+                        document.body.style.overflow = "auto";
+                    } else if (e.key === "ArrowLeft") {
                         navigateLightbox(-1, e);
-                    } else if (e.key === 'ArrowRight') {
+                    } else if (e.key === "ArrowRight") {
                         navigateLightbox(1, e);
                     }
                 }
