@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Наша Продукция - НЕО-ФРУТ</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            accent: "#f48a3a",
+                            mint: "#eaf9ef",
+                            teal: "#06a68a",
+                            muted: "#7b7b7b",
+                        },
+                        fontFamily: {
+                            sans: [
+                                "Montserrat",
+                                "system-ui",
+                                "Arial",
+                                "sans-serif",
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes fadeInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes scaleIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            .animate-fade-in-up {
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+
+            .animate-fade-in-right {
+                animation: fadeInRight 0.8s ease-out forwards;
+            }
+
+            .animate-fade-in-left {
+                animation: fadeInLeft 0.8s ease-out forwards;
+            }
+
+            .animate-scale-in {
+                animation: scaleIn 0.6s ease-out forwards;
+            }
+
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .delay-100 {
+                animation-delay: 0.1s;
+                opacity: 0;
+            }
+
+            .delay-200 {
+                animation-delay: 0.2s;
+                opacity: 0;
+            }
+
+            .delay-300 {
+                animation-delay: 0.3s;
+                opacity: 0;
+            }
+
+            .delay-400 {
+                animation-delay: 0.4s;
+                opacity: 0;
+            }
+
+            .delay-500 {
+                animation-delay: 0.5s;
+                opacity: 0;
+            }
+
+            .delay-600 {
+                animation-delay: 0.6s;
+                opacity: 0;
+            }
+
+            .section-heading::before {
+                content: "";
+                display: block;
+                width: 60px;
+                height: 4px;
+                background: #f48a3a;
+                border-radius: 3px;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .gradient-bg {
+                background: linear-gradient(135deg, #eaf9ef 0%, #d4f4e0 100%);
+            }
+
+            .glass-effect {
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            .btn-primary {
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-primary::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: translate(-50%, -50%);
+                transition:
+                    width 0.6s,
+                    height 0.6s;
+            }
+
+            .btn-primary:hover::before {
+                width: 300px;
+                height: 300px;
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(244, 138, 58, 0.4);
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            header {
+                animation: slideDown 0.6s ease-out;
+            }
+
+            .product-image {
+                transition: transform 0.5s ease;
+                cursor: zoom-in;
+            }
+
+            .product-image:hover {
+                transform: scale(1.05);
+            }
+
+            /* Modal/Popup styles */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.9);
+                animation: fadeIn 0.3s ease;
+            }
+
+            .modal.active {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-content {
+                max-width: 90%;
+                max-height: 90vh;
+                object-fit: contain;
+                animation: zoomIn 0.3s ease;
+            }
+
+            .modal-close {
+                position: absolute;
+                top: 20px;
+                right: 40px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .modal-close:hover,
+            .modal-close:focus {
+                color: #f48a3a;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes zoomIn {
+                from {
+                    transform: scale(0.5);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
+
+            /* Header logo styling */
+            .header-logo {
+                height: 50px;
+                transition: transform 0.3s ease;
+            }
+
+            .header-logo:hover {
+                transform: scale(1.05);
+            }
+
+            /* Header with background pattern */
+            header {
+                animation: slideDown 0.6s ease-out;
+                background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.95) 0%,
+                    rgba(234, 249, 239, 0.95) 100%
+                );
+                border-bottom: 2px solid rgba(6, 166, 138, 0.1);
+            }
+
+            /* Page header hero section */
+            .page-hero {
+                position: relative;
+                min-height: 300px;
+                background: linear-gradient(135deg, #eaf9ef 0%, #d4f4e0 100%);
+                overflow: hidden;
+            }
+
+            .page-hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url("images/hero.jpg") center/cover no-repeat;
+                opacity: 0.15;
+                z-index: 0;
+            }
+
+            .page-hero::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    135deg,
+                    rgba(234, 249, 239, 0.9) 0%,
+                    rgba(212, 244, 224, 0.85) 100%
+                );
+                z-index: 1;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero-image-accent {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 40%;
+                height: 100%;
+                background: url("images/hero.jpg") center/cover no-repeat;
+                clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+                opacity: 0.3;
+                z-index: 1;
+            }
+
+            @media (max-width: 768px) {
+                .hero-image-accent {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body class="gradient-bg text-gray-800 m-0">
+        <header class="py-4 relative z-[50] shadow-lg">
+            <div
+                class="max-w-[1200px] mx-auto px-7 flex items-center justify-between"
+            >
+                <div class="flex items-center gap-4 animate-fade-in-right">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div>
+                            <div
+                                class="text-teal text-[18px] font-bold tracking-wide"
+                            >
+                                НПК НЕОФРУТ
+                            </div>
+                            <div class="text-[12px] tracking-wider uppercase">
+                                Здоровое питание для активной жизни
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav
+                    class="hidden md:flex gap-12 items-center animate-fade-in-left"
+                >
+                    <a
+                        href="index.html"
+                        class="text-gray-700 no-underline font-medium hover:text-accent transition"
+                        >О Компании</a
+                    >
+                    <a
+                        href="products.html"
+                        class="text-accent no-underline font-medium border-b-2 border-accent hover:opacity-80 transition"
+                        >Продукция</a
+                    >
+                    <a
+                        href="index.html#contacts"
+                        class="text-gray-700 no-underline font-medium hover:text-accent transition"
+                        >Контакты</a
+                    >
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <button
+                    id="mobileMenuBtn"
+                    class="md:hidden flex flex-col gap-[5px] p-2 z-[102]"
+                    aria-label="Toggle menu"
+                >
+                    <span
+                        class="w-7 h-[3px] bg-accent rounded-sm transition-all duration-300"
+                    ></span>
+                    <span
+                        class="w-7 h-[3px] bg-accent rounded-sm transition-all duration-300"
+                    ></span>
+                    <span
+                        class="w-7 h-[3px] bg-accent rounded-sm transition-all duration-300"
+                    ></span>
+                </button>
+
+                <!-- Mobile Menu Overlay -->
+                <div
+                    id="mobileMenuOverlay"
+                    class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-[100] md:hidden"
+                ></div>
+
+                <!-- Mobile Navigation -->
+                <nav
+                    id="mobileMenu"
+                    class="fixed top-0 right-0 w-[75%] max-w-[300px] h-screen bg-white shadow-xl translate-x-full transition-transform duration-300 z-[101] md:hidden"
+                >
+                    <div class="flex flex-col gap-6 pt-20 px-8">
+                        <a
+                            href="index.html"
+                            class="text-gray-700 no-underline font-medium text-lg hover:text-accent transition"
+                            >О Компании</a
+                        >
+                        <a
+                            href="products.html"
+                            class="text-accent no-underline font-medium text-lg border-b-2 border-accent pb-1"
+                            >Продукция</a
+                        >
+                        <a
+                            href="index.html#contacts"
+                            class="text-gray-700 no-underline font-medium text-lg hover:text-accent transition"
+                            >Контакты</a
+                        >
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <script>
+            const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const mobileMenuOverlay =
+                document.getElementById("mobileMenuOverlay");
+            const menuLinks = mobileMenu.querySelectorAll("a");
+
+            function toggleMenu() {
+                mobileMenu.classList.toggle("translate-x-full");
+                mobileMenuOverlay.classList.toggle("opacity-0");
+                mobileMenuOverlay.classList.toggle("pointer-events-none");
+
+                const spans = mobileMenuBtn.querySelectorAll("span");
+                const isOpen =
+                    !mobileMenu.classList.contains("translate-x-full");
+
+                if (isOpen) {
+                    spans[0].style.transform =
+                        "rotate(45deg) translate(8px, 8px)";
+                    spans[1].style.opacity = "0";
+                    spans[2].style.transform =
+                        "rotate(-45deg) translate(7px, -7px)";
+                } else {
+                    spans[0].style.transform = "";
+                    spans[1].style.opacity = "";
+                    spans[2].style.transform = "";
+                }
+            }
+
+            mobileMenuBtn.addEventListener("click", toggleMenu);
+            mobileMenuOverlay.addEventListener("click", toggleMenu);
+
+            menuLinks.forEach((link) => {
+                link.addEventListener("click", toggleMenu);
+            });
+
+            // Image Modal Functions
+            function openModal(src) {
+                const modal = document.getElementById("imageModal");
+                const modalImg = document.getElementById("modalImage");
+                modal.classList.add("active");
+                modalImg.src = src;
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeModal() {
+                const modal = document.getElementById("imageModal");
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            }
+
+            // Close modal when clicking outside the image
+            document.addEventListener("DOMContentLoaded", function () {
+                const modal = document.getElementById("imageModal");
+                modal.addEventListener("click", function (e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+
+                // Close modal with Escape key
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape") {
+                        closeModal();
+                    }
+                });
+            });
+        </script>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage" alt="Product Image" />
+        </div>
+
+        <main class="relative">
+            <!-- Page Hero Section -->
+            <section class="page-hero">
+                <div class="hero-image-accent"></div>
+                <div
+                    class="max-w-[1200px] mx-auto px-7 py-16 lg:py-20 hero-content"
+                >
+                    <div class="text-center animate-fade-in-up">
+                        <div
+                            class="flex items-center justify-center gap-4 mb-6"
+                        >
+                            <img
+                                class="h-[100px] lg:h-[120px] animate-float"
+                                src="images/logo-jump.gif"
+                                alt="apple logo"
+                            />
+                        </div>
+                        <h1
+                            class="text-[32px] lg:text-[48px] font-bold uppercase relative pt-[18px] section-heading text-gray-800"
+                        >
+                            Наша Продукция
+                        </h1>
+                        <div class="mt-8 max-w-[900px] mx-auto">
+                            <p
+                                class="text-muted text-base lg:text-xl leading-relaxed mb-6"
+                            >
+                                Откройте для себя природные энергию и вкус в
+                                каждом кусочке.
+                            </p>
+                            <p
+                                class="text-gray-700 text-sm lg:text-base leading-relaxed"
+                            >
+                                Наши фруктовые палочки — это идеальное сочетание
+                                сухофруктов и орехов, созданное по
+                                запатентованной технологии, сохраняющей все
+                                полезные вещества натуральных ингредиентов.
+                            </p>
+                        </div>
+
+                        <!-- Feature badges -->
+                        <div
+                            class="flex flex-wrap items-center justify-center gap-4 mt-10"
+                        >
+                            <div
+                                class="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border-2 border-teal/20"
+                            >
+                                <span class="text-teal font-semibold text-sm"
+                                    >✓ 100% Натуральный</span
+                                >
+                            </div>
+                            <div
+                                class="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border-2 border-accent/20"
+                            >
+                                <span class="text-accent font-semibold text-sm"
+                                    >✓ Высококалорийный</span
+                                >
+                            </div>
+                            <div
+                                class="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border-2 border-teal/20"
+                            >
+                                <span class="text-teal font-semibold text-sm"
+                                    >✓ Запатентованная технология</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="max-w-[1200px] mx-auto px-7 py-12">
+                <!-- Products List - Alternating Layout -->
+                <div class="space-y-16 mb-16">
+                    <!-- Product 1: Абрикосовая с фундуком - Image Left -->
+                    <div class="relative">
+                        <!-- Decorative background circles -->
+                        <div
+                            class="absolute -left-10 top-10 w-32 h-32 bg-orange-200 rounded-full opacity-20 blur-2xl"
+                        ></div>
+                        <div
+                            class="absolute -right-10 bottom-10 w-40 h-40 bg-teal/20 rounded-full opacity-30 blur-2xl"
+                        ></div>
+
+                        <div
+                            class="glass-effect rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up delay-100"
+                        >
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                <!-- Image Section -->
+                                <div
+                                    class="relative h-auto overflow-hidden bg-gradient-to-br from-orange-50 via-orange-100 to-orange-200 flex items-center justify-center p-6"
+                                >
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"
+                                    ></div>
+                                    <img
+                                        src="images/items83.jpg"
+                                        alt="Абрикосовая с фундуком"
+                                        class="max-w-full max-h-full object-contain product-image relative z-10"
+                                        onclick="openModal(this.src)"
+                                    />
+                                    <div
+                                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg z-20"
+                                    >
+                                        <span
+                                            class="text-accent font-bold text-lg"
+                                            >№1</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <!-- Content Section -->
+                                <div
+                                    class="p-8 lg:p-12 flex flex-col justify-center"
+                                >
+                                    <div
+                                        class="inline-flex items-center gap-2 mb-4"
+                                    >
+                                        <span class="text-4xl">☀️</span>
+                                        <h2
+                                            class="text-3xl font-bold text-gray-800"
+                                        >
+                                            Абрикосовая с фундуком
+                                        </h2>
+                                    </div>
+
+                                    <p
+                                        class="text-accent font-semibold mb-6 text-lg"
+                                    >
+                                        Кисло-сладкий и солнечный вкус абрикоса
+                                        идеально сочетается с насыщенным вкусом
+                                        фундука.
+                                    </p>
+
+                                    <div class="space-y-4 mb-6">
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-teal/20 to-teal/40 rounded-full flex items-center justify-center"
+                                            >
+                                                <span class="text-xl">🌿</span>
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="font-semibold text-teal mb-1"
+                                                >
+                                                    Состав
+                                                </h3>
+                                                <p
+                                                    class="text-muted text-sm leading-relaxed"
+                                                >
+                                                    100% натуральный абрикос и
+                                                    отборный фундук, без добавок
+                                                    и консервантов.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-accent/20 to-accent/40 rounded-full flex items-center justify-center"
+                                            >
+                                                <span class="text-xl">⚡</span>
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="font-semibold text-teal mb-1"
+                                                >
+                                                    Польза
+                                                </h3>
+                                                <p
+                                                    class="text-muted text-sm leading-relaxed"
+                                                >
+                                                    Богат витаминами A, C,
+                                                    калием и магнием.
+                                                    Поддерживает здоровье
+                                                    сердца, зрения и иммунной
+                                                    системы. Фундук обеспечивает
+                                                    организм полезными жирами и
+                                                    белком.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="bg-gradient-to-r from-mint to-mint/50 rounded-2xl p-4 mb-6 border-l-4 border-teal"
+                                    >
+                                        <p
+                                            class="text-teal text-sm font-semibold"
+                                        >
+                                            ✓ Высококалорийный перекус для
+                                            активной жизни
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        class="btn-primary bg-accent text-white px-8 py-4 rounded-full border-none cursor-pointer font-semibold text-lg relative w-full lg:w-auto"
+                                    >
+                                        Заказать сейчас →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Абрикосово-сливовая с фундуком - Image Right -->
+                    <div class="relative">
+                        <!-- Decorative background circles -->
+                        <div
+                            class="absolute -right-10 top-10 w-32 h-32 bg-purple-200 rounded-full opacity-20 blur-2xl"
+                        ></div>
+                        <div
+                            class="absolute -left-10 bottom-10 w-40 h-40 bg-orange-200 rounded-full opacity-30 blur-2xl"
+                        ></div>
+
+                        <div
+                            class="glass-effect rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up delay-300"
+                        >
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                <!-- Content Section - Desktop Order 1 -->
+                                <div
+                                    class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1"
+                                >
+                                    <div
+                                        class="inline-flex items-center gap-2 mb-4"
+                                    >
+                                        <span class="text-4xl">🍑</span>
+                                        <h2
+                                            class="text-3xl font-bold text-gray-800"
+                                        >
+                                            Абрикосово-сливовая с фундуком
+                                        </h2>
+                                    </div>
+
+                                    <p
+                                        class="text-accent font-semibold mb-6 text-lg"
+                                    >
+                                        Гармоничное сочетание ароматного
+                                        чернослива и солнечного абрикоса с
+                                        богатым вкусом фундука.
+                                    </p>
+
+                                    <div class="space-y-4 mb-6">
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-teal/20 to-teal/40 rounded-full flex items-center justify-center"
+                                            >
+                                                <span class="text-xl">🌿</span>
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="font-semibold text-teal mb-1"
+                                                >
+                                                    Состав
+                                                </h3>
+                                                <p
+                                                    class="text-muted text-sm leading-relaxed"
+                                                >
+                                                    Натуральный абрикос,
+                                                    чернослив и фундук премиум
+                                                    качества, обработанные по
+                                                    уникальной технологии.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-accent/20 to-accent/40 rounded-full flex items-center justify-center"
+                                            >
+                                                <span class="text-xl">⚡</span>
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="font-semibold text-teal mb-1"
+                                                >
+                                                    Польза
+                                                </h3>
+                                                <p
+                                                    class="text-muted text-sm leading-relaxed"
+                                                >
+                                                    Улучшает пищеварение
+                                                    благодаря клетчатке
+                                                    чернослива. Содержит
+                                                    антиоксиданты, витамины
+                                                    группы B и железо. Идеален
+                                                    для поддержания энергии в
+                                                    течение дня.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="bg-gradient-to-r from-mint to-mint/50 rounded-2xl p-4 mb-6 border-l-4 border-teal"
+                                    >
+                                        <p
+                                            class="text-teal text-sm font-semibold"
+                                        >
+                                            ✓ Высококалорийный перекус для
+                                            активной жизни
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        class="btn-primary bg-accent text-white px-8 py-4 rounded-full border-none cursor-pointer font-semibold text-lg relative w-full lg:w-auto"
+                                    >
+                                        Заказать сейчас →
+                                    </button>
+                                </div>
+
+                                <!-- Image Section - Desktop Order 2 -->
+                                <div
+                                    class="relative h-auto overflow-hidden bg-gradient-to-br from-purple-50 via-orange-100 to-orange-200 order-1 lg:order-2 flex items-center justify-center p-6"
+                                >
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"
+                                    ></div>
+                                    <img
+                                        src="images/items87.jpg"
+                                        alt="Абрикосово-сливовая с фундуком"
+                                        class="max-w-full max-h-full object-contain product-image relative z-10"
+                                        onclick="openModal(this.src)"
+                                    />
+                                    <div
+                                        class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg z-20"
+                                    >
+                                        <span
+                                            class="text-accent font-bold text-lg"
+                                            >№2</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Чернослив с орехами - Image Left -->
+                    <div class="relative">
+                        <!-- Decorative background circles -->
+                        <div
+                            class="absolute -left-10 top-10 w-32 h-32 bg-purple-200 rounded-full opacity-20 blur-2xl"
+                        ></div>
+                        <div
+                            class="absolute -right-10 bottom-10 w-40 h-40 bg-teal/20 rounded-full opacity-30 blur-2xl"
+                        ></div>
+
+                        <div
+                            class="glass-effect rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up delay-500"
+                        >
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                <!-- Image Section -->
+                                <div
+                                    class="relative h-auto overflow-hidden bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200 flex items-center justify-center p-6"
+                                >
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"
+                                    ></div>
+                                    <img
+                                        src="images/items92.jpg"
+                                        alt="Чернослив с орехами"
+                                        class="max-w-full max-h-full object-contain product-image relative z-10"
+                                        onclick="openModal(this.src)"
+                                    />
+                                    <div
+                                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg z-20"
+                                    >
+                                        <span
+                                            class="text-accent font-bold text-lg"
+                                            >№3</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <!-- Content Section -->
+                                <div
+                                    class="p-8 lg:p-12 flex flex-col justify-center"
+                                >
+                                    <div
+                                        class="inline-flex items-center gap-2 mb-4"
+                                    >
+                                        <span class="text-4xl">🌰</span>
+                                        <h2
+                                            class="text-3xl font-bold text-gray-800"
+                                        >
+                                            Чернослив с орехами
+                                        </h2>
+                                    </div>
+
+                                    <p
+                                        class="text-accent font-semibold mb-6 text-lg"
+                                    >
+                                        Неповторимый чернослив и яркий фундук
+                                        создают уникальный вкус натурального,
+                                        питательного перекуса.
+                                    </p>
+
+                                    <div class="space-y-4 mb-6">
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-teal/20 to-teal/40 rounded-full flex items-center justify-center"
+                                            >
+                                                <span class="text-xl">🌿</span>
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="font-semibold text-teal mb-1"
+                                                >
+                                                    Состав
+                                                </h3>
+                                                <p
+                                                    class="text-muted text-sm leading-relaxed"
+                                                >
+                                                    Отборный чернослив высшего
+                                                    качества и фундук, без
+                                                    химических добавок и сахара.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-accent/20 to-accent/40 rounded-full flex items-center justify-center"
+                                            >
+                                                <span class="text-xl">⚡</span>
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="font-semibold text-teal mb-1"
+                                                >
+                                                    Польза
+                                                </h3>
+                                                <p
+                                                    class="text-muted text-sm leading-relaxed"
+                                                >
+                                                    Способствует нормализации
+                                                    работы кишечника. Богат
+                                                    калием для здоровья сердца.
+                                                    Содержит железо и витамины
+                                                    для поддержания общего
+                                                    тонуса организма.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="bg-gradient-to-r from-mint to-mint/50 rounded-2xl p-4 mb-6 border-l-4 border-teal"
+                                    >
+                                        <p
+                                            class="text-teal text-sm font-semibold"
+                                        >
+                                            ✓ Высококалорийный перекус для
+                                            активной жизни
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        class="btn-primary bg-accent text-white px-8 py-4 rounded-full border-none cursor-pointer font-semibold text-lg relative w-full lg:w-auto"
+                                    >
+                                        Заказать сейчас →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info Section -->
+                <div
+                    class="glass-effect rounded-3xl p-8 lg:p-12 shadow-xl animate-fade-in-up delay-600"
+                >
+                    <div class="text-center mb-8">
+                        <h2
+                            class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4"
+                        >
+                            Почему выбирают НЕОФРУТ?
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">🎖️</div>
+                            <h3 class="font-bold text-lg mb-2 text-teal">
+                                Проверено временем
+                            </h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                С 2009 года входит в рационы питания силовых
+                                структур РФ
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">🔬</div>
+                            <h3 class="font-bold text-lg mb-2 text-teal">
+                                Уникальная технология
+                            </h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                Запатентованная технология сохраняет максимум
+                                пользы
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">💪</div>
+                            <h3 class="font-bold text-lg mb-2 text-teal">
+                                Для активных людей
+                            </h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                Идеален для спортсменов, туристов и всех, кто в
+                                движении
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-center">
+                        <p
+                            class="text-teal text-lg font-semibold mb-4 uppercase"
+                        >
+                            Попробуйте! Вам понравится!
+                        </p>
+                        <p
+                            class="text-muted text-sm max-w-[700px] mx-auto leading-relaxed"
+                        >
+                            Каждая палочка НЕОФРУТ — это 100% натуральный,
+                            высококалорийный перекус, который питает тело,
+                            поддерживает активность и заряжает энергией на весь
+                            день!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer
+            id="contacts"
+            class="bg-gradient-to-r from-teal to-teal/90 text-white py-16 mt-16 shadow-2xl"
+        >
+            <div class="max-w-[1200px] mx-auto px-7">
+                <!-- Contact Us Title -->
+                <h2 class="text-3xl font-bold text-center mb-12 uppercase">
+                    Свяжитесь с нами
+                </h2>
+
+                <!-- Contact Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Office Address & Production Card -->
+                    <div
+                        class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300"
+                    >
+                        <div class="mb-6">
+                            <div class="text-4xl mb-4 text-center">🏢</div>
+                            <h3 class="text-xl font-bold mb-3 text-center">
+                                Наш адрес
+                            </h3>
+                            <p class="text-white/90 text-sm leading-relaxed">
+                                115035, Россия, г. Москва, Космодамианская наб.,
+                                д. 40-42, стр. 3, эт. 1, пом. XVII, ком. 1
+                            </p>
+                        </div>
+                        <div class="border-t border-white/20 pt-6">
+                            <div class="text-4xl mb-4 text-center">🏭</div>
+                            <h3 class="text-xl font-bold mb-3 text-center">
+                                Производство/Склад
+                            </h3>
+                            <p class="text-white/90 text-sm leading-relaxed">
+                                143980, Россия, Московская область, г.
+                                Железнодорожный, ул. Автозаводская, 50А
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Wholesale Sales Card -->
+                    <div
+                        class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300"
+                    >
+                        <div class="text-4xl mb-4 text-center">📦</div>
+                        <h3 class="text-xl font-bold mb-3 text-center">
+                            Оптовые продажи
+                        </h3>
+                        <p class="text-white/90 text-sm mb-3">
+                            Госзакупки/Рационы питания (44-ФЗ, 223-ФЗ)
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">📞</span>
+                                <a
+                                    href="tel:+74993913908"
+                                    class="hover:text-accent transition"
+                                    >+7 (499) 391-39-08</a
+                                >
+                            </p>
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">📞</span>
+                                <a
+                                    href="tel:+79267820032"
+                                    class="hover:text-accent transition"
+                                    >+7 (926) 782-00-32</a
+                                >
+                            </p>
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">📞</span>
+                                <a
+                                    href="tel:+79165555542"
+                                    class="hover:text-accent transition"
+                                    >+7 (916) 555-55-42</a
+                                >
+                            </p>
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">✉️</span>
+                                <a
+                                    href="mailto:npkneofruit@yandex.ru"
+                                    class="hover:text-accent transition"
+                                    >npkneofruit@yandex.ru</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Retail Sales Card -->
+                    <div
+                        class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 md:col-span-2"
+                    >
+                        <div class="text-4xl mb-4 text-center">🛒</div>
+                        <h3 class="text-xl font-bold mb-3 text-center">
+                            Мелкоптовые продажи / Ритейл
+                        </h3>
+                        <p
+                            class="text-white/90 text-sm mb-2 font-semibold text-center"
+                        >
+                            Официальный дистрибьютор ООО «БАРРАКУДА»
+                        </p>
+                        <p class="text-white/80 text-sm mb-3 text-center">
+                            127083 г. Москва, улица Юннатов дом 18, офис 104
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">📞</span>
+                                <a
+                                    href="tel:+79646351188"
+                                    class="hover:text-accent transition"
+                                    >+7 (964) 635-11-88</a
+                                >
+                            </p>
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">📞</span>
+                                <a
+                                    href="tel:+74957445595"
+                                    class="hover:text-accent transition"
+                                    >+7 (495) 744-55-95</a
+                                >
+                            </p>
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">✉️</span>
+                                <a
+                                    href="mailto:info@barrakuda.biz"
+                                    class="hover:text-accent transition"
+                                    >info@barrakuda.biz</a
+                                >
+                            </p>
+                            <p class="flex items-center justify-center gap-2">
+                                <span class="text-lg">🌐</span>
+                                <a
+                                    href="http://www.armilit.ru"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="hover:text-accent transition"
+                                    >www.armilit.ru</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="border-t border-white/20 pt-8 text-center">
+                    <p class="text-white/90 font-medium">
+                        © 2005 - 2025 OOO "НЕО-Фрут". Все права защищены.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

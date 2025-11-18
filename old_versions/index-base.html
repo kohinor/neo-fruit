@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NHS SWISS AG — Template (fixed)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#f48a3a',
+            mint: '#eaf9ef',
+            teal: '#06a68a',
+            muted: '#7b7b7b',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'system-ui', 'Arial', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    .section-heading::before {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #f48a3a;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .about-heading::before {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #f48a3a;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body class="bg-mint text-gray-800 m-0">
+  <header class="py-[18px] relative z-[50] bg-transparent absolute top-0 left-0 right-0">
+    <div class="max-w-[1100px] mx-auto px-7 flex items-center justify-between">
+      <div class="font-bold tracking-wide">NHS SWISS AG</div>
+      <nav class="flex gap-12 items-center">
+        <a href="#" class="text-accent no-underline font-medium border-b-2 border-accent">Home</a>
+        <a href="#services" class="text-gray-700 no-underline font-medium hover:text-accent transition">Services</a>
+        <a href="#about" class="text-gray-700 no-underline font-medium hover:text-accent transition">About us</a>
+        <a href="#values" class="text-gray-700 no-underline font-medium hover:text-accent transition">Values</a>
+        <a class="bg-blue-600 text-white px-[10px] py-[6px] rounded-md text-[13px]" href="#">Eng ▾</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative">
+    <!-- Hero image positioned absolutely to reach top and right edge -->
+    <div class="absolute top-0 right-0 w-[50vw] h-[700px] pointer-events-none z-[1] hidden md:block">
+      <div class="w-full h-full rounded-tl-[350px] rounded-bl-[350px] overflow-hidden bg-white shadow-lg">
+        <img src="images/hero.jpg" alt="produce collage" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <div class="max-w-[1100px] mx-auto px-7 relative z-[2] pt-[80px]">
+      <div class="flex items-center gap-10 py-9 min-h-[600px]">
+        <div class="flex-1 max-w-[540px]">
+          <div class="text-teal text-[13px] font-semibold tracking-wider">TRADING NATURAL &amp; HEALTH FOOD INGREDIENTS</div>
+          <h1 class="text-[44px] font-bold my-3">NHS SWISS AG</h1>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+          <div class="flex gap-[14px] mt-[18px] items-center">
+            <button class="bg-accent text-white px-[22px] py-3 rounded-full border-none cursor-pointer font-semibold">Our Services</button>
+            <div class="w-12 h-12 rounded-full border-[3px] border-accent/15 flex items-center justify-center text-accent font-bold">▶</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile hero image -->
+    <div class="md:hidden px-7 mb-8">
+      <div class="w-full h-[300px] rounded-2xl overflow-hidden bg-white shadow-lg">
+        <img src="images/hero.jpg" alt="produce collage" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <section id="services" class="py-12">
+      <div class="max-w-[1100px] mx-auto px-7">
+        <h2 class="text-[28px] text-center my-[18px] relative pt-[18px] mt-0 section-heading">OUR SERVICES</h2>
+        <p class="max-w-[900px] mx-auto mb-[30px] text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[18px]">
+          <div class="bg-white p-6 rounded-[10px] shadow-md text-center">
+            <div class="w-16 h-16 mx-auto mb-[14px] rounded-full flex items-center justify-center bg-gradient-to-b from-accent/12 to-accent/4 font-bold text-accent text-2xl">🍉</div>
+            <h3 class="my-[6px] font-semibold">Natural Food</h3>
+            <p class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <a class="mt-3 inline-block text-accent font-semibold" href="#">Read more</a>
+          </div>
+
+          <div class="bg-white p-6 rounded-[10px] shadow-md text-center border-2 border-teal/12">
+            <div class="w-16 h-16 mx-auto mb-[14px] rounded-full flex items-center justify-center bg-gradient-to-b from-teal/12 to-teal/4 font-bold text-teal text-2xl">🌿</div>
+            <h3 class="my-[6px] font-semibold">Biologically Safe</h3>
+            <p class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <a class="mt-3 inline-block text-accent font-semibold" href="#">Read more</a>
+          </div>
+
+          <div class="bg-white p-6 rounded-[10px] shadow-md text-center">
+            <div class="w-16 h-16 mx-auto mb-[14px] rounded-full flex items-center justify-center bg-gradient-to-b from-accent/12 to-accent/4 font-bold text-accent text-2xl">🥤</div>
+            <h3 class="my-[6px] font-semibold">100% Natural Juice</h3>
+            <p class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <a class="mt-3 inline-block text-accent font-semibold" href="#">Read more</a>
+          </div>
+        </div>
+
+        <div class="flex gap-7 items-center mt-[30px] flex-col md:flex-row" id="about">
+          <div class="flex-[0_0_48%] rounded-xl overflow-hidden w-full md:w-auto">
+            <!-- Замените путь на /images/about.jpg -->
+            <img src="images/about.png" alt="bag of produce" class="w-full h-full object-cover block">
+          </div>
+          <div class="flex-1 px-[6px] py-[10px]">
+            <h3 class="mt-0 relative pt-[18px] about-heading font-bold">ABOUT US</h3>
+            <p class="text-muted leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <p class="text-sm text-muted">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a class="inline-block mt-4 bg-accent text-white px-4 py-[10px] rounded-full no-underline font-bold" href="#">Learn more</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="values" class="bg-teal text-white py-9 mt-10 text-center">
+      <div class="max-w-[1100px] mx-auto px-7">
+        <h3 class="my-2 font-bold">OUR VALUES</h3>
+        <p class="max-w-[800px] mx-auto mt-2">Quality • Sustainability • Transparency • Health</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-7 text-center text-muted">
+    <div class="max-w-[1100px] mx-auto px-7">
+      &copy; <strong>NHS SWISS AG</strong> — All rights reserved
+    </div>
+  </footer>
+
+</body>
+</html>
