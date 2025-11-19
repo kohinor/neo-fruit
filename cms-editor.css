@@ -650,6 +650,13 @@ body.cms-edit-mode {
     color: #666;
 }
 
+.cms-version-description {
+    font-size: 0.8125rem;
+    color: #06a68a;
+    margin-top: 4px;
+    font-style: italic;
+}
+
 .cms-btn-small {
     padding: 6px 14px;
     font-size: 0.875rem;

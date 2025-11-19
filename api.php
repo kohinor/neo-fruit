@@ -25,8 +25,49 @@ function loadContent() {
     return json_decode($content, true);
 }
 
+// Generate change description
+function generateChangeDescription($sectionId, $oldData, $newData) {
+    $changes = array();
+
+    // Check for text content changes
+    if (isset($newData['sections'][$sectionId])) {
+        $oldContent = isset($oldData['sections'][$sectionId]) ? $oldData['sections'][$sectionId] : '';
+        $newContent = $newData['sections'][$sectionId];
+
+        if ($oldContent !== $newContent) {
+            // Extract readable section name from ID
+            $sectionName = str_replace('_', ' ', $sectionId);
+            $changes[] = 'Изменен текст: ' . $sectionName;
+        }
+    }
+
+    // Check for image changes
+    foreach ($newData['sections'] as $key => $value) {
+        if (strpos($key, 'image_') === 0) {
+            $oldValue = isset($oldData['sections'][$key]) ? $oldData['sections'][$key] : '';
+            if ($oldValue !== $value) {
+                $changes[] = 'Изменено изображение';
+                break; // Only mention once
+            }
+        }
+    }
+
+    // Check for duplicated sections
+    if (isset($newData['duplicated_sections']) && isset($oldData['duplicated_sections'])) {
+        $oldCount = count($oldData['duplicated_sections']);
+        $newCount = count($newData['duplicated_sections']);
+        if ($newCount > $oldCount) {
+            $changes[] = 'Добавлена секция';
+        } elseif ($newCount < $oldCount) {
+            $changes[] = 'Удалена секция';
+        }
+    }
+
+    return empty($changes) ? 'Изменение контента' : implode(', ', $changes);
+}
+
 // Save content - PHP 5.6 compatible
-function saveContent($data, $saveToHistory = true) {
+function saveContent($data, $saveToHistory = true, $changeDescription = '') {
     global $dataFile, $historyFile;
 
     // Save to history before updating current content
@@ -58,6 +99,7 @@ function saveContent($data, $saveToHistory = true) {
                     $history['versions'][] = array(
                         'timestamp' => time(),
                         'date' => date('Y-m-d H:i:s'),
+                        'description' => $changeDescription,
                         'data' => $data
                     );
 
@@ -138,9 +180,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             exit;
         }
 
-        $data = loadContent();
-        $data['sections'][$sectionId] = $content;
-        saveContent($data);
+        $oldData = loadContent();
+        $newData = $oldData;
+        $newData['sections'][$sectionId] = $content;
+
+        // Generate change description
+        $changeDesc = generateChangeDescription($sectionId, $oldData, $newData);
+
+        saveContent($newData, true, $changeDesc);
 
         echo json_encode(array('success' => true, 'section_id' => $sectionId));
         exit;
@@ -194,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         }
     }
 
-    saveContent($data);
+    saveContent($data, true, 'Добавлена дублированная секция');
 
     echo json_encode(array('success' => true, 'new_section_id' => $newSectionId, 'html' => $newHtml));
     exit;
@@ -227,7 +274,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         }));
     }
 
-    saveContent($data);
+    saveContent($data, true, 'Удалена секция');
 
     echo json_encode(array('success' => true));
     exit;

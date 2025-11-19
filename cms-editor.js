@@ -838,6 +838,7 @@ class CMSEditor {
                                 <div class="cms-version-info">
                                     <div class="cms-version-number">${index === 0 ? '🟢 Текущая' : `Версия ${history.versions.length - index}`}</div>
                                     <div class="cms-version-date">${version.date}</div>
+                                    ${version.description ? `<div class="cms-version-description">${version.description}</div>` : ''}
                                 </div>
                                 ${index !== 0 ? `
                                     <button class="cms-btn cms-btn-small cms-revert-btn" data-timestamp="${version.timestamp}">
