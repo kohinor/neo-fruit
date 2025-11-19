@@ -3,7 +3,37 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>О компании - НЕО-ФРУТ</title>
+
+        <!-- Primary Meta Tags -->
+        <title>О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков | НПК НЕОФРУТ</title>
+        <meta name="title" content="О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков" />
+        <meta name="description" content="НПК НЕОФРУТ - производитель натуральных фруктовых батончиков и пастилы из сухофруктов. Наша миссия - здоровое питание без компромиссов. Качественная продукция из натуральных ингредиентов." />
+        <meta name="keywords" content="о компании неофрут, производитель батончиков, НПК НЕОФРУТ, натуральные продукты, производство пастилы, компания неофрут" />
+        <meta name="author" content="НПК НЕОФРУТ" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://neo-fruit.ru/company/" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://neo-fruit.ru/company/" />
+        <meta property="og:title" content="О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков" />
+        <meta property="og:description" content="НПК НЕОФРУТ - производитель натуральных фруктовых батончиков и пастилы из сухофруктов. Качественная продукция из натуральных ингредиентов." />
+        <meta property="og:image" content="https://neo-fruit.ru/images/hero.jpg" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="НПК НЕОФРУТ" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://neo-fruit.ru/company/" />
+        <meta property="twitter:title" content="О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков" />
+        <meta property="twitter:description" content="НПК НЕОФРУТ - производитель натуральных фруктовых батончиков и пастилы из сухофруктов." />
+        <meta property="twitter:image" content="https://neo-fruit.ru/images/hero.jpg" />
+
+        <!-- Additional SEO -->
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="geo.region" content="RU" />
+        <meta name="geo.placename" content="Россия" />
+
         <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
             rel="stylesheet"
@@ -36,6 +66,39 @@
                     },
                 },
             };
+        </script>
+
+        <!-- Structured Data (JSON-LD) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "mainEntity": {
+                "@type": "Organization",
+                "name": "НПК НЕОФРУТ",
+                "alternateName": "НЕО-ФРУТ",
+                "url": "https://neo-fruit.ru/",
+                "description": "Производитель натуральных фруктовых батончиков и пастилы из сухофруктов без сахара"
+            }
+        }
+        </script>
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://neo-fruit.ru/"
+            },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "О компании",
+                "item": "https://neo-fruit.ru/company/"
+            }]
+        }
         </script>
     </head>
     <body class="bg-white">

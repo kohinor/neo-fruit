@@ -3,7 +3,37 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Продукция - НЕО-ФРУТ</title>
+
+        <!-- Primary Meta Tags -->
+        <title>Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов с орехами | Каталог</title>
+        <meta name="title" content="Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов с орехами" />
+        <meta name="description" content="Каталог натуральных фруктовых батончиков НЕО-ФРУТ: абрикосовая пастила с фундуком, абрикосово-сливовая с орехами, чернослив с грецкими орехами. Без сахара, консервантов и ароматизаторов." />
+        <meta name="keywords" content="купить батончики неофрут, абрикосовая пастила, батончики с фундуком, чернослив с орехами, фруктовые батончики каталог, продукция неофрут" />
+        <meta name="author" content="НПК НЕОФРУТ" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://neo-fruit.ru/products/" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://neo-fruit.ru/products/" />
+        <meta property="og:title" content="Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов" />
+        <meta property="og:description" content="Каталог натуральных фруктовых батончиков: абрикосовая пастила с фундуком, абрикосово-сливовая с орехами, чернослив с грецкими орехами. Без сахара и консервантов." />
+        <meta property="og:image" content="https://neo-fruit.ru/images/products/1%20Абрикосовая%20с%20фундуком.jpg" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="НПК НЕОФРУТ" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://neo-fruit.ru/products/" />
+        <meta property="twitter:title" content="Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов" />
+        <meta property="twitter:description" content="Каталог натуральных фруктовых батончиков без сахара и консервантов." />
+        <meta property="twitter:image" content="https://neo-fruit.ru/images/products/1%20Абрикосовая%20с%20фундуком.jpg" />
+
+        <!-- Additional SEO -->
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="geo.region" content="RU" />
+        <meta name="geo.placename" content="Россия" />
+
         <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
             rel="stylesheet"
@@ -36,6 +66,67 @@
                     },
                 },
             };
+        </script>
+
+        <!-- Structured Data (JSON-LD) for Product Listing -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "Product",
+                    "position": 1,
+                    "name": "Абрикосовая пастила с фундуком",
+                    "description": "Натуральный батончик из абрикосов с фундуком без сахара",
+                    "image": "https://neo-fruit.ru/images/products/1%20Абрикосовая%20с%20фундуком.jpg",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "НЕО-ФРУТ"
+                    }
+                },
+                {
+                    "@type": "Product",
+                    "position": 2,
+                    "name": "Абрикосово-сливовая с фундуком",
+                    "description": "Натуральный батончик из абрикосов и слив с фундуком",
+                    "image": "https://neo-fruit.ru/images/products/2%20Абриосово-сливовая%20с%20фундуко.jpg",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "НЕО-ФРУТ"
+                    }
+                },
+                {
+                    "@type": "Product",
+                    "position": 3,
+                    "name": "Чернослив с орехами",
+                    "description": "Натуральный батончик из чернослива с грецкими орехами",
+                    "image": "https://neo-fruit.ru/images/products/3%20Чернослив%20с%20орехами.jpg",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "НЕО-ФРУТ"
+                    }
+                }
+            ]
+        }
+        </script>
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://neo-fruit.ru/"
+            },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Продукция",
+                "item": "https://neo-fruit.ru/products/"
+            }]
+        }
         </script>
     </head>
     <body class="bg-white">

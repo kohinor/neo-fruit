@@ -1,0 +1,19 @@
+# robots.txt for НЕО-ФРУТ website
+
+User-agent: *
+Allow: /
+
+# Disallow CMS admin files
+Disallow: /data/
+Disallow: /auth.php
+Disallow: /api.php
+Disallow: /setup.php
+Disallow: /upload-image.php
+Disallow: /cms-editor.js
+Disallow: /cms-editor.css
+
+# Allow images
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://neo-fruit.ru/sitemap.xml

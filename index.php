@@ -3,7 +3,37 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>НЕО-ФРУТ - Природная энергия каждый день</title>
+
+        <!-- Primary Meta Tags -->
+        <title>НЕО-ФРУТ - Натуральные фруктовые батончики и пастила из сухофруктов | НПК НЕОФРУТ</title>
+        <meta name="title" content="НЕО-ФРУТ - Натуральные фруктовые батончики и пастила из сухофруктов" />
+        <meta name="description" content="Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара. Абрикосовые, сливовые и черносливовые батончики с орехами. Здоровое питание для активной жизни." />
+        <meta name="keywords" content="фруктовые батончики, пастила из сухофруктов, натуральные батончики, батончики без сахара, абрикосовая пастила, батончики с орехами, здоровое питание, НЕО-ФРУТ, неофрут" />
+        <meta name="author" content="НПК НЕОФРУТ" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://neo-fruit.ru/" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://neo-fruit.ru/" />
+        <meta property="og:title" content="НЕО-ФРУТ - Натуральные фруктовые батончики и пастила" />
+        <meta property="og:description" content="Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара. Здоровое питание для активной жизни." />
+        <meta property="og:image" content="https://neo-fruit.ru/images/hero.jpg" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="НПК НЕОФРУТ" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://neo-fruit.ru/" />
+        <meta property="twitter:title" content="НЕО-ФРУТ - Натуральные фруктовые батончики и пастила" />
+        <meta property="twitter:description" content="Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара." />
+        <meta property="twitter:image" content="https://neo-fruit.ru/images/hero.jpg" />
+
+        <!-- Additional SEO -->
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="geo.region" content="RU" />
+        <meta name="geo.placename" content="Россия" />
+
         <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
             rel="stylesheet"
@@ -36,6 +66,52 @@
                     },
                 },
             };
+        </script>
+
+        <!-- Structured Data (JSON-LD) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "НПК НЕОФРУТ",
+            "alternateName": "НЕО-ФРУТ",
+            "url": "https://neo-fruit.ru/",
+            "logo": "https://neo-fruit.ru/images/logo.png",
+            "description": "Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "RU",
+                "addressRegion": "Россия"
+            },
+            "sameAs": []
+        }
+        </script>
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "НЕО-ФРУТ",
+            "url": "https://neo-fruit.ru/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://neo-fruit.ru/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://neo-fruit.ru/"
+            }]
+        }
         </script>
     </head>
     <body class="bg-white">
