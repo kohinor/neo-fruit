@@ -83,6 +83,10 @@ class CMSEditor {
                         <span class="cms-menu-icon">${this.isEditMode ? '👁️' : '✏️'}</span>
                         <span class="cms-menu-text">${this.isEditMode ? 'Просмотр' : 'Редактирование'}</span>
                     </button>
+                    <button id="cms-version-history" class="cms-menu-btn">
+                        <span class="cms-menu-icon">⏮️</span>
+                        <span class="cms-menu-text">История версий</span>
+                    </button>
                     <button id="cms-logout" class="cms-menu-btn cms-menu-btn-danger">
                         <span class="cms-menu-icon">🚪</span>
                         <span class="cms-menu-text">Выйти</span>
@@ -134,6 +138,7 @@ class CMSEditor {
         const loginBtn = document.getElementById('cms-login-btn');
         const logoutBtn = document.getElementById('cms-logout');
         const toggleEditBtn = document.getElementById('cms-toggle-edit');
+        const versionHistoryBtn = document.getElementById('cms-version-history');
 
         if (loginBtn) {
             loginBtn.addEventListener('click', () => this.showLoginModal());
@@ -145,6 +150,10 @@ class CMSEditor {
 
         if (toggleEditBtn) {
             toggleEditBtn.addEventListener('click', () => this.toggleEditMode());
+        }
+
+        if (versionHistoryBtn) {
+            versionHistoryBtn.addEventListener('click', () => this.showVersionHistory());
         }
     }
 
@@ -800,6 +809,109 @@ class CMSEditor {
                 lightboxImg.src = newUrl + '?t=' + Date.now();
                 console.log('Updated lightbox image');
             }
+        }
+    }
+
+    async showVersionHistory() {
+        try {
+            const response = await fetch(this.basePath + 'api.php?action=get_history');
+            const history = await response.json();
+
+            if (!history.versions || history.versions.length === 0) {
+                this.showNotification('История версий пуста', 'info');
+                return;
+            }
+
+            const modal = document.createElement('div');
+            modal.id = 'cms-version-history-modal';
+            modal.innerHTML = `
+                <div class="cms-modal-backdrop" id="cms-history-backdrop"></div>
+                <div class="cms-modal-content" style="max-width: 600px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h2 style="margin: 0;">📜 История версий</h2>
+                        <button class="cms-modal-close" id="cms-close-history-x" title="Закрыть">×</button>
+                    </div>
+                    <p style="margin-bottom: 15px; color: #666;">Сохраняются последние 20 версий. Выберите версию для восстановления.</p>
+                    <div class="cms-version-list">
+                        ${history.versions.reverse().map((version, index) => `
+                            <div class="cms-version-item" data-timestamp="${version.timestamp}">
+                                <div class="cms-version-info">
+                                    <div class="cms-version-number">${index === 0 ? '🟢 Текущая' : `Версия ${history.versions.length - index}`}</div>
+                                    <div class="cms-version-date">${version.date}</div>
+                                </div>
+                                ${index !== 0 ? `
+                                    <button class="cms-btn cms-btn-small cms-revert-btn" data-timestamp="${version.timestamp}">
+                                        ⏮️ Восстановить
+                                    </button>
+                                ` : '<span style="color: #06a68a; font-weight: 600;">Активная</span>'}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="cms-form-actions" style="margin-top: 20px;">
+                        <button type="button" id="cms-close-history" class="cms-btn cms-btn-secondary">Закрыть</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Attach revert button handlers
+            modal.querySelectorAll('.cms-revert-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const timestamp = parseInt(btn.getAttribute('data-timestamp'));
+                    this.revertToVersion(timestamp, modal);
+                });
+            });
+
+            // Close button handlers
+            document.getElementById('cms-close-history').addEventListener('click', () => {
+                modal.remove();
+            });
+
+            document.getElementById('cms-close-history-x').addEventListener('click', () => {
+                modal.remove();
+            });
+
+            // Close on backdrop click
+            document.getElementById('cms-history-backdrop').addEventListener('click', () => {
+                modal.remove();
+            });
+        } catch (error) {
+            console.error('Error loading version history:', error);
+            this.showNotification('Ошибка загрузки истории версий', 'error');
+        }
+    }
+
+    async revertToVersion(timestamp, modal) {
+        if (!confirm('Вы уверены, что хотите восстановить эту версию? Текущее состояние будет сохранено в историю.')) {
+            return;
+        }
+
+        try {
+            const formData = new FormData();
+            formData.append('action', 'revert_version');
+            formData.append('timestamp', timestamp);
+
+            const response = await fetch(this.basePath + 'api.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                this.showNotification('Версия успешно восстановлена!', 'success');
+                modal.remove();
+
+                // Reload page to show reverted content
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } else {
+                this.showNotification(data.error || 'Ошибка восстановления', 'error');
+            }
+        } catch (error) {
+            console.error('Error reverting version:', error);
+            this.showNotification('Ошибка восстановления версии', 'error');
         }
     }
 }

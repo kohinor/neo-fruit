@@ -246,6 +246,33 @@
     font-weight: 700;
 }
 
+.cms-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.cms-modal-close:hover {
+    background: #f0f0f0;
+    color: #333;
+    transform: rotate(90deg);
+}
+
+.cms-modal-close:active {
+    transform: rotate(90deg) scale(0.9);
+}
+
 .cms-form-group {
     margin-bottom: 1.25rem;
 }
@@ -570,6 +597,67 @@ body.cms-edit-mode {
 .cms-progress-text {
     color: #06a68a;
     font-weight: 600;
+}
+
+/* Version History Modal */
+#cms-version-history-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cms-version-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 10px 0;
+}
+
+.cms-version-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 8px 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #06a68a;
+    transition: all 0.2s ease;
+}
+
+.cms-version-item:hover {
+    background: #e9ecef;
+    transform: translateX(3px);
+}
+
+.cms-version-info {
+    flex: 1;
+}
+
+.cms-version-number {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.cms-version-date {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.cms-btn-small {
+    padding: 6px 14px;
+    font-size: 0.875rem;
+}
+
+.cms-revert-btn:hover {
+    background: #0a8c72;
+    transform: translateY(-1px);
 }
 
 /* Print Styles - Hide CMS interface when printing */
