@@ -258,7 +258,7 @@
                                     Абрикос обезвоженный, фундук, сахар
                                 </p>
                                 <div
-                                    class="grid grid-cols-3 gap-4 text-sm text-gray-600"
+                                    class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600"
                                 >
                                     <div>
                                         <span class="font-semibold"
@@ -438,7 +438,7 @@
                                     обезвоженный, фундук, сахар
                                 </p>
                                 <div
-                                    class="grid grid-cols-3 gap-4 text-sm text-gray-600"
+                                    class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600"
                                 >
                                     <div>
                                         <span class="font-semibold"
@@ -674,7 +674,7 @@
                                     Чернослив обезвоженный, фундук, сахар
                                 </p>
                                 <div
-                                    class="grid grid-cols-3 gap-4 text-sm text-gray-600"
+                                    class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600"
                                 >
                                     <div>
                                         <span class="font-semibold"

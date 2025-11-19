@@ -831,7 +831,7 @@
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
                     <a
-                        href="products.html"
+                        href="/cms/products"
                         class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105"
                     >
                         Наша продукция
