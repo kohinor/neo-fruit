@@ -4,7 +4,21 @@ class CMSEditor {
         this.isEditMode = false;
         this.isLoggedIn = false;
         this.contentData = {};
+        this.basePath = this.getBasePath();
         this.init();
+    }
+
+    getBasePath() {
+        // Determine the base path relative to current page
+        const depth = (window.location.pathname.match(/\//g) || []).length - 1;
+        const projectFolder = '/cms/';
+
+        // If we're in a subfolder (company/, products/), go up one level
+        if (window.location.pathname.includes('/company/') || window.location.pathname.includes('/products/')) {
+            return '../';
+        }
+        // If we're at the root level of the project
+        return './';
     }
 
     async init() {
@@ -45,7 +59,7 @@ class CMSEditor {
 
     async checkAuthStatus() {
         try {
-            const response = await fetch('auth.php?check=1');
+            const response = await fetch(this.basePath + 'auth.php?check=1');
             const data = await response.json();
             this.isLoggedIn = data.logged_in;
         } catch (error) {
@@ -173,7 +187,7 @@ class CMSEditor {
         formData.append('action', 'login');
 
         try {
-            const response = await fetch('auth.php', {
+            const response = await fetch(this.basePath + 'auth.php', {
                 method: 'POST',
                 body: formData
             });
@@ -198,7 +212,7 @@ class CMSEditor {
         formData.append('action', 'logout');
 
         try {
-            await fetch('auth.php', {
+            await fetch(this.basePath + 'auth.php', {
                 method: 'POST',
                 body: formData
             });
@@ -210,7 +224,7 @@ class CMSEditor {
 
     async loadContent() {
         try {
-            const response = await fetch('api.php');
+            const response = await fetch(this.basePath + 'api.php');
             const data = await response.json();
             this.contentData = data.sections || {};
             this.duplicatedSections = data.duplicated_sections || [];
@@ -245,7 +259,12 @@ class CMSEditor {
                     if (match) {
                         const productKey = match[1];
                         const imageIndex = parseInt(match[2]) - 1;
-                        const savedUrl = this.contentData[key];
+                        let savedUrl = this.contentData[key];
+
+                        // Adjust path based on current location
+                        if (this.basePath === '../' && !savedUrl.startsWith('../')) {
+                            savedUrl = '../' + savedUrl;
+                        }
 
                         if (productImages[productKey] && productImages[productKey][imageIndex] !== undefined) {
                             productImages[productKey][imageIndex] = savedUrl;
@@ -283,7 +302,13 @@ class CMSEditor {
             const key = `image_${imageId}`;
 
             if (this.contentData[key]) {
-                img.src = this.contentData[key];
+                // Adjust path based on current location
+                let imagePath = this.contentData[key];
+                if (this.basePath === '../' && !imagePath.startsWith('../')) {
+                    // We're in a subfolder, prepend ../
+                    imagePath = '../' + imagePath;
+                }
+                img.src = imagePath;
             }
         });
     }
@@ -418,7 +443,7 @@ class CMSEditor {
         formData.append('content', content);
 
         try {
-            const response = await fetch('api.php', {
+            const response = await fetch(this.basePath + 'api.php', {
                 method: 'POST',
                 body: formData
             });
@@ -443,7 +468,7 @@ class CMSEditor {
         formData.append('content', imagePath);
 
         try {
-            const response = await fetch('api.php', {
+            const response = await fetch(this.basePath + 'api.php', {
                 method: 'POST',
                 body: formData
             });
@@ -507,7 +532,7 @@ class CMSEditor {
         formData.append('html', html);
 
         try {
-            const response = await fetch('api.php', {
+            const response = await fetch(this.basePath + 'api.php', {
                 method: 'POST',
                 body: formData
             });
@@ -543,7 +568,7 @@ class CMSEditor {
         formData.append('section_id', sectionId);
 
         try {
-            const response = await fetch('api.php', {
+            const response = await fetch(this.basePath + 'api.php', {
                 method: 'POST',
                 body: formData
             });
@@ -674,7 +699,7 @@ class CMSEditor {
             uploadProgress.style.display = 'block';
 
             try {
-                const response = await fetch('upload-image.php', {
+                const response = await fetch(this.basePath + 'upload-image.php', {
                     method: 'POST',
                     body: formData
                 });
@@ -683,12 +708,18 @@ class CMSEditor {
                 console.log('Upload response:', data);
 
                 if (data.success) {
-                    // Save image path to content database
+                    // Save image path to content database (always save relative to project root)
                     const imageId = imgElement.getAttribute('data-editable-image');
                     await this.saveImagePath(imageId, data.url);
 
+                    // Adjust URL for current page location
+                    let displayUrl = data.url;
+                    if (this.basePath === '../' && !displayUrl.startsWith('../')) {
+                        displayUrl = '../' + displayUrl;
+                    }
+
                     // Update image source with cache busting
-                    const newUrl = data.url + '?t=' + Date.now();
+                    const newUrl = displayUrl + '?t=' + Date.now();
                     console.log('Updating image src to:', newUrl);
                     imgElement.src = newUrl;
 
@@ -696,10 +727,10 @@ class CMSEditor {
                     imgElement.setAttribute('src', newUrl);
 
                     // Update productImages object if it exists (for products.html lightbox)
-                    this.updateProductImages(imageId, data.url);
+                    this.updateProductImages(imageId, displayUrl);
 
                     // Update lightbox if currently showing this image
-                    this.updateLightboxImage(imgElement, data.url);
+                    this.updateLightboxImage(imgElement, displayUrl);
 
                     this.showNotification('Изображение обновлено!', 'success');
                     modal.remove();

@@ -1,0 +1,24 @@
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Redirects for legacy URLs
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Redirect old .html URLs to clean URLs (301 permanent)
+    RewriteRule ^index\.html$ / [R=301,L]
+    RewriteRule ^company\.html$ /company/ [R=301,L]
+    RewriteRule ^products\.html$ /products/ [R=301,L]
+
+    # Redirect old .php URLs to folders
+    RewriteRule ^company\.php$ /company/ [R=301,L]
+    RewriteRule ^products\.php$ /products/ [R=301,L]
+</IfModule>
+
+# Set index.php as default
+DirectoryIndex index.php index.html

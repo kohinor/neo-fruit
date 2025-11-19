@@ -1,0 +1,123 @@
+<!-- Top Navigation -->
+<nav class="top-nav fixed top-0 left-0 right-0 z-50 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/cms/" class="flex items-center space-x-3">
+                <div>
+                    <div
+                        class="font-bold text-teal text-lg leading-none"
+                    >
+                        НПК НЕОФРУТ
+                    </div>
+                    <div class="text-md text-muted">
+                        Здоровое питание для активной жизни
+                    </div>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a
+                    href="/cms/company/"
+                    class="text-gray-700 hover:text-teal transition font-medium"
+                    >О компании</a
+                >
+                <a
+                    href="/cms/products/"
+                    class="text-gray-700 hover:text-teal transition font-medium"
+                    >Продукция</a
+                >
+                <a
+                    href="#contacts"
+                    class="text-gray-700 hover:text-teal transition font-medium"
+                    >Контакты</a
+                >
+            </div>
+
+            <!-- CTA -->
+            <a
+                href="#order-info"
+                class="hidden md:block soft-button bg-accent text-white px-6 py-2.5 rounded-full font-semibold"
+            >
+                Заказать
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button id="menuToggle" class="md:hidden text-teal">
+                <svg
+                    class="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        d="M4 6h16M4 12h16M4 18h16"
+                    ></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div
+    id="mobileDrawer"
+    class="mobile-drawer fixed top-0 right-0 bottom-0 w-80 bg-white shadow-2xl z-50"
+>
+    <div class="p-6">
+        <div class="flex justify-between items-center mb-8">
+            <button
+                id="closeDrawer"
+                class="text-gray-500 hover:text-teal"
+            >
+                <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="space-y-4">
+            <a
+                href="/cms/company/"
+                class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
+                >О компании</a
+            >
+            <a
+                href="/cms/products/"
+                class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
+                >Продукция</a
+            >
+
+            <a
+                href="#contacts"
+                class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
+                >Контакты</a
+            >
+        </nav>
+        <a
+            href="#order-info"
+            class="w-full mt-8 soft-button bg-accent text-white px-6 py-3 rounded-full font-semibold"
+        >
+            Заказать
+        </a>
+    </div>
+</div>
+
+<!-- Mobile Overlay -->
+<div
+    id="drawerOverlay"
+    class="fixed inset-0 bg-black/30 z-40 hidden"
+></div>

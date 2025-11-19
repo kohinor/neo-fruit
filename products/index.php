@@ -9,8 +9,8 @@
             rel="stylesheet"
         />
         <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet" href="cms-editor.css">
+        <link rel="stylesheet" href="../styles.css" />
+        <link rel="stylesheet" href="../cms-editor.css">
         <script>
             tailwind.config = {
                 theme: {
@@ -39,126 +39,7 @@
         </script>
     </head>
     <body class="bg-white">
-        <!-- Top Navigation -->
-        <nav class="top-nav fixed top-0 left-0 right-0 z-50 py-4">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center">
-                    <!-- Logo -->
-                    <a href="index.html" class="flex items-center space-x-3">
-                        <div>
-                            <div
-                                class="font-bold text-teal text-lg leading-none"
-                            >
-                                НПК НЕОФРУТ
-                            </div>
-                            <div class="text-md text-muted">
-                                Здоровое питание для активной жизни
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-8">
-                        <a
-                            href="company.html"
-                            class="text-gray-700 hover:text-teal transition font-medium"
-                            >О компании</a
-                        >
-                        <a href="products.html" class="text-teal font-bold"
-                            >Продукция</a
-                        >
-                        <a
-                            href="#contacts"
-                            class="text-gray-700 hover:text-teal transition font-medium"
-                            >Контакты</a
-                        >
-                    </div>
-
-                    <!-- CTA -->
-                    <a
-                        href="#order-info"
-                        class="hidden md:block soft-button bg-accent text-white px-6 py-2.5 rounded-full font-semibold"
-                    >
-                        Заказать
-                    </a>
-
-                    <!-- Mobile Toggle -->
-                    <button id="menuToggle" class="md:hidden text-teal">
-                        <svg
-                            class="w-7 h-7"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2.5"
-                                d="M4 6h16M4 12h16M4 18h16"
-                            ></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Mobile Drawer -->
-        <div
-            id="mobileDrawer"
-            class="mobile-drawer fixed top-0 right-0 bottom-0 w-80 bg-white shadow-2xl z-50"
-        >
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-8">
-                    <button
-                        id="closeDrawer"
-                        class="text-gray-500 hover:text-teal"
-                    >
-                        <svg
-                            class="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"
-                            ></path>
-                        </svg>
-                    </button>
-                </div>
-                <nav class="space-y-4">
-                    <a
-                        href="company.html"
-                        class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
-                        >О компании</a
-                    >
-                    <a
-                        href="products.html"
-                        class="block text-teal font-bold py-3 border-b border-gray-100"
-                        >Продукция</a
-                    >
-                    <a
-                        href="#contacts"
-                        class="block text-gray-700 hover:text-teal py-3 border-b border-gray-100 font-medium"
-                        >Контакты</a
-                    >
-                </nav>
-                <a
-                    href="#order-info"
-                    class="w-full mt-8 soft-button bg-accent text-white px-6 py-3 rounded-full font-semibold"
-                >
-                    Заказать
-                </a>
-            </div>
-        </div>
-
-        <!-- Mobile Overlay -->
-        <div
-            id="drawerOverlay"
-            class="fixed inset-0 bg-black/30 z-40 hidden"
-        ></div>
+        <?php include '../includes/include.php'; includePartial('navigation'); ?>
 
         <!-- Hero Section -->
         <section
@@ -224,7 +105,7 @@
                                     onclick="openLightbox('product1', 0)"
                                 >
                                     <img
-                                        src="images/products/1 Абрикосовая с фундуком.jpg"
+                                        src="../images/products/1 Абрикосовая с фундуком.jpg"
                                         alt="Абрикосовая с фундуком"
                                         class="relative rounded-2xl w-full shadow-2xl"
                                         data-editable-image="product1_image1"
@@ -236,7 +117,7 @@
                                     onclick="openLightbox('product1', 1)"
                                 >
                                     <img
-                                        src="images/products/1 Абрикос.jpg"
+                                        src="../images/products/1 Абрикос.jpg"
                                         alt="Абрикосовая с фундуком - вид 2"
                                         class="relative rounded-2xl w-full shadow-2xl"
                                         data-editable-image="product1_image2"
@@ -592,7 +473,7 @@
                                     onclick="openLightbox('product2', 0)"
                                 >
                                     <img
-                                        src="images/products/2 Абриосово-сливовая с фундуко.jpg"
+                                        src="../images/products/2 Абриосово-сливовая с фундуко.jpg"
                                         alt="Абрикосово-сливовая с фундуком"
                                         class="relative rounded-2xl w-full shadow-2xl"
                                         data-editable-image="product2_image1"
@@ -604,7 +485,7 @@
                                     onclick="openLightbox('product2', 1)"
                                 >
                                     <img
-                                        src="images/products/2 Абрикосово-сливовая.jpg"
+                                        src="../images/products/2 Абрикосово-сливовая.jpg"
                                         alt="Абрикосово-сливовая с фундуком - вид 2"
                                         class="relative rounded-2xl w-full shadow-2xl"
                                         data-editable-image="product2_image2"
@@ -641,7 +522,7 @@
                                     onclick="openLightbox('product3', 0)"
                                 >
                                     <img
-                                        src="images/products/3 Чернослив с орехами.jpg"
+                                        src="../images/products/3 Чернослив с орехами.jpg"
                                         alt="Чернослив с орехами"
                                         class="relative rounded-2xl w-full shadow-2xl"
                                         data-editable-image="product3_image1"
@@ -653,7 +534,7 @@
                                     onclick="openLightbox('product3', 1)"
                                 >
                                     <img
-                                        src="images/products/3 Чернослив-с-орехом.jpg"
+                                        src="../images/products/3 Чернослив-с-орехом.jpg"
                                         alt="Чернослив с орехами - вид 2"
                                         class="relative rounded-2xl w-full shadow-2xl"
                                         data-editable-image="product3_image2"
@@ -853,289 +734,8 @@
                 </div>
             </div>
         </section>
-        <!-- Order Information Section -->
-        <section
-            id="order-info"
-            class="py-24 bg-gradient-to-br from-sage/30 via-white to-cream/50 relative overflow-hidden"
-        >
-            <div
-                class="decorative-circle w-80 h-80 bg-teal absolute -top-20 -left-20"
-                style="animation-delay: 0.8s"
-            ></div>
-            <div
-                class="decorative-circle w-64 h-64 bg-accent absolute -bottom-20 -right-20"
-                style="animation-delay: 1.2s"
-            ></div>
-
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center mb-16">
-                    <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
-                    >
-                        Как <span class="gradient-text">сделать заказ</span>
-                    </h2>
-                    <div
-                        class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto"
-                    ></div>
-                </div>
-
-                <div
-                    class="outlined-card border-teal/30 rounded-3xl p-10 md:p-12 bg-white soft-shadow-lg"
-                >
-                    <div class="text-center mb-8">
-                        <div class="text-6xl mb-6">📋</div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-6">
-                            Условия заказа
-                        </h3>
-                    </div>
-
-                    <div
-                        class="space-y-6 text-lg text-gray-700 leading-relaxed"
-                    >
-                        <div
-                            class="flex items-start space-x-4 p-6 bg-gradient-to-r from-mint/50 to-sage/30 rounded-2xl"
-                        >
-                            <div
-                                class="flex-shrink-0 w-12 h-12 bg-teal text-white rounded-full flex items-center justify-center text-2xl font-bold"
-                            >
-                                1
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800 mb-2">
-                                    Уточнить наличие товара и оформить заказ Вы
-                                    можете:
-                                </p>
-                                <ul class="space-y-2 ml-4">
-                                    <li>
-                                        ☎️ По телефонам:
-                                        <a
-                                            href="tel:+74993913908"
-                                            class="text-teal font-semibold hover:underline"
-                                            >+7 (499) 391-39-08</a
-                                        >,
-                                        <a
-                                            href="tel:+79267820032"
-                                            class="text-teal font-semibold hover:underline"
-                                            >+7 (926) 782-00-32</a
-                                        >
-                                    </li>
-                                    <li>
-                                        ✉️ По электронной почте:
-                                        <a
-                                            href="mailto:npkneofruit@yandex.ru"
-                                            class="text-teal font-semibold hover:underline"
-                                            >npkneofruit@yandex.ru</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div
-                            class="flex items-start space-x-4 p-6 bg-gradient-to-r from-peach/40 to-orange-50 rounded-2xl"
-                        >
-                            <div
-                                class="flex-shrink-0 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-2xl font-bold"
-                            >
-                                2
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">
-                                    Продукция отпускается только по
-                                    <span class="text-accent"
-                                        >безналичному расчёту</span
-                                    >.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="flex items-start space-x-4 p-6 bg-gradient-to-r from-mint/50 to-sage/30 rounded-2xl"
-                        >
-                            <div
-                                class="flex-shrink-0 w-12 h-12 bg-teal text-white rounded-full flex items-center justify-center text-2xl font-bold"
-                            >
-                                3
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">
-                                    Минимальная сумма заказа:
-                                    <span class="text-teal text-xl"
-                                        >от 150 штук (1 коробка)</span
-                                    >.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="flex items-start space-x-4 p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl border-2 border-amber-200"
-                        >
-                            <div
-                                class="flex-shrink-0 w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center text-2xl"
-                            >
-                                🎁
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800 text-xl">
-                                    Для постоянных покупателей действует
-                                    <span class="text-amber-600"
-                                        >система скидок</span
-                                    >!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contacts Section -->
-        <footer
-            id="contacts"
-            class="py-24 bg-gradient-to-br from-gray-50 to-white"
-        >
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-20">
-                    <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
-                    >
-                        Свяжитесь <span class="gradient-text">с нами</span>
-                    </h2>
-                    <div
-                        class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto"
-                    ></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-                    <!-- Office & Production Merged -->
-                    <div
-                        class="outlined-card border-gray-200 rounded-3xl p-8 text-center hover:border-teal transition"
-                    >
-                        <div class="text-6xl mb-6">🏢</div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                            Наши адреса
-                        </h3>
-                        <div class="space-y-5">
-                            <div>
-                                <p class="text-gray-700 font-bold text-sm mb-3">
-                                    Офис:
-                                </p>
-                                <p
-                                    class="text-gray-600 text-base leading-relaxed"
-                                >
-                                    115035, Россия, г. Москва, Космодамианская
-                                    наб., д. 40-42, стр. 3, эт. 1, пом. XVII,
-                                    ком. 1
-                                </p>
-                            </div>
-                            <div class="pt-4 border-t-2 border-gray-200">
-                                <p class="text-gray-700 font-bold text-sm mb-3">
-                                    Производство/Склад:
-                                </p>
-                                <p
-                                    class="text-gray-600 text-base leading-relaxed"
-                                >
-                                    143980, Россия, Московская область, г.
-                                    Железнодорожный, ул. Автозаводская, 50А
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Wholesale -->
-                    <div
-                        class="outlined-card border-gray-200 rounded-3xl p-8 text-center hover:border-teal transition"
-                    >
-                        <div class="text-6xl mb-6">📦</div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">
-                            Оптовые продажи
-                        </h3>
-                        <p class="text-gray-600 text-base mb-5">
-                            Госзакупки (44-ФЗ, 223-ФЗ)
-                        </p>
-                        <div class="space-y-3 text-base text-gray-700">
-                            <p>
-                                <a
-                                    href="tel:+74993913908"
-                                    class="hover:text-teal transition font-semibold"
-                                    >+7 (499) 391-39-08</a
-                                >
-                            </p>
-                            <p>
-                                <a
-                                    href="tel:+79267820032"
-                                    class="hover:text-teal transition font-semibold"
-                                    >+7 (926) 782-00-32</a
-                                >
-                            </p>
-                            <p>
-                                <a
-                                    href="tel:+79165555542"
-                                    class="hover:text-teal transition font-semibold"
-                                    >+7 (916) 555-55-42</a
-                                >
-                            </p>
-                            <p>
-                                <a
-                                    href="mailto:npkneofruit@yandex.ru"
-                                    class="hover:text-teal transition font-semibold"
-                                    >npkneofruit@yandex.ru</a
-                                >
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Retail Distributor -->
-                <div
-                    class="outlined-card border-accent/30 rounded-3xl p-10 bg-gradient-to-br from-peach/30 to-white"
-                >
-                    <div class="text-center">
-                        <div class="text-6xl mb-6">🛒</div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-4">
-                            Мелкоптовые продажи / Ритейл
-                        </h3>
-                        <p class="text-gray-700 font-bold mb-3 text-lg">
-                            Официальный дистрибьютор ООО «БАРРАКУДА»
-                        </p>
-                        <p class="text-gray-600 text-base mb-6">
-                            127083 г. Москва, улица Юннатов дом 18, офис 104
-                        </p>
-                        <div
-                            class="flex flex-wrap justify-center gap-8 text-base text-gray-700"
-                        >
-                            <a
-                                href="tel:+79646351188"
-                                class="hover:text-teal transition font-semibold"
-                                >+7 (964) 635-11-88</a
-                            >
-                            <a
-                                href="tel:+74957445595"
-                                class="hover:text-teal transition font-semibold"
-                                >+7 (495) 744-55-95</a
-                            >
-                            <a
-                                href="mailto:info@barrakuda.biz"
-                                class="hover:text-teal transition font-semibold"
-                                >info@barrakuda.biz</a
-                            >
-                            <a
-                                href="http://www.armilit.ru"
-                                target="_blank"
-                                class="hover:text-teal transition font-semibold"
-                                >www.armilit.ru</a
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Copyright -->
-                <div class="mt-16 pt-10 border-t-2 border-gray-200 text-center">
-                    <p class="text-gray-600 text-lg mb-4">
-                        © 2005 - 2025 OOO "НЕО-Фрут". Все права защищены.
-                    </p>
-                </div>
-            </div>
-        </footer>
+        <?php includePartial('order-info'); ?>
+        <?php includePartial('footer'); ?>
 
         <!-- Lightbox -->
         <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
@@ -1147,124 +747,9 @@
             </div>
         </div>
 
-        <script>
-            // Product images data
-            const productImages = {
-                product1: [
-                    "images/products/1 Абрикосовая с фундуком.jpg",
-                    "images/products/1 Абрикос.jpg",
-                ],
-                product2: [
-                    "images/products/2 Абриосово-сливовая с фундуко.jpg",
-                    "images/products/2 Абрикосово-сливовая.jpg",
-                ],
-                product3: [
-                    "images/products/3 Чернослив с орехами.jpg",
-                    "images/products/3 Чернослив-с-орехом.jpg",
-                ],
-            };
-
-            let currentProduct = "";
-            let currentImageIndex = 0;
-
-            function openLightbox(product, index) {
-                currentProduct = product;
-                currentImageIndex = index;
-                const lightbox = document.getElementById("lightbox");
-                const img = document.getElementById("lightbox-img");
-                img.src = productImages[product][index];
-                lightbox.classList.add("active");
-                document.body.style.overflow = "hidden";
-            }
-
-            function closeLightbox(event) {
-                if (
-                    event.target.id === "lightbox" ||
-                    event.target.classList.contains("lightbox-close")
-                ) {
-                    const lightbox = document.getElementById("lightbox");
-                    lightbox.classList.remove("active");
-                    document.body.style.overflow = "auto";
-                    event.stopPropagation();
-                }
-            }
-
-            function navigateLightbox(direction, event) {
-                event.stopPropagation();
-                const images = productImages[currentProduct];
-                currentImageIndex =
-                    (currentImageIndex + direction + images.length) %
-                    images.length;
-                document.getElementById("lightbox-img").src =
-                    images[currentImageIndex];
-            }
-
-            // Keyboard navigation
-            document.addEventListener("keydown", function (e) {
-                const lightbox = document.getElementById("lightbox");
-                if (lightbox.classList.contains("active")) {
-                    if (e.key === "Escape") {
-                        lightbox.classList.remove("active");
-                        document.body.style.overflow = "auto";
-                    } else if (e.key === "ArrowLeft") {
-                        navigateLightbox(-1, e);
-                    } else if (e.key === "ArrowRight") {
-                        navigateLightbox(1, e);
-                    }
-                }
-            });
-
-            // Mobile menu
-            const menuToggle = document.getElementById("menuToggle");
-            const closeDrawer = document.getElementById("closeDrawer");
-            const mobileDrawer = document.getElementById("mobileDrawer");
-            const drawerOverlay = document.getElementById("drawerOverlay");
-
-            function openDrawer() {
-                mobileDrawer.classList.add("open");
-                drawerOverlay.classList.remove("hidden");
-                document.body.style.overflow = "hidden";
-            }
-
-            function closeDrawerFn() {
-                mobileDrawer.classList.remove("open");
-                drawerOverlay.classList.add("hidden");
-                document.body.style.overflow = "auto";
-            }
-
-            menuToggle.addEventListener("click", openDrawer);
-            closeDrawer.addEventListener("click", closeDrawerFn);
-            drawerOverlay.addEventListener("click", closeDrawerFn);
-
-            // Close on link click
-            const drawerLinks = mobileDrawer.querySelectorAll("a");
-            drawerLinks.forEach((link) => {
-                link.addEventListener("click", closeDrawerFn);
-            });
-
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(
-                        this.getAttribute("href"),
-                    );
-                    if (target) {
-                        const offset = 80;
-                        const targetPosition =
-                            target.getBoundingClientRect().top +
-                            window.pageYOffset -
-                            offset;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: "smooth",
-                        });
-                    }
-                });
-            });
-        </script>
-
+        <!-- Main JavaScript -->
+        <script src="../main.js"></script>
         <!-- CMS Editor Script -->
-        <script src="cms-editor.js"></script>
+        <script src="../cms-editor.js"></script>
     </body>
 </html>
