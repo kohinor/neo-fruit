@@ -161,14 +161,16 @@
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="text-6xl">🏢</div>
                                 <span
-                                    class="text-sm font-bold text-teal bg-white px-4 py-2 rounded-full"
+                                    class="text-sm font-bold text-teal bg-white px-4 py-2 rounded-full cms-editable"
+                                    data-editable="badge"
+                                    data-section-id="foundation"
                                 >
                                     С 2003 года
                                 </span>
                             </div>
 
                             <h2
-                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6 cms-editable"
                                 data-editable="title"
                                 data-section-id="foundation"
                             >
@@ -176,7 +178,7 @@
                             </h2>
 
                             <p
-                                class="text-lg text-gray-700 mb-6 leading-relaxed"
+                                class="text-lg text-gray-700 mb-6 leading-relaxed cms-editable"
                                 data-editable="description"
                                 data-section-id="foundation"
                             >
@@ -191,11 +193,15 @@
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
                                 <h3
-                                    class="font-bold text-gray-800 mb-4 text-xl"
+                                    class="font-bold text-gray-800 mb-4 text-xl cms-editable"
+                                    data-editable="founder_title"
+                                    data-section-id="foundation"
                                 >
                                     Основатель и руководитель
                                 </h3>
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-gray-700 leading-relaxed cms-editable"
+                                    data-editable="founder_text"
+                                    data-section-id="foundation">
                                     <strong>Кольцова В. П.</strong> — более 25
                                     лет проработала старшим научным сотрудником
                                     в НИИ пищевой промышленности, создававшего
@@ -205,7 +211,9 @@
                             </div>
 
                             <p
-                                class="text-base text-gray-600 leading-relaxed italic"
+                                class="text-base text-gray-600 leading-relaxed italic cms-editable"
+                                data-editable="recipe_note"
+                                data-section-id="foundation"
                             >
                                 Рецептуры разрабатывались с учетом изменения
                                 вкусовых качеств человека в условиях
@@ -250,7 +258,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
                     <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6 cms-editable"
+                        data-editable="title"
+                        data-section-id="innovation"
                     >
                         Уникальная <span class="gradient-text">технология</span>
                     </h2>
@@ -268,10 +278,14 @@
                         >
                             📜
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                            data-editable="patent1_title"
+                            data-section-id="innovation">
                             Патент № 2358451 С2
                         </h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <p class="text-gray-600 leading-relaxed cms-editable"
+                            data-editable="patent1_desc"
+                            data-section-id="innovation">
                             «Способ производства фруктовых палочек»
                         </p>
                     </div>
@@ -284,10 +298,14 @@
                         >
                             📜
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                            data-editable="patent2_title"
+                            data-section-id="innovation">
                             Патент № 2612784 С1
                         </h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <p class="text-gray-600 leading-relaxed cms-editable"
+                            data-editable="patent2_desc"
+                            data-section-id="innovation">
                             «Способ производства фруктовых батончиков»
                         </p>
                     </div>
@@ -297,7 +315,9 @@
                     class="bg-gradient-to-br from-white to-cream rounded-3xl p-10 soft-shadow-lg"
                 >
                     <h3
-                        class="text-3xl font-bold text-gray-800 mb-6 text-center"
+                        class="text-3xl font-bold text-gray-800 mb-6 text-center cms-editable"
+                        data-editable="advantages_title"
+                        data-section-id="innovation"
                     >
                         Преимущества продукции
                     </h3>
@@ -305,7 +325,9 @@
                         <div class="flex items-start space-x-4">
                             <div class="text-3xl">✅</div>
                             <div>
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-gray-700 leading-relaxed cms-editable"
+                                    data-editable="advantage1"
+                                    data-section-id="innovation">
                                     Исключительно натуральное сырье без
                                     заменителей, красителей и консервантов
                                 </p>
@@ -314,7 +336,9 @@
                         <div class="flex items-start space-x-4">
                             <div class="text-3xl">✅</div>
                             <div>
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-gray-700 leading-relaxed cms-editable"
+                                    data-editable="advantage2"
+                                    data-section-id="innovation">
                                     Отборные экологически чистые фрукты, богатые
                                     витаминами и микроэлементами
                                 </p>
@@ -323,7 +347,9 @@
                         <div class="flex items-start space-x-4">
                             <div class="text-3xl">✅</div>
                             <div>
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-gray-700 leading-relaxed cms-editable"
+                                    data-editable="advantage3"
+                                    data-section-id="innovation">
                                     Высокая калорийность и пищевая ценность для
                                     экстремальных условий
                                 </p>
@@ -332,7 +358,9 @@
                         <div class="flex items-start space-x-4">
                             <div class="text-3xl">✅</div>
                             <div>
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-gray-700 leading-relaxed cms-editable"
+                                    data-editable="advantage4"
+                                    data-section-id="innovation">
                                     Компактная герметичная упаковка, срок
                                     годности 24 месяца
                                 </p>
@@ -352,7 +380,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
                     <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6 cms-editable"
+                        data-editable="title"
+                        data-section-id="recognition"
                     >
                         Признание
                         <span class="gradient-text">на высшем уровне</span>
@@ -360,7 +390,9 @@
                     <div
                         class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto mb-8"
                     ></div>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto cms-editable"
+                        data-editable="subtitle"
+                        data-section-id="recognition">
                         С 2009 года в составе индивидуальных рационов питания
                         силовых структур РФ
                     </p>
@@ -373,10 +405,14 @@
                         <div
                             class="bg-gradient-to-br from-mint to-sage/30 rounded-2xl p-8 soft-shadow-lg"
                         >
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                                data-editable="timeline1_title"
+                                data-section-id="recognition">
                                 Первое предложение
                             </h3>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed cms-editable"
+                                data-editable="timeline1_text"
+                                data-section-id="recognition">
                                 Фруктовые палочки «НЕОФРУТ» с фундуком были
                                 предложены для включения в рационы питания
                                 силовых структур Министерства обороны РФ.
@@ -390,10 +426,14 @@
                         <div
                             class="bg-gradient-to-br from-peach/40 to-orange-50 rounded-2xl p-8 soft-shadow-lg"
                         >
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                                data-editable="timeline2_title"
+                                data-section-id="recognition">
                                 Всесторонние исследования
                             </h3>
-                            <p class="text-gray-700 leading-relaxed mb-4">
+                            <p class="text-gray-700 leading-relaxed mb-4 cms-editable"
+                                data-editable="timeline2_text"
+                                data-section-id="recognition">
                                 В течение 3 лет проведены множественные
                                 экспертизы и всесторонние исследования в ГНУ НИИ
                                 пищеконцентратной промышленности и специальной
@@ -409,17 +449,23 @@
                         <div
                             class="bg-gradient-to-br from-mint to-sage/30 rounded-2xl p-8 soft-shadow-lg"
                         >
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                                data-editable="timeline3_title"
+                                data-section-id="recognition">
                                 Официальное одобрение
                             </h3>
-                            <p class="text-gray-700 leading-relaxed mb-4">
+                            <p class="text-gray-700 leading-relaxed mb-4 cms-editable"
+                                data-editable="timeline3_text"
+                                data-section-id="recognition">
                                 Получено Санитарно-эпидемиологическое заключение
                                 № 77. МО. 01.916.Т.001288.08.09 от 21.08.2009г.
                                 Главного Центра Государственного
                                 санитарно-эпидемиологического надзора Минобороны
                                 России.
                             </p>
-                            <p class="text-sm text-gray-600 italic">
+                            <p class="text-sm text-gray-600 italic cms-editable"
+                                data-editable="timeline3_note"
+                                data-section-id="recognition">
                                 С 2009 по 2011 год проводились тестовые полевые
                                 испытания в различных рационах питания.
                             </p>
@@ -432,10 +478,14 @@
                         <div
                             class="bg-gradient-to-br from-teal/20 to-mint rounded-2xl p-8 soft-shadow-lg border-2 border-teal"
                         >
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                                data-editable="timeline4_title"
+                                data-section-id="recognition">
                                 Включение в нормы рационов питания
                             </h3>
-                            <p class="text-gray-700 leading-relaxed mb-4">
+                            <p class="text-gray-700 leading-relaxed mb-4 cms-editable"
+                                data-editable="timeline4_text"
+                                data-section-id="recognition">
                                 <strong
                                     >Приказом Минобороны РФ №888 от 21 июня 2011
                                     года</strong
@@ -460,7 +510,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
                     <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6 cms-editable"
+                        data-editable="title"
+                        data-section-id="gov_orders"
                     >
                         Официальный поставщик
                         <span class="gradient-text">силовых структур</span>
@@ -478,10 +530,14 @@
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
                         <div class="text-4xl mb-4">🛡️</div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
+                            data-editable="order1_title"
+                            data-section-id="gov_orders">
                             Министерство обороны РФ
                         </h3>
-                        <p class="text-sm text-gray-600">
+                        <p class="text-sm text-gray-600 cms-editable"
+                            data-editable="order1_text"
+                            data-section-id="gov_orders">
                             Приказ от 21 июня 2011 г. №888
                         </p>
                     </div>
@@ -491,10 +547,14 @@
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
                         <div class="text-4xl mb-4">🔐</div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
+                            data-editable="order2_title"
+                            data-section-id="gov_orders">
                             Федеральная служба безопасности РФ
                         </h3>
-                        <p class="text-sm text-gray-600">
+                        <p class="text-sm text-gray-600 cms-editable"
+                            data-editable="order2_text"
+                            data-section-id="gov_orders">
                             Приказ от 14 февраля 2011 г. № 55
                         </p>
                     </div>
@@ -504,10 +564,14 @@
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
                         <div class="text-4xl mb-4">🚔</div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
+                            data-editable="order3_title"
+                            data-section-id="gov_orders">
                             Министерство внутренних дел РФ
                         </h3>
-                        <p class="text-sm text-gray-600">
+                        <p class="text-sm text-gray-600 cms-editable"
+                            data-editable="order3_text"
+                            data-section-id="gov_orders">
                             Приказ от 19 апреля 2010 г. №292
                         </p>
                     </div>
@@ -517,10 +581,14 @@
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
                         <div class="text-4xl mb-4">🪖</div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
+                            data-editable="order4_title"
+                            data-section-id="gov_orders">
                             ФС войск национальной гвардии РФ
                         </h3>
-                        <p class="text-sm text-gray-600">
+                        <p class="text-sm text-gray-600 cms-editable"
+                            data-editable="order4_text"
+                            data-section-id="gov_orders">
                             Приказ от 2 августа 2017 г. №244
                         </p>
                     </div>
@@ -530,10 +598,14 @@
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
                         <div class="text-4xl mb-4">🚒</div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
+                            data-editable="order5_title"
+                            data-section-id="gov_orders">
                             МЧС России
                         </h3>
-                        <p class="text-sm text-gray-600">
+                        <p class="text-sm text-gray-600 cms-editable"
+                            data-editable="order5_text"
+                            data-section-id="gov_orders">
                             Приказ от 29 апреля 2013 г. №290
                         </p>
                     </div>
@@ -543,10 +615,14 @@
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
                         <div class="text-4xl mb-4">⚖️</div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
+                            data-editable="order6_title"
+                            data-section-id="gov_orders">
                             Федеральная служба исполнения наказаний
                         </h3>
-                        <p class="text-sm text-gray-600">
+                        <p class="text-sm text-gray-600 cms-editable"
+                            data-editable="order6_text"
+                            data-section-id="gov_orders">
                             Приказ от 9 декабря 2008 г. №685
                         </p>
                     </div>
@@ -555,7 +631,9 @@
                 <div
                     class="mt-12 bg-gradient-to-r from-teal/10 to-accent/10 rounded-3xl p-8 text-center"
                 >
-                    <p class="text-xl text-gray-700 font-semibold">
+                    <p class="text-xl text-gray-700 font-semibold cms-editable"
+                        data-editable="summary"
+                        data-section-id="gov_orders">
                         Во всех приказах силовых структур предусмотрено
                         использование фруктовой палочки весом
                         <span class="text-teal">50 г</span>
@@ -576,7 +654,9 @@
                 >
                     <div class="text-center mb-12">
                         <h2
-                            class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                            class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6 cms-editable"
+                            data-editable="title"
+                            data-section-id="civilian"
                         >
                             Для <span class="gradient-text">гражданского</span>
                             использования
@@ -589,17 +669,23 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                         <div class="bg-white rounded-2xl p-8">
                             <div class="text-5xl mb-4">👶</div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                                data-editable="children_title"
+                                data-section-id="civilian">
                                 Для детей
                             </h3>
-                            <p class="text-gray-700 mb-4 leading-relaxed">
+                            <p class="text-gray-700 mb-4 leading-relaxed cms-editable"
+                                data-editable="children_text"
+                                data-section-id="civilian">
                                 Свидетельство о государственной регистрации
                                 №RU.50.99.01.005.Е.004032.01.13. от 28.01.2013г.
                                 Продукция разрешена для детей дошкольного (с 3
                                 до 6 лет) и школьного (с 6 до 14 лет) возраста.
                             </p>
                             <div
-                                class="bg-mint/50 rounded-xl p-4 text-sm text-gray-700"
+                                class="bg-mint/50 rounded-xl p-4 text-sm text-gray-700 cms-editable"
+                                data-editable="children_norms"
+                                data-section-id="civilian"
                             >
                                 <p class="font-semibold mb-2">
                                     Рекомендуемая норма:
@@ -619,10 +705,14 @@
 
                         <div class="bg-white rounded-2xl p-8">
                             <div class="text-5xl mb-4">🏆</div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                                data-editable="awards_title"
+                                data-section-id="civilian">
                                 Награды и признание
                             </h3>
-                            <p class="text-gray-700 mb-4 leading-relaxed">
+                            <p class="text-gray-700 mb-4 leading-relaxed cms-editable"
+                                data-editable="awards_text"
+                                data-section-id="civilian">
                                 В 2014 году наша компания представляла Фруктовые
                                 палочки на Ежегодной Национальной Премии
                                 <strong>«Здоровое питание-2014»</strong> и была
@@ -637,10 +727,14 @@
                             class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition"
                         >
                             <div class="text-4xl mb-3">🏔️</div>
-                            <h4 class="font-bold text-gray-800 mb-2">
+                            <h4 class="font-bold text-gray-800 mb-2 cms-editable"
+                                data-editable="use1_title"
+                                data-section-id="civilian">
                                 Спортсмены и туристы
                             </h4>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm text-gray-600 cms-editable"
+                                data-editable="use1_text"
+                                data-section-id="civilian">
                                 Официальный партнер финала кубка ДОСААФ России
                                 по трофи-рейдам 2018
                             </p>
@@ -650,10 +744,14 @@
                             class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition"
                         >
                             <div class="text-4xl mb-3">🎒</div>
-                            <h4 class="font-bold text-gray-800 mb-2">
+                            <h4 class="font-bold text-gray-800 mb-2 cms-editable"
+                                data-editable="use2_title"
+                                data-section-id="civilian">
                                 Образовательные учреждения
                             </h4>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm text-gray-600 cms-editable"
+                                data-editable="use2_text"
+                                data-section-id="civilian">
                                 Регулярные поставки для колледжей и школ
                             </p>
                         </div>
@@ -662,10 +760,14 @@
                             class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition"
                         >
                             <div class="text-4xl mb-3">🤖</div>
-                            <h4 class="font-bold text-gray-800 mb-2">
+                            <h4 class="font-bold text-gray-800 mb-2 cms-editable"
+                                data-editable="use3_title"
+                                data-section-id="civilian">
                                 Вендинговые автоматы
                             </h4>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm text-gray-600 cms-editable"
+                                data-editable="use3_text"
+                                data-section-id="civilian">
                                 Идеально подходят для автоматов быстрого питания
                             </p>
                         </div>
@@ -677,6 +779,8 @@
         <!-- Geography Section -->
         <section
             class="py-20 bg-gradient-to-br from-sage to-mint relative overflow-hidden"
+            id="location" data-section-id="location"
+            data-duplicable="false"
         >
             <div
                 class="decorative-circle w-72 h-72 bg-white absolute bottom-20 right-10"
@@ -685,14 +789,18 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-12">
                     <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6 cms-editable"
+                        data-editable="title"
+                        data-section-id="geography"
                     >
                         География <span class="gradient-text">поставок</span>
                     </h2>
                     <div
                         class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto mb-8"
                     ></div>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto cms-editable"
+                        data-editable="subtitle"
+                        data-section-id="geography">
                         Продукция компании «НЕОФРУТ» поставляется по
                         индивидуальным заказам в разные регионы России и страны
                         СНГ
@@ -700,52 +808,44 @@
                 </div>
 
                 <div
-                    class="bg-white rounded-3xl p-10 soft-shadow-lg max-w-4xl mx-auto"
+                    class="bg-white rounded-3xl p-10 soft-shadow-lg max-w-4xl mx-auto" data-section-id="location_cities"
                 >
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_1" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">Барнаул</p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_1">Барнаул</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_2" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">
-                                Екатеринбург
-                            </p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_2">Екатеринбург</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_3" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">Хабаровск</p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_3">Хабаровск</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_4" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">
-                                Петрозаводск
-                            </p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_4">Петрозаводск</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_5" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">Краснодар</p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_5">Краснодар</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_6" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">
-                                Нижний Новгород
-                            </p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_6">Нижний Новгород</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_7" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">Вологда</p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_7">Вологда</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="city_8" data-duplicable="true">
                             <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800">
-                                Архангельск
-                            </p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_8">Архангельск</p>
                         </div>
-                        <div class="text-center p-4">
+                        <div class="text-center p-4" data-section-id="country_1" data-duplicable="true">
                             <div class="text-3xl mb-2">🌍</div>
-                            <p class="font-semibold text-gray-800">Казахстан</p>
+                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="country_1">Казахстан</p>
                         </div>
                     </div>
                 </div>
@@ -782,11 +882,11 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-white rounded-2xl p-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        <div class="bg-white rounded-2xl p-8" data-section-id="development_1" data-duplicable="true">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable" data-editable="title" data-section-id="development_1">
                                 Высокобелковые палочки
                             </h3>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed cms-editable" data-editable="description" data-section-id="development_1">
                                 Разработка технологии производства палочек с
                                 повышенным содержанием белка за счет применения
                                 высокобелковых фракций переработки амаранта (до
@@ -794,11 +894,11 @@
                             </p>
                         </div>
 
-                        <div class="bg-white rounded-2xl p-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        <div class="bg-white rounded-2xl p-8" data-section-id="development_2" data-duplicable="true">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable" data-editable="title" data-section-id="development_2">
                                 Обогащенные палочки
                             </h3>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed cms-editable" data-editable="description" data-section-id="development_2">
                                 Палочки с повышенным содержанием йода и калия за
                                 счет использования очищенной ламинарии и других
                                 натуральных компонентов.
@@ -831,7 +931,7 @@
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
                     <a
-                        href="/cms/products"
+                        href="/cms/products/"
                         class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105"
                     >
                         Наша продукция

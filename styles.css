@@ -555,3 +555,12 @@ body {
 .product-image-clickable {
     cursor: pointer;
 }
+
+/* Text color utility classes */
+.text-accent {
+    color: #f48a3a;
+}
+
+.text-teal {
+    color: #06a68a;
+}

@@ -2,11 +2,15 @@
 <footer
     id="contacts"
     class="py-24 bg-gradient-to-br from-gray-50 to-white"
+    data-section-id="contacts"
+    data-duplicable="false"
 >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
             <h2
-                class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6 cms-editable"
+                data-editable="title"
+                data-section-id="footer"
             >
                 Свяжитесь <span class="gradient-text">с нами</span>
             </h2>
@@ -21,28 +25,40 @@
                 class="outlined-card border-gray-200 rounded-3xl p-8 text-center hover:border-teal transition"
             >
                 <div class="text-6xl mb-6">🏢</div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 cms-editable"
+                    data-editable="addresses_title"
+                    data-section-id="footer"
+                >
                     Наши адреса
                 </h3>
                 <div class="space-y-5">
                     <div>
-                        <p class="text-gray-700 font-bold text-sm mb-3">
+                        <p class="text-gray-700 font-bold text-sm mb-3 cms-editable"
+                            data-editable="office_label"
+                            data-section-id="footer"
+                        >
                             Офис:
                         </p>
                         <p
-                            class="text-gray-600 text-base leading-relaxed"
+                            class="text-gray-600 text-base leading-relaxed cms-editable"
+                            data-editable="contacts_office"
+                            data-section-id="footer"
                         >
-                            115035, Россия, г. Москва, Космодамианская
-                            наб., д. 40-42, стр. 3, эт. 1, пом. XVII,
-                            ком. 1
+                            115035, Россия, г. Москва, Космодамианская наб., д.
+                            40-42, стр. 3, эт. 1, пом. XVII, ком. 1
                         </p>
                     </div>
                     <div class="pt-4 border-t-2 border-gray-200">
-                        <p class="text-gray-700 font-bold text-sm mb-3">
+                        <p class="text-gray-700 font-bold text-sm mb-3 cms-editable"
+                            data-editable="warehouse_label"
+                            data-section-id="footer"
+                        >
                             Производство/Склад:
                         </p>
                         <p
-                            class="text-gray-600 text-base leading-relaxed"
+                            class="text-gray-600 text-base leading-relaxed cms-editable"
+                            data-editable="contacts_warehouse"
+                            data-section-id="footer"
                         >
                             143980, Россия, Московская область, г.
                             Железнодорожный, ул. Автозаводская, 50А
@@ -56,13 +72,22 @@
                 class="outlined-card border-gray-200 rounded-3xl p-8 text-center hover:border-teal transition"
             >
                 <div class="text-6xl mb-6">📦</div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
+                    data-editable="wholesale_title"
+                    data-section-id="footer"
+                >
                     Оптовые продажи
                 </h3>
-                <p class="text-gray-600 text-base mb-5">
+                <p class="text-gray-600 text-base mb-5 cms-editable"
+                    data-editable="wholesale_subtitle"
+                    data-section-id="footer"
+                >
                     Госзакупки (44-ФЗ, 223-ФЗ)
                 </p>
-                <div class="space-y-3 text-base text-gray-700">
+                <div class="space-y-3 text-base text-gray-700 cms-editable"
+                    data-editable="wholesale_contacts"
+                    data-section-id="footer"
+                >
                     <p>
                         <a
                             href="tel:+74993913908"
@@ -98,20 +123,33 @@
         <!-- Retail Distributor -->
         <div
             class="outlined-card border-accent/30 rounded-3xl p-10 bg-gradient-to-br from-peach/30 to-white"
+            data-section-id="distributor_1"
+            data-duplicable="true"
         >
             <div class="text-center">
                 <div class="text-6xl mb-6">🛒</div>
-                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4 cms-editable"
+                    data-editable="title"
+                    data-section-id="distributor_1"
+                >
                     Мелкоптовые продажи / Ритейл
                 </h3>
-                <p class="text-gray-700 font-bold mb-3 text-lg">
+                <p class="text-gray-700 font-bold mb-3 text-lg cms-editable"
+                    data-editable="company"
+                    data-section-id="distributor_1"
+                >
                     Официальный дистрибьютор ООО «БАРРАКУДА»
                 </p>
-                <p class="text-gray-600 text-base mb-6">
+                <p class="text-gray-600 text-base mb-6 cms-editable"
+                    data-editable="address"
+                    data-section-id="distributor_1"
+                >
                     127083 г. Москва, улица Юннатов дом 18, офис 104
                 </p>
                 <div
-                    class="flex flex-wrap justify-center gap-8 text-base text-gray-700"
+                    class="flex flex-wrap justify-center gap-8 text-base text-gray-700 cms-editable"
+                    data-editable="contacts"
+                    data-section-id="distributor_1"
                 >
                     <a
                         href="tel:+79646351188"
@@ -140,7 +178,10 @@
 
         <!-- Copyright -->
         <div class="mt-16 pt-10 border-t-2 border-gray-200 text-center">
-            <p class="text-gray-600 text-lg">
+            <p class="text-gray-600 text-lg cms-editable"
+                data-editable="copyright"
+                data-section-id="footer"
+            >
                 © 2005 - 2025 OOO "НЕО-Фрут". Все права защищены.
             </p>
         </div>

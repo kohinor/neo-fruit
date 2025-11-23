@@ -187,13 +187,13 @@
                     >
                         <!-- Image -->
                         <div
-                            class="p-8 lg:p-10 flex items-center justify-center angle-image-container"
+                            class="p-8 lg:p-10 flex flex-col angle-image-container"
                         >
                             <div class="relative w-full">
                                 <!-- Layered photo effect - Image 1 -->
                                 <div
                                     class="stylish-image-wrapper product-image-clickable mb-12"
-                                    onclick="openLightbox('product1', 0)"
+                                    onclick="openLightbox('product1', 0, event)"
                                 >
                                     <img
                                         src="../images/products/1 Абрикосовая с фундуком.jpg"
@@ -205,7 +205,7 @@
                                 <!-- Layered photo effect - Image 2 -->
                                 <div
                                     class="stylish-image-wrapper product-image-clickable"
-                                    onclick="openLightbox('product1', 1)"
+                                    onclick="openLightbox('product1', 1, event)"
                                 >
                                     <img
                                         src="../images/products/1 Абрикос.jpg"
@@ -215,21 +215,102 @@
                                     />
                                 </div>
                             </div>
+
+                            <!-- Benefits Icons -->
+                            <div class="grid grid-cols-2 gap-4 mt-8">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit1_icon"
+                                        data-section-id="product1"
+                                    >
+                                        💪
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit1"
+                                        data-section-id="product1"
+                                    >
+                                        Высокая энергетическая ценность
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit2_icon"
+                                        data-section-id="product1"
+                                    >
+                                        🌱
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit2"
+                                        data-section-id="product1"
+                                    >
+                                        Натуральные витамины A, E
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit3_icon"
+                                        data-section-id="product1"
+                                    >
+                                        ⚡
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit3"
+                                        data-section-id="product1"
+                                    >
+                                        Быстрый заряд энергии
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit4_icon"
+                                        data-section-id="product1"
+                                    >
+                                        ❤️
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit4"
+                                        data-section-id="product1"
+                                    >
+                                        Полезно для сердца
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Content -->
                         <div class="p-12 flex flex-col justify-center">
                             <div class="flex items-center gap-4 mb-6">
-                                <div class="text-6xl">☀️</div>
+                                <div class="text-6xl cms-editable"
+                                    data-editable="main_icon"
+                                    data-section-id="product1"
+                                >☀️</div>
                                 <span
-                                    class="text-sm font-bold text-orange-600 bg-white px-4 py-2 rounded-full"
+                                    class="text-sm font-bold text-orange-600 bg-white px-4 py-2 rounded-full cms-editable"
+                                    data-editable="badge"
+                                    data-section-id="product1"
                                 >
                                     Бестселлер
                                 </span>
                             </div>
 
                             <h2
-                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6 cms-editable"
                                 data-editable="title"
                                 data-section-id="product1"
                             >
@@ -237,7 +318,7 @@
                             </h2>
 
                             <p
-                                class="text-lg text-gray-700 mb-6 leading-relaxed"
+                                class="text-lg text-gray-700 mb-6 leading-relaxed cms-editable"
                                 data-editable="description"
                                 data-section-id="product1"
                             >
@@ -250,29 +331,31 @@
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
                                 <h3
-                                    class="font-bold text-gray-800 mb-4 text-xl"
+                                    class="font-bold text-gray-800 mb-4 text-xl cms-editable"
+                                    data-editable="composition_title"
+                                    data-section-id="product1"
                                 >
                                     Состав:
                                 </h3>
-                                <p class="text-gray-700 leading-relaxed mb-4" data-editable="composition" data-section-id="product1">
+                                <p class="text-gray-700 leading-relaxed mb-4 cms-editable" data-editable="composition" data-section-id="product1">
                                     Абрикос обезвоженный, фундук, сахар
                                 </p>
                                 <div
                                     class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600"
                                 >
-                                    <div>
+                                    <div class="cms-editable" data-editable="weight" data-section-id="product1">
                                         <span class="font-semibold"
                                             >Вес Нетто:</span
                                         ><br />
                                         50г
                                     </div>
-                                    <div>
+                                    <div class="cms-editable" data-editable="shelf_life" data-section-id="product1">
                                         <span class="font-semibold"
                                             >Срок хранения:</span
                                         ><br />
                                         12 месяцев
                                     </div>
-                                    <div>
+                                    <div class="cms-editable" data-editable="price" data-section-id="product1">
                                         <span class="font-semibold"
                                             >Средняя цена:</span
                                         ><br />
@@ -283,91 +366,55 @@
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
                                 <h3
-                                    class="font-bold text-gray-800 mb-3 text-lg"
+                                    class="font-bold text-gray-800 mb-3 text-lg cms-editable"
+                                    data-editable="form_title"
+                                    data-section-id="product1"
                                 >
                                     Форма выпуска:
                                 </h3>
                                 <p
-                                    class="text-gray-700 leading-relaxed text-sm mb-3"
+                                    class="text-gray-700 leading-relaxed text-sm mb-3 cms-editable"
+                                    data-editable="form_description"
+                                    data-section-id="product1"
                                 >
                                     Батончик, упакованный в надежную двуслойную
                                     полимерную пленку с самоклеящейся этикеткой.
                                 </p>
-                                <p class="text-gray-600 text-sm">
+                                <p class="text-gray-600 text-sm cms-editable"
+                                    data-editable="transport"
+                                    data-section-id="product1"
+                                >
                                     <span class="font-semibold"
                                         >Транспортная тара:</span
                                     >
                                     Гофрокороб по 150 штук.
                                 </p>
-                                <p class="text-gray-500 text-xs mt-3">
+                                <p class="text-gray-500 text-xs mt-3 cms-editable"
+                                    data-editable="tu"
+                                    data-section-id="product1"
+                                >
                                     <span class="font-semibold"
                                         >ТУ 10.39.25-001-12681583-2017</span
                                     >
                                 </p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
+                            <div class="bg-white/80 rounded-2xl p-6 mb-6">
+                                <p class="text-gray-700 text-sm leading-relaxed cms-editable"
+                                    data-editable="nutritional_info"
+                                    data-section-id="product1"
                                 >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        💪
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Высокая энергетическая ценность
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        🌱
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Натуральные витамины A, E
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        ⚡
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Быстрый заряд энергии
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        ❤️
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Полезно для сердца
-                                    </p>
-                                </div>
+                                    <strong>Курага (абрикосы сушеные без косточки)</strong> богат такими витаминами и минералами, как: витамином А -64,8%, бэта-каротином -70%, витамином B2 -11,1%, витамином E -36,7%, витамином PP -19,5%, калием -68,7%, кальцием -16%, кремнием -86,7%, магнием -26,3%, фосфором -18,3%, железом -17,8%, кобальтом -84%, марганцем -11,8%, медью -34,3%, молибденом -17,4%, хромом -118%
+                                    <br><br>
+                                    <strong>Фундук</strong> богат такими витаминами и минералами, как: витамином B1 -20%, витамином B5 -23%, витамином B6 -28,2%, витамином B9 -28,3 %, витамином E -136%, витамином H -152%, витамином K -11,8%, витамином PP -26%, калием -28,7%, кальцием -17%, кремнием -166,7%, магнием -43%, фосфором -37,4%, железом -16,7%, кобальтом -123%, марганцем -308,8%, медью -112%, молибденом -42,4%, хромом -340%, цинком -20,4%
+                                </p>
                             </div>
 
                             <a
                                 href="#order-info"
-                                class="soft-button bg-teal text-center text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10"
+                                class="soft-button bg-teal text-center text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10 cms-editable"
+                                data-editable="button"
+                                data-section-id="product1"
                             >
                                 Заказать сейчас
                             </a>
@@ -399,16 +446,21 @@
                             class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1"
                         >
                             <div class="flex items-center gap-4 mb-6">
-                                <div class="text-6xl">🍑</div>
+                                <div class="text-6xl cms-editable"
+                                    data-editable="main_icon"
+                                    data-section-id="product2"
+                                >🍑</div>
                                 <span
-                                    class="text-sm font-bold text-purple-600 bg-white px-4 py-2 rounded-full"
+                                    class="text-sm font-bold text-purple-600 bg-white px-4 py-2 rounded-full cms-editable"
+                                    data-editable="badge"
+                                    data-section-id="product2"
                                 >
                                     Сбалансированный вкус
                                 </span>
                             </div>
 
                             <h2
-                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6 cms-editable"
                                 data-editable="title"
                                 data-section-id="product2"
                             >
@@ -416,7 +468,7 @@
                             </h2>
 
                             <p
-                                class="text-lg text-gray-700 mb-6 leading-relaxed"
+                                class="text-lg text-gray-700 mb-6 leading-relaxed cms-editable"
                                 data-editable="description"
                                 data-section-id="product2"
                             >
@@ -429,30 +481,35 @@
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
                                 <h3
-                                    class="font-bold text-gray-800 mb-4 text-xl"
+                                    class="font-bold text-gray-800 mb-4 text-xl cms-editable"
+                                    data-editable="composition_title"
+                                    data-section-id="product2"
                                 >
                                     Состав:
                                 </h3>
-                                <p class="text-gray-700 leading-relaxed mb-4">
+                                <p class="text-gray-700 leading-relaxed mb-4 cms-editable"
+                                    data-editable="composition"
+                                    data-section-id="product2"
+                                >
                                     Абрикос обезвоженный, чернослив
                                     обезвоженный, фундук, сахар
                                 </p>
                                 <div
                                     class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600"
                                 >
-                                    <div>
+                                    <div class="cms-editable" data-editable="weight" data-section-id="product2">
                                         <span class="font-semibold"
                                             >Вес Нетто:</span
                                         ><br />
                                         50г
                                     </div>
-                                    <div>
+                                    <div class="cms-editable" data-editable="shelf_life" data-section-id="product2">
                                         <span class="font-semibold"
                                             >Срок хранения:</span
                                         ><br />
                                         12 месяцев
                                     </div>
-                                    <div>
+                                    <div class="cms-editable" data-editable="price" data-section-id="product2">
                                         <span class="font-semibold"
                                             >Средняя цена:</span
                                         ><br />
@@ -463,91 +520,57 @@
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
                                 <h3
-                                    class="font-bold text-gray-800 mb-3 text-lg"
+                                    class="font-bold text-gray-800 mb-3 text-lg cms-editable"
+                                    data-editable="form_title"
+                                    data-section-id="product2"
                                 >
                                     Форма выпуска:
                                 </h3>
                                 <p
-                                    class="text-gray-700 leading-relaxed text-sm mb-3"
+                                    class="text-gray-700 leading-relaxed text-sm mb-3 cms-editable"
+                                    data-editable="form_description"
+                                    data-section-id="product2"
                                 >
                                     Батончик, упакованный в надежную двуслойную
                                     полимерную пленку с самоклеящейся этикеткой.
                                 </p>
-                                <p class="text-gray-600 text-sm">
+                                <p class="text-gray-600 text-sm cms-editable"
+                                    data-editable="transport"
+                                    data-section-id="product2"
+                                >
                                     <span class="font-semibold"
                                         >Транспортная тара:</span
                                     >
                                     Гофрокороб по 150 штук.
                                 </p>
-                                <p class="text-gray-500 text-xs mt-3">
+                                <p class="text-gray-500 text-xs mt-3 cms-editable"
+                                    data-editable="tu"
+                                    data-section-id="product2"
+                                >
                                     <span class="font-semibold"
                                         >ТУ 10.39.25-001-12681583-2017</span
                                     >
                                 </p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
+                            <div class="bg-white/80 rounded-2xl p-6 mb-6">
+                                <p class="text-gray-700 text-sm leading-relaxed cms-editable"
+                                    data-editable="nutritional_info"
+                                    data-section-id="product2"
                                 >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        🧠
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Улучшает работу мозга
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        🍃
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Богат клетчаткой
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        💎
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Антиоксиданты
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        🌟
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Поддержка иммунитета
-                                    </p>
-                                </div>
+                                    <strong>Курага (абрикосы сушеные без косточки)</strong> богат такими витаминами и минералами, как: витамином А -64,8%, бэта-каротином -70%, витамином B2 -11,1%, витамином E -36,7%, витамином PP -19,5%, калием -68,7%, кальцием -16%, кремнием -86,7%, магнием -26,3%, фосфором -18,3%, железом -17,8%, кобальтом -84%, марганцем -11,8%, медью -34,3%, молибденом -17,4%, хромом -118%
+                                    <br><br>
+                                    <strong>Чернослив</strong> богат такими витаминами и минералами, как: витамином E -12%, витамином K -49,6%, калием -34,6%, магнием -25,5%, железом -16,7%, марганцем -15%, медью -28,1%
+                                    <br><br>
+                                    <strong>Фундук</strong> богат такими витаминами и минералами, как: витамином B1 -20%, витамином B5 -23%, витамином B6 -28,2%, витамином B9 -28,3 %, витамином E -136%, витамином H -152%, витамином K -11,8%, витамином PP -26%, калием -28,7%, кальцием -17%, кремнием -166,7%, магнием -43%, фосфором -37,4%, железом -16,7%, кобальтом -123%, марганцем -308,8%, медью -112%, молибденом -42,4%, хромом -340%, цинком -20,4%
+                                </p>
                             </div>
 
                             <a
                                 href="#order-info"
-                                class="soft-button bg-accent text-center text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10"
+                                class="soft-button bg-accent text-center text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10 cms-editable"
+                                data-editable="button"
+                                data-section-id="product2"
                             >
                                 Заказать сейчас
                             </a>
@@ -555,13 +578,13 @@
 
                         <!-- Image -->
                         <div
-                            class="p-8 lg:p-10 flex items-center justify-center order-1 lg:order-2 angle-image-reverse"
+                            class="p-8 lg:p-10 flex flex-col order-1 lg:order-2 angle-image-reverse"
                         >
                             <div class="relative w-full">
                                 <!-- Layered photo effect - Image 1 -->
                                 <div
                                     class="stylish-image-wrapper product-image-clickable mb-12"
-                                    onclick="openLightbox('product2', 0)"
+                                    onclick="openLightbox('product2', 0, event)"
                                 >
                                     <img
                                         src="../images/products/2 Абриосово-сливовая с фундуко.jpg"
@@ -573,7 +596,7 @@
                                 <!-- Layered photo effect - Image 2 -->
                                 <div
                                     class="stylish-image-wrapper product-image-clickable"
-                                    onclick="openLightbox('product2', 1)"
+                                    onclick="openLightbox('product2', 1, event)"
                                 >
                                     <img
                                         src="../images/products/2 Абрикосово-сливовая.jpg"
@@ -581,6 +604,82 @@
                                         class="relative rounded-2xl w-full shadow-2xl"
                                         data-editable-image="product2_image2"
                                     />
+                                </div>
+                            </div>
+
+                            <!-- Benefits Icons -->
+                            <div class="grid grid-cols-2 gap-4 mt-8">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit1_icon"
+                                        data-section-id="product2"
+                                    >
+                                        🧠
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit1"
+                                        data-section-id="product2"
+                                    >
+                                        Улучшает работу мозга
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit2_icon"
+                                        data-section-id="product2"
+                                    >
+                                        🍃
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit2"
+                                        data-section-id="product2"
+                                    >
+                                        Богат клетчаткой
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit3_icon"
+                                        data-section-id="product2"
+                                    >
+                                        💎
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit3"
+                                        data-section-id="product2"
+                                    >
+                                        Антиоксиданты
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit4_icon"
+                                        data-section-id="product2"
+                                    >
+                                        🌟
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit4"
+                                        data-section-id="product2"
+                                    >
+                                        Поддержка иммунитета
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -604,13 +703,13 @@
                     >
                         <!-- Image -->
                         <div
-                            class="p-8 lg:p-10 flex items-center justify-center angle-image-container"
+                            class="p-8 lg:p-10 flex flex-col angle-image-container"
                         >
                             <div class="relative w-full">
                                 <!-- Layered photo effect - Image 1 -->
                                 <div
                                     class="stylish-image-wrapper product-image-clickable mb-12"
-                                    onclick="openLightbox('product3', 0)"
+                                    onclick="openLightbox('product3', 0, event)"
                                 >
                                     <img
                                         src="../images/products/3 Чернослив с орехами.jpg"
@@ -622,7 +721,7 @@
                                 <!-- Layered photo effect - Image 2 -->
                                 <div
                                     class="stylish-image-wrapper product-image-clickable"
-                                    onclick="openLightbox('product3', 1)"
+                                    onclick="openLightbox('product3', 1, event)"
                                 >
                                     <img
                                         src="../images/products/3 Чернослив-с-орехом.jpg"
@@ -632,21 +731,102 @@
                                     />
                                 </div>
                             </div>
+
+                            <!-- Benefits Icons -->
+                            <div class="grid grid-cols-2 gap-4 mt-8">
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit1_icon"
+                                        data-section-id="product3"
+                                    >
+                                        🦴
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit1"
+                                        data-section-id="product3"
+                                    >
+                                        Для костей и зубов
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit2_icon"
+                                        data-section-id="product3"
+                                    >
+                                        👀
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit2"
+                                        data-section-id="product3"
+                                    >
+                                        Поддержка зрения
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit3_icon"
+                                        data-section-id="product3"
+                                    >
+                                        🌿
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit3"
+                                        data-section-id="product3"
+                                    >
+                                        Нормализует пищеварение
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white/80 rounded-xl p-4 text-center"
+                                >
+                                    <div
+                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2 cms-editable"
+                                        data-editable="benefit4_icon"
+                                        data-section-id="product3"
+                                    >
+                                        🔋
+                                    </div>
+                                    <p
+                                        class="text-sm font-semibold text-gray-800 cms-editable"
+                                        data-editable="benefit4"
+                                        data-section-id="product3"
+                                    >
+                                        Заряд энергии
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Content -->
                         <div class="p-8 lg:p-12 flex flex-col justify-center">
                             <div class="flex items-center gap-4 mb-6">
-                                <div class="text-6xl">🌰</div>
+                                <div class="text-6xl cms-editable"
+                                    data-editable="main_icon"
+                                    data-section-id="product3"
+                                >🌰</div>
                                 <span
-                                    class="text-sm font-bold text-purple-700 bg-white px-4 py-2 rounded-full"
+                                    class="text-sm font-bold text-purple-700 bg-white px-4 py-2 rounded-full cms-editable"
+                                    data-editable="badge"
+                                    data-section-id="product3"
                                 >
                                     Максимум пользы
                                 </span>
                             </div>
 
                             <h2
-                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6"
+                                class="font-display text-4xl md:text-5xl font-black text-gray-800 mb-6 cms-editable"
                                 data-editable="title"
                                 data-section-id="product3"
                             >
@@ -654,7 +834,7 @@
                             </h2>
 
                             <p
-                                class="text-lg text-gray-700 mb-6 leading-relaxed"
+                                class="text-lg text-gray-700 mb-6 leading-relaxed cms-editable"
                                 data-editable="description"
                                 data-section-id="product3"
                             >
@@ -666,29 +846,34 @@
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
                                 <h3
-                                    class="font-bold text-gray-800 mb-4 text-xl"
+                                    class="font-bold text-gray-800 mb-4 text-xl cms-editable"
+                                    data-editable="composition_title"
+                                    data-section-id="product3"
                                 >
                                     Состав:
                                 </h3>
-                                <p class="text-gray-700 leading-relaxed mb-4">
+                                <p class="text-gray-700 leading-relaxed mb-4 cms-editable"
+                                    data-editable="composition"
+                                    data-section-id="product3"
+                                >
                                     Чернослив обезвоженный, фундук, сахар
                                 </p>
                                 <div
                                     class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600"
                                 >
-                                    <div>
+                                    <div class="cms-editable" data-editable="weight" data-section-id="product3">
                                         <span class="font-semibold"
                                             >Вес Нетто:</span
                                         ><br />
                                         50г
                                     </div>
-                                    <div>
+                                    <div class="cms-editable" data-editable="shelf_life" data-section-id="product3">
                                         <span class="font-semibold"
                                             >Срок хранения:</span
                                         ><br />
                                         12 месяцев
                                     </div>
-                                    <div>
+                                    <div class="cms-editable" data-editable="price" data-section-id="product3">
                                         <span class="font-semibold"
                                             >Средняя цена:</span
                                         ><br />
@@ -699,91 +884,55 @@
 
                             <div class="bg-white/80 rounded-2xl p-6 mb-6">
                                 <h3
-                                    class="font-bold text-gray-800 mb-3 text-lg"
+                                    class="font-bold text-gray-800 mb-3 text-lg cms-editable"
+                                    data-editable="form_title"
+                                    data-section-id="product3"
                                 >
                                     Форма выпуска:
                                 </h3>
                                 <p
-                                    class="text-gray-700 leading-relaxed text-sm mb-3"
+                                    class="text-gray-700 leading-relaxed text-sm mb-3 cms-editable"
+                                    data-editable="form_description"
+                                    data-section-id="product3"
                                 >
                                     Батончик, упакованный в надежную двуслойную
                                     полимерную пленку с самоклеящейся этикеткой.
                                 </p>
-                                <p class="text-gray-600 text-sm">
+                                <p class="text-gray-600 text-sm cms-editable"
+                                    data-editable="transport"
+                                    data-section-id="product3"
+                                >
                                     <span class="font-semibold"
                                         >Транспортная тара:</span
                                     >
                                     Гофрокороб по 150 штук.
                                 </p>
-                                <p class="text-gray-500 text-xs mt-3">
+                                <p class="text-gray-500 text-xs mt-3 cms-editable"
+                                    data-editable="tu"
+                                    data-section-id="product3"
+                                >
                                     <span class="font-semibold"
                                         >ТУ 10.39.25-001-12681583-2017</span
                                     >
                                 </p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
+                            <div class="bg-white/80 rounded-2xl p-6 mb-6">
+                                <p class="text-gray-700 text-sm leading-relaxed cms-editable"
+                                    data-editable="nutritional_info"
+                                    data-section-id="product3"
                                 >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        🦴
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Укрепляет кости
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        👁️
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Полезно для зрения
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        🌿
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Улучшает пищеварение
-                                    </p>
-                                </div>
-                                <div
-                                    class="bg-white/80 rounded-xl p-4 text-center"
-                                >
-                                    <div
-                                        class="icon-badge rounded-full flex items-center justify-center text-2xl mx-auto mb-2"
-                                    >
-                                        ⭐
-                                    </div>
-                                    <p
-                                        class="text-sm font-semibold text-gray-800"
-                                    >
-                                        Долгое насыщение
-                                    </p>
-                                </div>
+                                    <strong>Чернослив</strong> богат такими витаминами и минералами, как: витамином E -12%, витамином K -49,6%, калием -34,6%, магнием -25,5%, железом -16,7%, марганцем -15%, медью -28,1%
+                                    <br><br>
+                                    <strong>Фундук</strong> богат такими витаминами и минералами, как: витамином B1 -20%, витамином B5 -23%, витамином B6 -28,2%, витамином B9 -28,3 %, витамином E -136%, витамином H -152%, витамином K -11,8%, витамином PP -26%, калием -28,7%, кальцием -17%, кремнием -166,7%, магнием -43%, фосфором -37,4%, железом -16,7%, кобальтом -123%, марганцем -308,8%, медью -112%, молибденом -42,4%, хромом -340%, цинком -20,4%
+                                </p>
                             </div>
 
                             <a
                                 href="#order-info"
-                                class="soft-button bg-teal text-center text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10"
+                                class="soft-button bg-teal text-center text-white px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto relative z-10 cms-editable"
+                                data-editable="button"
+                                data-section-id="product3"
                             >
                                 Заказать сейчас
                             </a>
@@ -796,6 +945,8 @@
         <!-- CTA Section -->
         <section
             class="py-24 bg-gradient-to-br from-teal via-teal to-accent relative overflow-hidden"
+            data-section-id="products_cta"
+            data-duplicable="false"
         >
             <div
                 class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC00Yy0xLjEgMC0yIC45LTIgMnY0YzAgMS4xLjkgMiAyIDJoNGMxLjEgMCAyLS45IDItMnYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"
@@ -804,12 +955,16 @@
                 class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10"
             >
                 <h2
-                    class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg"
+                    class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg cms-editable"
+                    data-editable="title"
+                    data-section-id="products_cta"
                 >
                     Выберите свой вкус!
                 </h2>
                 <p
-                    class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed"
+                    class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed cms-editable"
+                    data-editable="description"
+                    data-section-id="products_cta"
                 >
                     Все три вкуса доступны для заказа. Попробуйте каждый и
                     найдите свой любимый, или наслаждайтесь разнообразием каждый
@@ -818,7 +973,9 @@
                 <div class="flex flex-wrap gap-4 justify-center">
                     <a
                         href="#order-info"
-                        class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105"
+                        class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105 cms-editable"
+                        data-editable="button"
+                        data-section-id="products_cta"
                     >
                         Оформить заказ
                     </a>

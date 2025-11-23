@@ -87,6 +87,10 @@ class CMSEditor {
                         <span class="cms-menu-icon">⏮️</span>
                         <span class="cms-menu-text">История версий</span>
                     </button>
+                    <button id="cms-reset-original" class="cms-menu-btn cms-menu-btn-warning">
+                        <span class="cms-menu-icon">🔄</span>
+                        <span class="cms-menu-text">Сбросить к оригиналу</span>
+                    </button>
                     <button id="cms-logout" class="cms-menu-btn cms-menu-btn-danger">
                         <span class="cms-menu-icon">🚪</span>
                         <span class="cms-menu-text">Выйти</span>
@@ -139,6 +143,7 @@ class CMSEditor {
         const logoutBtn = document.getElementById('cms-logout');
         const toggleEditBtn = document.getElementById('cms-toggle-edit');
         const versionHistoryBtn = document.getElementById('cms-version-history');
+        const resetOriginalBtn = document.getElementById('cms-reset-original');
 
         if (loginBtn) {
             loginBtn.addEventListener('click', () => this.showLoginModal());
@@ -154,6 +159,10 @@ class CMSEditor {
 
         if (versionHistoryBtn) {
             versionHistoryBtn.addEventListener('click', () => this.showVersionHistory());
+        }
+
+        if (resetOriginalBtn) {
+            resetOriginalBtn.addEventListener('click', () => this.resetToOriginal());
         }
     }
 
@@ -350,7 +359,18 @@ class CMSEditor {
         editables.forEach(element => {
             element.classList.add('cms-editable');
             element.contentEditable = 'true';
-            element.addEventListener('blur', (e) => this.handleContentChange(e));
+            element.addEventListener('blur', (e) => {
+                // Don't handle blur if clicking inside toolbar
+                setTimeout(() => {
+                    const activeElement = document.activeElement;
+                    const toolbar = document.getElementById('cms-formatting-toolbar');
+                    if (toolbar && (toolbar.contains(activeElement) || activeElement === toolbar)) {
+                        return;
+                    }
+                    this.handleContentChange(e);
+                }, 100);
+            });
+            element.addEventListener('focus', (e) => this.showFormattingToolbar(e));
 
             // Add edit indicator
             const indicator = document.createElement('span');
@@ -358,10 +378,30 @@ class CMSEditor {
             indicator.textContent = '✏️';
             element.style.position = 'relative';
             element.appendChild(indicator);
+
+            // Add reset button for this block
+            const resetBtn = document.createElement('button');
+            resetBtn.className = 'cms-block-reset-btn';
+            resetBtn.innerHTML = '🔄';
+            resetBtn.title = 'Сбросить к оригиналу';
+            resetBtn.contentEditable = 'false'; // Prevent button from being editable
+            resetBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.resetBlock(element);
+            });
+            resetBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            element.appendChild(resetBtn);
         });
 
         // Enable image editing
         this.enableImageEditing();
+
+        // Add keyboard shortcuts for formatting
+        this.addFormattingShortcuts();
     }
 
     enableImageEditing() {
@@ -426,10 +466,319 @@ class CMSEditor {
             if (indicator) {
                 indicator.remove();
             }
+
+            // Remove reset button
+            const resetBtn = element.querySelector('.cms-block-reset-btn');
+            if (resetBtn) {
+                resetBtn.remove();
+            }
         });
 
         // Disable image editing
         this.disableImageEditing();
+
+        // Remove formatting toolbar if exists
+        this.hideFormattingToolbar();
+    }
+
+    showFormattingToolbar(e) {
+        const element = e.target;
+
+        // Remove any existing toolbar
+        this.hideFormattingToolbar();
+
+        // Create compact toolbar with visual effect buttons
+        const toolbar = document.createElement('div');
+        toolbar.id = 'cms-formatting-toolbar';
+        toolbar.className = 'cms-formatting-toolbar';
+        toolbar.innerHTML = `
+            <button class="cms-toolbar-close" title="Закрыть">×</button>
+            <div class="cms-toolbar-buttons">
+                <button class="cms-format-btn cms-format-bold" data-command="bold" title="Жирный (Ctrl+B)">
+                    <b>Bold</b>
+                </button>
+                <button class="cms-format-btn cms-format-italic" data-command="italic" title="Курсив (Ctrl+I)">
+                    <i>Italic</i>
+                </button>
+                <button class="cms-format-btn cms-format-accent" data-command="span-class-text-accent" title="Цвет Accent">
+                    <span class="text-accent">Accent</span>
+                </button>
+                <button class="cms-format-btn cms-format-teal" data-command="span-class-text-teal" title="Цвет Teal">
+                    <span class="text-teal">Teal</span>
+                </button>
+                <button class="cms-format-btn cms-format-p" data-command="insertHTML-p" title="Параграф">
+                    &lt;p&gt;
+                </button>
+                <select class="cms-font-size-select" title="Размер шрифта">
+                    <option value="">Размер</option>
+                    <option value="0.75rem">0.75rem</option>
+                    <option value="0.875rem">0.875rem</option>
+                    <option value="1rem">1rem</option>
+                    <option value="1.125rem">1.125rem</option>
+                    <option value="1.25rem">1.25rem</option>
+                    <option value="1.5rem">1.5rem</option>
+                    <option value="1.875rem">1.875rem</option>
+                    <option value="2rem">2rem</option>
+                    <option value="2.25rem">2.25rem</option>
+                    <option value="3rem">3rem</option>
+                </select>
+            </div>
+        `;
+
+        // Add to body and position
+        document.body.appendChild(toolbar);
+        this.positionToolbar(toolbar, element);
+
+        // Add close button handler
+        const closeBtn = toolbar.querySelector('.cms-toolbar-close');
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.hideFormattingToolbar();
+        });
+
+        // Add font size select handler
+        const fontSizeSelect = toolbar.querySelector('.cms-font-size-select');
+
+        // Pre-select current font size if there's a selection
+        const currentFontSize = this.getCurrentFontSize();
+        if (currentFontSize) {
+            fontSizeSelect.value = currentFontSize;
+        }
+
+        fontSizeSelect.addEventListener('mousedown', (e) => {
+            e.stopPropagation();
+        });
+        fontSizeSelect.addEventListener('change', (e) => {
+            const size = e.target.value;
+            if (size) {
+                this.applyFontSize(size, element);
+                e.target.value = ''; // Reset select
+            }
+        });
+
+        // Add event listeners for format buttons
+        toolbar.querySelectorAll('.cms-format-btn').forEach(btn => {
+            btn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                const command = btn.getAttribute('data-command');
+                this.applyFormatting(command, element);
+            });
+        });
+
+        // Store reference for cleanup
+        this.currentToolbar = toolbar;
+        this.currentEditableElement = element;
+
+        // Reposition on window resize or scroll
+        this.toolbarRepositionHandler = () => this.positionToolbar(toolbar, element);
+        window.addEventListener('scroll', this.toolbarRepositionHandler, true);
+        window.addEventListener('resize', this.toolbarRepositionHandler);
+    }
+
+    positionToolbar(toolbar, element) {
+        const rect = element.getBoundingClientRect();
+        const toolbarHeight = toolbar.offsetHeight;
+        const toolbarWidth = toolbar.offsetWidth;
+        const viewportHeight = window.innerHeight;
+        const viewportWidth = window.innerWidth;
+
+        let top, left, width;
+
+        // Match the width of the editable element
+        width = rect.width;
+
+        // Position ABOVE the element (attached to top edge, but outside)
+        top = rect.top - toolbarHeight;
+        left = rect.left;
+
+        // Ensure minimum width for toolbar
+        if (width < 500) {
+            width = Math.min(500, viewportWidth - 40);
+        }
+
+        // If toolbar goes off right edge, adjust left position
+        if (left + width > viewportWidth - 20) {
+            left = Math.max(20, viewportWidth - width - 20);
+        }
+
+        // If toolbar goes off left edge, align to left edge of viewport
+        if (left < 20) {
+            left = 20;
+            width = Math.min(width, viewportWidth - 40);
+        }
+
+        // If not enough space above, position below the element instead
+        if (top < 20) {
+            top = rect.bottom;
+        }
+
+        toolbar.style.position = 'fixed';
+        toolbar.style.left = left + 'px';
+        toolbar.style.top = top + 'px';
+        toolbar.style.width = width + 'px';
+        toolbar.style.zIndex = '10001';
+    }
+
+    hideFormattingToolbar() {
+        const toolbar = document.getElementById('cms-formatting-toolbar');
+        if (toolbar) {
+            toolbar.classList.add('cms-toolbar-closing');
+            setTimeout(() => toolbar.remove(), 200);
+        }
+        this.currentToolbar = null;
+
+        // Clean up event listeners
+        if (this.toolbarRepositionHandler) {
+            window.removeEventListener('scroll', this.toolbarRepositionHandler, true);
+            window.removeEventListener('resize', this.toolbarRepositionHandler);
+            this.toolbarRepositionHandler = null;
+        }
+    }
+
+    applyFormatting(command, element) {
+        if (command.startsWith('span-class-')) {
+            // Handle span with custom class
+            const className = command.replace('span-class-', '');
+            const selection = window.getSelection();
+
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                const selectedText = range.toString();
+
+                if (selectedText) {
+                    const wrapper = document.createElement('span');
+                    wrapper.className = className;
+                    wrapper.textContent = selectedText;
+                    range.deleteContents();
+                    range.insertNode(wrapper);
+
+                    // Move cursor after inserted element
+                    range.setStartAfter(wrapper);
+                    range.collapse(true);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
+            }
+        } else if (command.startsWith('insertHTML-')) {
+            const tag = command.split('-')[1];
+            const selection = window.getSelection();
+
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                const selectedText = range.toString();
+
+                if (selectedText) {
+                    const wrapper = document.createElement(tag);
+                    wrapper.textContent = selectedText;
+                    range.deleteContents();
+                    range.insertNode(wrapper);
+
+                    // Move cursor after inserted element
+                    range.setStartAfter(wrapper);
+                    range.collapse(true);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
+            }
+        } else {
+            // Standard commands like bold, italic
+            document.execCommand(command, false, null);
+        }
+
+        // Keep focus on element
+        element.focus();
+    }
+
+    applyFontSize(size, element) {
+        const selection = window.getSelection();
+
+        if (selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            const selectedText = range.toString();
+
+            if (selectedText) {
+                const wrapper = document.createElement('span');
+                wrapper.style.fontSize = size;
+                wrapper.textContent = selectedText;
+                range.deleteContents();
+                range.insertNode(wrapper);
+
+                // Move cursor after inserted element
+                range.setStartAfter(wrapper);
+                range.collapse(true);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+        }
+
+        // Keep focus on element
+        element.focus();
+    }
+
+    getCurrentFontSize() {
+        const selection = window.getSelection();
+        if (selection.rangeCount === 0) return null;
+
+        const range = selection.getRangeAt(0);
+
+        // Get the parent element of the selection
+        let container = range.commonAncestorContainer;
+
+        // If it's a text node, get its parent element
+        if (container.nodeType === Node.TEXT_NODE) {
+            container = container.parentElement;
+        }
+
+        // Get computed style
+        const computedStyle = window.getComputedStyle(container);
+        const fontSize = computedStyle.fontSize;
+
+        // Convert px to rem (assuming 16px = 1rem base)
+        if (fontSize && fontSize.endsWith('px')) {
+            const pxValue = parseFloat(fontSize);
+            const remValue = pxValue / 16;
+
+            // Round to common rem values
+            const commonSizes = [0.75, 0.875, 1, 1.125, 1.25, 1.5, 1.875, 2, 2.25, 3];
+            const closest = commonSizes.reduce((prev, curr) => {
+                return Math.abs(curr - remValue) < Math.abs(prev - remValue) ? curr : prev;
+            });
+
+            return `${closest}rem`;
+        }
+
+        return fontSize;
+    }
+
+    addFormattingShortcuts() {
+        // Remove old listener if exists
+        if (this.formattingShortcutHandler) {
+            document.removeEventListener('keydown', this.formattingShortcutHandler);
+        }
+
+        this.formattingShortcutHandler = (e) => {
+            // Only apply in edit mode
+            if (!this.isEditMode) return;
+
+            // Check if we're in an editable element
+            const target = e.target;
+            if (!target.hasAttribute('data-editable')) return;
+
+            // Ctrl/Cmd + B for bold
+            if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                e.preventDefault();
+                document.execCommand('bold', false, null);
+            }
+
+            // Ctrl/Cmd + I for italic
+            if ((e.ctrlKey || e.metaKey) && e.key === 'i') {
+                e.preventDefault();
+                document.execCommand('italic', false, null);
+            }
+        };
+
+        document.addEventListener('keydown', this.formattingShortcutHandler);
     }
 
     async handleContentChange(e) {
@@ -437,6 +786,9 @@ class CMSEditor {
         const sectionId = element.getAttribute('data-section-id');
         const editableId = element.getAttribute('data-editable');
         const key = `${sectionId}_${editableId}`;
+
+        // Close the formatting toolbar when editing is done
+        this.hideFormattingToolbar();
 
         // Clone element and remove edit indicator before saving
         const clone = element.cloneNode(true);
@@ -497,20 +849,48 @@ class CMSEditor {
         sections.forEach(section => {
             const controls = document.createElement('div');
             controls.className = 'cms-section-controls';
+            controls.contentEditable = 'false';
             controls.innerHTML = `
-                <button class="cms-btn-icon cms-duplicate-btn" title="Дублировать секцию">📋</button>
-                <button class="cms-btn-icon cms-delete-btn" title="Удалить секцию">🗑️</button>
+                <button class="cms-btn-icon cms-duplicate-btn" title="Дублировать секцию" contenteditable="false">📋</button>
+                <button class="cms-btn-icon cms-reset-btn" title="Сбросить к оригиналу" contenteditable="false">🔄</button>
+                <button class="cms-btn-icon cms-delete-btn" title="Удалить секцию" contenteditable="false">🗑️</button>
             `;
 
             section.style.position = 'relative';
             section.insertBefore(controls, section.firstChild);
 
-            controls.querySelector('.cms-duplicate-btn').addEventListener('click', () => {
+            const duplicateBtn = controls.querySelector('.cms-duplicate-btn');
+            duplicateBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 this.duplicateSection(section);
             });
+            duplicateBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
 
-            controls.querySelector('.cms-delete-btn').addEventListener('click', () => {
+            const resetBtn = controls.querySelector('.cms-reset-btn');
+            resetBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.resetSection(section);
+            });
+            resetBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+
+            const deleteBtn = controls.querySelector('.cms-delete-btn');
+            deleteBtn.addEventListener('click', (e) => {
+                console.log('Delete button clicked for section:', section);
+                e.preventDefault();
+                e.stopPropagation();
                 this.deleteSection(section);
+            });
+            deleteBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
             });
         });
     }
@@ -531,6 +911,38 @@ class CMSEditor {
         indicators.forEach(ind => ind.remove());
         const imageOverlays = clone.querySelectorAll('.cms-image-overlay');
         imageOverlays.forEach(overlay => overlay.remove());
+
+        // Generate unique ID for the cloned section
+        const timestamp = Date.now();
+        const uniqueId = `${sectionId}_clone_${timestamp}`;
+        clone.setAttribute('data-section-id', uniqueId);
+
+        // Update all editable elements with unique IDs
+        const editables = clone.querySelectorAll('[data-editable]');
+        editables.forEach(element => {
+            const oldEditableId = element.getAttribute('data-editable');
+            const newEditableId = `${oldEditableId}_clone_${timestamp}`;
+            element.setAttribute('data-editable', newEditableId);
+            element.setAttribute('data-section-id', uniqueId);
+        });
+
+        // Update all editable images with unique IDs
+        const editableImages = clone.querySelectorAll('[data-editable-image]');
+        editableImages.forEach(img => {
+            const oldImageId = img.getAttribute('data-editable-image');
+            const newImageId = `${oldImageId}_clone_${timestamp}`;
+            img.setAttribute('data-editable-image', newImageId);
+        });
+
+        // Remove any image wrappers that might have been cloned
+        const imageWrappers = clone.querySelectorAll('.cms-image-wrapper');
+        imageWrappers.forEach(wrapper => {
+            const img = wrapper.querySelector('img');
+            if (img) {
+                wrapper.parentNode.insertBefore(img, wrapper);
+            }
+            wrapper.remove();
+        });
 
         const html = clone.outerHTML;
 
@@ -566,14 +978,61 @@ class CMSEditor {
         }
     }
 
-    async deleteSection(section) {
-        if (!confirm('Вы уверены, что хотите удалить эту секцию?')) {
+    async resetBlock(element) {
+        console.log('resetBlock called for element:', element);
+
+        const sectionId = element.getAttribute('data-section-id');
+        const editableId = element.getAttribute('data-editable');
+        console.log('Section ID:', sectionId, 'Editable ID:', editableId);
+
+        if (!sectionId || !editableId) {
+            this.showNotification('Ошибка: не найден ID блока', 'error');
+            return;
+        }
+
+        if (!confirm('Вы уверены, что хотите сбросить этот блок к оригинальному содержимому?')) {
+            return;
+        }
+
+        const key = `${sectionId}_${editableId}`;
+        console.log('Resetting key:', key);
+
+        const formData = new FormData();
+        formData.append('action', 'reset_section');
+        formData.append('section_id', key);
+
+        try {
+            const response = await fetch(this.basePath + 'api.php', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            console.log('API response:', data);
+
+            if (data.success) {
+                this.showNotification('Блок сброшен к оригиналу!', 'success');
+
+                // Reload page to show original content
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } else {
+                this.showNotification(data.error || 'Ошибка сброса', 'error');
+            }
+        } catch (error) {
+            console.error('Reset failed:', error);
+            this.showNotification('Ошибка сброса блока', 'error');
+        }
+    }
+
+    async resetSection(section) {
+        if (!confirm('Вы уверены, что хотите сбросить эту секцию к оригинальному содержимому?')) {
             return;
         }
 
         const sectionId = section.getAttribute('data-section-id');
         const formData = new FormData();
-        formData.append('action', 'delete_section');
+        formData.append('action', 'reset_section');
         formData.append('section_id', sectionId);
 
         try {
@@ -584,8 +1043,59 @@ class CMSEditor {
             const data = await response.json();
 
             if (data.success) {
+                this.showNotification('Секция сброшена к оригиналу!', 'success');
+
+                // Reload page to show original content
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } else {
+                this.showNotification(data.error || 'Ошибка сброса', 'error');
+            }
+        } catch (error) {
+            console.error('Reset failed:', error);
+            this.showNotification('Ошибка сброса секции', 'error');
+        }
+    }
+
+    async deleteSection(section) {
+        console.log('deleteSection called for:', section);
+        const sectionId = section.getAttribute('data-section-id');
+        console.log('Section ID:', sectionId);
+
+        if (!confirm('Вы уверены, что хотите удалить эту секцию?')) {
+            console.log('Delete cancelled by user');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('action', 'delete_section');
+        formData.append('section_id', sectionId);
+
+        try {
+            console.log('Sending delete request...');
+            const response = await fetch(this.basePath + 'api.php', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            console.log('Delete response:', data);
+
+            if (data.success) {
                 section.remove();
-                this.showNotification('Секция удалена!', 'success');
+                this.showNotification('Секция удалена! Обновите страницу.', 'success');
+                console.log('Section removed from DOM');
+                console.log('Server message:', data.message);
+
+                // Optionally auto-reload after a delay
+                setTimeout(() => {
+                    if (confirm('Секция удалена. Обновить страницу чтобы увидеть изменения?')) {
+                        location.reload();
+                    }
+                }, 1000);
+            } else {
+                this.showNotification(data.error || 'Ошибка удаления', 'error');
+                console.error('Delete error:', data.error);
             }
         } catch (error) {
             console.error('Deletion failed:', error);
@@ -809,6 +1319,38 @@ class CMSEditor {
                 lightboxImg.src = newUrl + '?t=' + Date.now();
                 console.log('Updated lightbox image');
             }
+        }
+    }
+
+    async resetToOriginal() {
+        if (!confirm('Вы уверены, что хотите сбросить ВСЕ изменения и вернуться к оригинальному содержимому PHP файла? Это действие нельзя отменить!')) {
+            return;
+        }
+
+        try {
+            const formData = new FormData();
+            formData.append('action', 'reset_to_original');
+
+            const response = await fetch(this.basePath + 'api.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                this.showNotification('Контент сброшен к оригиналу!', 'success');
+
+                // Reload page after a short delay
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } else {
+                this.showNotification(data.error || 'Ошибка сброса', 'error');
+            }
+        } catch (error) {
+            console.error('Reset failed:', error);
+            this.showNotification('Ошибка сброса к оригиналу', 'error');
         }
     }
 

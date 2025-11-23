@@ -211,11 +211,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         exit;
     }
 
-    // Generate new unique ID for duplicated section
-    $newSectionId = $sectionId . '_copy_' . time();
+    // Extract the section ID that JavaScript already generated in the HTML
+    // JavaScript creates IDs like: products_middle_clone_1763909554759
+    // We need to extract this ID from the HTML instead of generating a new one
+    preg_match('/data-section-id="([^"]+)"/', $html, $matches);
+    $newSectionId = isset($matches[1]) ? $matches[1] : $sectionId . '_copy_' . time();
 
-    // Replace old section ID with new one in HTML
-    $newHtml = str_replace('data-section-id="' . $sectionId . '"', 'data-section-id="' . $newSectionId . '"', $html);
+    // HTML already has the correct ID from JavaScript, so use it as-is
+    $newHtml = $html;
 
     // Save to data
     $data = loadContent();
@@ -260,23 +263,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     $data = loadContent();
 
+    // Log what we're trying to delete
+    error_log('Deleting section ID: ' . $sectionId);
+    error_log('Before delete - duplicated_sections count: ' . (isset($data['duplicated_sections']) ? count($data['duplicated_sections']) : 0));
+
     // Remove all content related to this section
     foreach (array_keys($data['sections']) as $key) {
         if (strpos($key, $sectionId) === 0) {
             unset($data['sections'][$key]);
+            error_log('Removed content key: ' . $key);
         }
     }
 
     // Remove from duplicated_sections if exists
     if (isset($data['duplicated_sections'])) {
+        $originalCount = count($data['duplicated_sections']);
         $data['duplicated_sections'] = array_values(array_filter($data['duplicated_sections'], function($section) use ($sectionId) {
-            return $section['section_id'] !== $sectionId;
+            $keep = $section['section_id'] !== $sectionId;
+            if (!$keep) {
+                error_log('Removing duplicated section: ' . $section['section_id']);
+            }
+            return $keep;
         }));
+        $newCount = count($data['duplicated_sections']);
+        error_log('After delete - duplicated_sections count: ' . $newCount . ' (removed ' . ($originalCount - $newCount) . ')');
     }
 
     saveContent($data, true, 'Удалена секция');
 
-    echo json_encode(array('success' => true));
+    echo json_encode(array('success' => true, 'message' => 'Section deleted successfully'));
     exit;
 }
 
@@ -327,6 +342,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     echo json_encode(array('success' => true, 'message' => 'Content reverted successfully'));
     exit;
+}
+
+// POST - Reset to original (clear all database changes)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reset_to_original') {
+    try {
+        // Create empty data (this will make the page load original PHP content)
+        $emptyData = array(
+            'sections' => array(),
+            'duplicated_sections' => array()
+        );
+
+        // Save empty data to reset everything
+        saveContent($emptyData, true, 'Сброс к оригиналу PHP файла');
+
+        echo json_encode(array('success' => true, 'message' => 'Content reset to original successfully'));
+        exit;
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode(array('error' => 'Failed to reset content: ' . $e->getMessage()));
+        exit;
+    }
+}
+
+// POST - Reset specific section to original
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reset_section') {
+    $sectionId = isset($_POST['section_id']) ? $_POST['section_id'] : '';
+
+    if (!$sectionId) {
+        http_response_code(400);
+        echo json_encode(array('error' => 'Section ID required'));
+        exit;
+    }
+
+    try {
+        $data = loadContent();
+
+        // Remove all content keys related to this section
+        foreach (array_keys($data['sections']) as $key) {
+            if (strpos($key, $sectionId) === 0) {
+                unset($data['sections'][$key]);
+            }
+        }
+
+        // Generate change description
+        $sectionName = str_replace('_', ' ', $sectionId);
+        $changeDesc = 'Сброс секции к оригиналу: ' . $sectionName;
+
+        saveContent($data, true, $changeDesc);
+
+        echo json_encode(array('success' => true, 'message' => 'Section reset to original successfully'));
+        exit;
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode(array('error' => 'Failed to reset section: ' . $e->getMessage()));
+        exit;
+    }
 }
 
 http_response_code(400);

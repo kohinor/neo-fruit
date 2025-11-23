@@ -171,11 +171,11 @@
                             активной жизни.
                         </p>
                         <div class="flex flex-wrap gap-4 gentle-fade delay-3">
-                            <button
+                            <a href="/cms/products"
                                 class="soft-button bg-teal text-white px-8 py-4 rounded-full font-semibold text-lg relative z-10"
                             >
                                 Смотреть продукцию
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -210,21 +210,33 @@
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
                     <div class="text-center gentle-fade delay-1">
                         <div
-                            class="stat-number text-5xl md:text-6xl font-black mb-2"
+                            class="stat-number text-5xl md:text-6xl font-black mb-2 cms-editable"
+                            data-editable="stat1_number"
+                            data-section-id="stats"
                         >
                             100%
                         </div>
-                        <div class="text-gray-600 font-medium">
+                        <div class="text-gray-600 font-medium cms-editable"
+                            data-editable="stat1_label"
+                            data-section-id="stats"
+                        >
                             Натуральный состав
                         </div>
                     </div>
                     <div class="text-center gentle-fade delay-2">
                         <div
-                            class="text-5xl md:text-6xl font-black text-accent mb-2"
+                            class="text-5xl md:text-6xl font-black text-accent mb-2 cms-editable"
+                            data-editable="stat2_number"
+                            data-section-id="stats"
                         >
                             20+
                         </div>
-                        <div class="text-gray-600 font-medium">Лет опыта</div>
+                        <div class="text-gray-600 font-medium cms-editable"
+                            data-editable="stat2_label"
+                            data-section-id="stats"
+                        >
+                            Лет опыта
+                        </div>
                     </div>
 
                     <!-- Jumping Apple Logo -->
@@ -240,21 +252,31 @@
 
                     <div class="text-center gentle-fade delay-4">
                         <div
-                            class="stat-number text-5xl md:text-6xl font-black mb-2"
+                            class="stat-number text-5xl md:text-6xl font-black mb-2 cms-editable"
+                            data-editable="stat3_number"
+                            data-section-id="stats"
                         >
                             c 2009
                         </div>
-                        <div class="text-gray-600 font-medium">
+                        <div class="text-gray-600 font-medium cms-editable"
+                            data-editable="stat3_label"
+                            data-section-id="stats"
+                        >
                             входят в ИРП МО РФ
                         </div>
                     </div>
                     <div class="text-center gentle-fade delay-5">
                         <div
-                            class="text-5xl md:text-6xl font-black text-accent mb-2"
+                            class="text-5xl md:text-6xl font-black text-accent mb-2 cms-editable"
+                            data-editable="stat4_number"
+                            data-section-id="stats"
                         >
                             3
                         </div>
-                        <div class="text-gray-600 font-medium">
+                        <div class="text-gray-600 font-medium cms-editable"
+                            data-editable="stat4_label"
+                            data-section-id="stats"
+                        >
                             Вкуса на выбор
                         </div>
                     </div>
@@ -347,7 +369,7 @@
             id="products"
             class="py-24 bg-gradient-to-br from-white via-cream to-sage relative overflow-hidden"
             data-section-id="products"
-            data-duplicable="true"
+            data-duplicable="false"
         >
             <!-- Decorative elements -->
             <div
@@ -398,11 +420,6 @@
                             <div
                                 class="relative bg-gradient-to-br from-orange-50 to-peach rounded-[3rem] p-10 soft-shadow-lg overflow-hidden"
                             >
-                                <div
-                                    class="emoji-badge absolute top-6 right-6 rounded-full flex items-center justify-center text-4xl"
-                                >
-                                    ☀️
-                                </div>
                                 <img
                                     src="images/products/1 Абрикос.jpg"
                                     alt="Абрикосовая с фундуком"
@@ -420,7 +437,7 @@
                                 Абрикосовая с фундуком
                             </h3>
                             <a
-                                href="/products"
+                                href="/cms/products"
                                 class="soft-button bg-teal text-white px-10 py-4 rounded-full font-bold text-lg relative z-10"
                             >
                                 Узнать больше
@@ -443,11 +460,6 @@
                                     <div
                                         class="relative bg-gradient-to-br from-purple-50 to-orange-50 rounded-[3rem] p-8 soft-shadow-lg overflow-hidden"
                                     >
-                                        <div
-                                            class="emoji-badge absolute top-5 right-5 rounded-full flex items-center justify-center text-3xl"
-                                        >
-                                            🍑
-                                        </div>
                                         <img
                                             src="images/products/3 Чернослив-с-орехом.jpg"
                                             alt="Абрикосово-сливовая с фундуком"
@@ -465,7 +477,7 @@
                                         Абрикосово-сливовая с фундуком
                                     </h3>
                                     <a
-                                        href="products.html"
+                                        href="/cms/products"
                                         class="soft-button bg-accent text-white px-8 py-3.5 rounded-full font-bold relative z-10"
                                     >
                                         Узнать больше
@@ -486,11 +498,6 @@
                                     <div
                                         class="relative bg-gradient-to-br from-purple-50 to-purple-100 rounded-[3rem] p-8 soft-shadow-lg overflow-hidden"
                                     >
-                                        <div
-                                            class="emoji-badge absolute top-5 right-5 rounded-full flex items-center justify-center text-3xl"
-                                        >
-                                            🌰
-                                        </div>
                                         <img
                                             src="images/options.jpg"
                                             alt="Чернослив с орехами"
@@ -508,7 +515,7 @@
                                         Чернослив с орехами
                                     </h3>
                                     <a
-                                        hrefproducts.html
+                                        href="/cms/products"
                                         class="soft-button bg-teal text-white px-8 py-3.5 rounded-full font-bold relative z-10"
                                     >
                                         Узнать больше
@@ -526,7 +533,7 @@
             id="benefits"
             class="py-24 bg-gradient-to-br from-cream to-white relative overflow-hidden"
             data-section-id="benefits"
-            data-duplicable="true"
+            data-duplicable="false"
         >
             <div
                 class="decorative-circle w-64 h-64 bg-sage absolute -top-20 right-1/4"
@@ -636,7 +643,7 @@
             id="taste"
             class="py-24 bg-gradient-to-br from-teal via-teal to-accent relative overflow-hidden"
             data-section-id="taste"
-            data-duplicable="true"
+            data-duplicable="false"
         >
             <div
                 class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC00Yy0xLjEgMC0yIC45LTIgMnY0YzAgMS4xLjkgMiAyIDJoNGMxLjEgMCAyLS45IDItMnYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"
