@@ -269,14 +269,20 @@
                     ></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" id="patents-gallery">
                     <div
-                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center"
+                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center cursor-pointer patent-image-wrapper"
+                        data-section-id="patent_1"
+                        onclick="openPatentLightbox(event)"
                     >
-                        <div
-                            class="icon-badge rounded-full flex items-center justify-center text-4xl mx-auto mb-6"
-                        >
-                            📜
+                        <div class="mb-6">
+                            <img
+                                src="../images/patent1.png"
+                                alt="Патент № 2358451 С2"
+                                class="w-full max-w-xs mx-auto rounded-lg hover:shadow-xl transition"
+                                data-editable-image="patent1_image"
+                                data-section-id="patent_1"
+                            />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
                             data-editable="patent1_title"
@@ -291,12 +297,18 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center"
+                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center cursor-pointer patent-image-wrapper"
+                        data-section-id="patent_2"
+                        onclick="openPatentLightbox(event)"
                     >
-                        <div
-                            class="icon-badge rounded-full flex items-center justify-center text-4xl mx-auto mb-6"
-                        >
-                            📜
+                        <div class="mb-6">
+                            <img
+                                src="../images/patent2.png"
+                                alt="Патент № 2612784 С1"
+                                class="w-full max-w-xs mx-auto rounded-lg hover:shadow-xl transition"
+                                data-editable-image="patent2_image"
+                                data-section-id="patent_2"
+                            />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-4 cms-editable"
                             data-editable="patent2_title"
@@ -529,7 +541,9 @@
                     <div
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
-                        <div class="text-4xl mb-4">🛡️</div>
+                        <div class="text-4xl mb-4 cms-editable"
+                            data-editable="order1_icon"
+                            data-section-id="gov_orders">🛡️</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
                             data-editable="order1_title"
                             data-section-id="gov_orders">
@@ -546,7 +560,9 @@
                     <div
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
-                        <div class="text-4xl mb-4">🔐</div>
+                        <div class="text-4xl mb-4 cms-editable"
+                            data-editable="order2_icon"
+                            data-section-id="gov_orders">🔐</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
                             data-editable="order2_title"
                             data-section-id="gov_orders">
@@ -563,7 +579,9 @@
                     <div
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
-                        <div class="text-4xl mb-4">🚔</div>
+                        <div class="text-4xl mb-4 cms-editable"
+                            data-editable="order3_icon"
+                            data-section-id="gov_orders">🚔</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
                             data-editable="order3_title"
                             data-section-id="gov_orders">
@@ -580,7 +598,9 @@
                     <div
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
-                        <div class="text-4xl mb-4">🪖</div>
+                        <div class="text-4xl mb-4 cms-editable"
+                            data-editable="order4_icon"
+                            data-section-id="gov_orders">👮</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
                             data-editable="order4_title"
                             data-section-id="gov_orders">
@@ -597,7 +617,9 @@
                     <div
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
-                        <div class="text-4xl mb-4">🚒</div>
+                        <div class="text-4xl mb-4 cms-editable"
+                            data-editable="order5_icon"
+                            data-section-id="gov_orders">🚒</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
                             data-editable="order5_title"
                             data-section-id="gov_orders">
@@ -614,7 +636,9 @@
                     <div
                         class="bg-white rounded-2xl p-6 soft-shadow-lg hover:shadow-xl transition"
                     >
-                        <div class="text-4xl mb-4">⚖️</div>
+                        <div class="text-4xl mb-4 cms-editable"
+                            data-editable="order6_icon"
+                            data-section-id="gov_orders">⚖️</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2 cms-editable"
                             data-editable="order6_title"
                             data-section-id="gov_orders">
@@ -719,6 +743,28 @@
                                 выбрана призером премии в номинации
                                 <strong>«Технология года»</strong>.
                             </p>
+
+                            <!-- Awards Gallery -->
+                            <div class="grid grid-cols-2 gap-4 mt-6" id="awards-gallery">
+                                <div class="award-image-wrapper cursor-pointer" data-section-id="award_1" data-duplicable="true" onclick="openAwardLightbox(event)">
+                                    <img
+                                        src="../images/award1.png"
+                                        alt="Награда 1"
+                                        class="w-full h-32 object-contain rounded-lg hover:shadow-lg transition"
+                                        data-editable-image="award_1_image"
+                                        data-section-id="award_1"
+                                    />
+                                </div>
+                                <div class="award-image-wrapper cursor-pointer" data-section-id="award_2" data-duplicable="true" onclick="openAwardLightbox(event)">
+                                    <img
+                                        src="../images/award2.png"
+                                        alt="Награда 2"
+                                        class="w-full h-32 object-contain rounded-lg hover:shadow-lg transition"
+                                        data-editable-image="award_2_image"
+                                        data-section-id="award_2"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -950,9 +996,146 @@
 
         <?php includePartial('footer'); ?>
 
+        <!-- Lightbox for award images -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+            <div class="lightbox-content">
+                <button class="lightbox-close" onclick="closeLightbox(event)">
+                    ×
+                </button>
+                <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1, event)">
+                    ‹
+                </button>
+                <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1, event)">
+                    ›
+                </button>
+                <img id="lightbox-img" src="" alt="" />
+            </div>
+        </div>
+
         <!-- Main JavaScript -->
         <script src="../main.js"></script>
         <!-- CMS Editor Script -->
         <script src="../cms-editor.js"></script>
+
+        <!-- Awards & Patents Gallery Script -->
+        <script>
+            let awardImages = [];
+            let currentAwardIndex = 0;
+            let patentImages = [];
+            let currentPatentIndex = 0;
+            let currentGalleryType = null; // 'awards' or 'patents'
+
+            /**
+             * Open award lightbox
+             * @param {Event} event - Click event
+             */
+            function openAwardLightbox(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const gallery = document.getElementById('awards-gallery');
+                if (!gallery) return;
+
+                // Get all award images from the gallery
+                const imageWrappers = gallery.querySelectorAll('.award-image-wrapper img');
+                awardImages = Array.from(imageWrappers);
+
+                // Find which image was clicked
+                let clickedImg = event.target;
+                if (clickedImg.tagName !== 'IMG') {
+                    clickedImg = event.currentTarget.querySelector('img');
+                }
+
+                currentAwardIndex = awardImages.indexOf(clickedImg);
+                currentGalleryType = 'awards';
+
+                // Open lightbox
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+
+                if (lightbox && lightboxImg && clickedImg) {
+                    lightboxImg.src = clickedImg.src;
+                    lightboxImg.alt = clickedImg.alt;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            /**
+             * Open patent lightbox
+             * @param {Event} event - Click event
+             */
+            function openPatentLightbox(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const gallery = document.getElementById('patents-gallery');
+                if (!gallery) return;
+
+                // Get all patent images from the gallery
+                const imageWrappers = gallery.querySelectorAll('.patent-image-wrapper img');
+                patentImages = Array.from(imageWrappers);
+
+                // Find which image was clicked
+                let clickedImg = event.target;
+                if (clickedImg.tagName !== 'IMG') {
+                    clickedImg = event.currentTarget.querySelector('img');
+                }
+
+                currentPatentIndex = patentImages.indexOf(clickedImg);
+                currentGalleryType = 'patents';
+
+                // Open lightbox
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+
+                if (lightbox && lightboxImg && clickedImg) {
+                    lightboxImg.src = clickedImg.src;
+                    lightboxImg.alt = clickedImg.alt;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            // Override navigateLightbox for awards and patents
+            const originalNavigateLightbox = navigateLightbox;
+            navigateLightbox = function(direction, event) {
+                event.stopPropagation();
+
+                // Check if we're viewing awards
+                if (currentGalleryType === 'awards' && awardImages.length > 0) {
+                    currentAwardIndex = (currentAwardIndex + direction + awardImages.length) % awardImages.length;
+
+                    const lightboxImg = document.getElementById('lightbox-img');
+                    if (lightboxImg && awardImages[currentAwardIndex]) {
+                        lightboxImg.src = awardImages[currentAwardIndex].src;
+                        lightboxImg.alt = awardImages[currentAwardIndex].alt;
+                    }
+                } else if (currentGalleryType === 'patents' && patentImages.length > 0) {
+                    // Navigate through patents
+                    currentPatentIndex = (currentPatentIndex + direction + patentImages.length) % patentImages.length;
+
+                    const lightboxImg = document.getElementById('lightbox-img');
+                    if (lightboxImg && patentImages[currentPatentIndex]) {
+                        lightboxImg.src = patentImages[currentPatentIndex].src;
+                        lightboxImg.alt = patentImages[currentPatentIndex].alt;
+                    }
+                } else {
+                    // Fall back to original function for product images
+                    originalNavigateLightbox(direction, event);
+                }
+            };
+
+            // Reset images when lightbox closes
+            const originalCloseLightbox = closeLightbox;
+            closeLightbox = function(event) {
+                originalCloseLightbox(event);
+                awardImages = [];
+                currentAwardIndex = 0;
+                patentImages = [];
+                currentPatentIndex = 0;
+                currentGalleryType = null;
+            };
+        </script>
     </body>
 </html>

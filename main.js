@@ -121,7 +121,7 @@ let currentProductSection = null; // Store reference to the current product sect
 
 /**
  * Open lightbox with product image
- * @param {string} product - Product identifier (e.g., 'product1')
+ * @param {string} product - Product identifier (e.g., 'product1', 'award')
  * @param {number} index - Image index
  * @param {Event} event - Click event (optional)
  */
@@ -138,8 +138,9 @@ function openLightbox(product, index, event) {
     let targetImg = null;
     let clickedElement = event.currentTarget || event.target;
 
-    // Find the parent product section
-    currentProductSection = clickedElement.closest('[data-section-id^="product"]');
+    // Find the parent product or award section
+    currentProductSection = clickedElement.closest('[data-section-id^="product"]') ||
+                           clickedElement.closest('[data-section-id^="award"]');
 
     // Check if target is the img itself
     if (event.target && event.target.tagName === 'IMG') {
