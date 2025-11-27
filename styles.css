@@ -564,3 +564,15 @@ body {
 .text-teal {
     color: #06a68a;
 }
+
+/* Patent and Award image hover effects */
+.patent-image-wrapper img,
+.award-image-wrapper img {
+    transition: all 0.3s ease;
+}
+
+.patent-image-wrapper:hover img,
+.award-image-wrapper:hover img {
+    box-shadow: 0 8px 30px rgba(6, 166, 138, 0.4);
+    transform: scale(1.05);
+}

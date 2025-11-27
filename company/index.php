@@ -224,9 +224,9 @@
 
                         <!-- Image -->
                         <div
-                            class="p-8 lg:p-10 flex items-center justify-center"
+                            class="p-8 lg:p-10 flex flex-col items-center justify-start"
                         >
-                            <div class="relative w-full angle-image-reverse">
+                            <div class="relative w-3/4 angle-image-reverse mb-6">
                                 <div
                                     class="absolute -inset-4 bg-gradient-to-r from-teal to-accent rounded-[3.5rem] opacity-20 blur-2xl"
                                 ></div>
@@ -240,6 +240,13 @@
                                         data-editable-image="company_hero_image"
                                     />
                                 </div>
+                            </div>
+                            <div class="bg-white/80 rounded-2xl p-6 w-full">
+                                <p class="text-gray-700 text-sm leading-relaxed italic cms-editable"
+                                    data-editable="historical_note"
+                                    data-section-id="foundation">
+                                    Технология сублимационной сушки фруктовых палочек берет свое начало из разработок молдавского НИИ пищевой промышленности, который с 1963 года создавал витаминное питание для советских космонавтов. Метод основан на испарении льда, минуя жидкую фазу, что позволяет сохранить натуральные продукты компактными, легкими и пригодными для длительного хранения без специальных условий.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -271,15 +278,14 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" id="patents-gallery">
                     <div
-                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center cursor-pointer patent-image-wrapper"
+                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center"
                         data-section-id="patent_1"
-                        onclick="openPatentLightbox(event)"
                     >
-                        <div class="mb-6">
+                        <div class="mb-6 patent-image-wrapper cursor-pointer" onclick="openPatentLightbox(event)">
                             <img
                                 src="../images/patent1.png"
                                 alt="Патент № 2358451 С2"
-                                class="w-full max-w-xs mx-auto rounded-lg hover:shadow-xl transition"
+                                class="h-32 object-contain mx-auto rounded-lg hover:shadow-xl transition"
                                 data-editable-image="patent1_image"
                                 data-section-id="patent_1"
                             />
@@ -297,15 +303,14 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center cursor-pointer patent-image-wrapper"
+                        class="bg-white rounded-3xl p-8 soft-shadow-lg text-center"
                         data-section-id="patent_2"
-                        onclick="openPatentLightbox(event)"
                     >
-                        <div class="mb-6">
+                        <div class="mb-6 patent-image-wrapper cursor-pointer" onclick="openPatentLightbox(event)">
                             <img
                                 src="../images/patent2.png"
                                 alt="Патент № 2612784 С1"
-                                class="w-full max-w-xs mx-auto rounded-lg hover:shadow-xl transition"
+                                class="h-32 object-contain mx-auto rounded-lg hover:shadow-xl transition"
                                 data-editable-image="patent2_image"
                                 data-section-id="patent_2"
                             />
@@ -745,23 +750,14 @@
                             </p>
 
                             <!-- Awards Gallery -->
-                            <div class="grid grid-cols-2 gap-4 mt-6" id="awards-gallery">
+                            <div class="flex justify-center mt-6" id="awards-gallery">
                                 <div class="award-image-wrapper cursor-pointer" data-section-id="award_1" data-duplicable="true" onclick="openAwardLightbox(event)">
                                     <img
                                         src="../images/award1.png"
                                         alt="Награда 1"
-                                        class="w-full h-32 object-contain rounded-lg hover:shadow-lg transition"
+                                        class="h-32 object-contain rounded-lg hover:shadow-lg transition"
                                         data-editable-image="award_1_image"
                                         data-section-id="award_1"
-                                    />
-                                </div>
-                                <div class="award-image-wrapper cursor-pointer" data-section-id="award_2" data-duplicable="true" onclick="openAwardLightbox(event)">
-                                    <img
-                                        src="../images/award2.png"
-                                        alt="Награда 2"
-                                        class="w-full h-32 object-contain rounded-lg hover:shadow-lg transition"
-                                        data-editable-image="award_2_image"
-                                        data-section-id="award_2"
                                     />
                                 </div>
                             </div>
@@ -778,12 +774,23 @@
                                 data-section-id="civilian">
                                 Спортсмены и туристы
                             </h4>
-                            <p class="text-sm text-gray-600 cms-editable"
+                            <p class="text-sm text-gray-600 mb-4 cms-editable"
                                 data-editable="use1_text"
                                 data-section-id="civilian">
                                 Официальный партнер финала кубка ДОСААФ России
                                 по трофи-рейдам 2018
                             </p>
+                            <div class="flex justify-center">
+                                <div class="award-image-wrapper cursor-pointer" data-section-id="sports_award" data-duplicable="true" onclick="openAwardLightbox(event)">
+                                    <img
+                                        src="../images/award2.png"
+                                        alt="Награда спортсменам и туристам"
+                                        class="h-32 object-contain rounded-lg hover:shadow-lg transition"
+                                        data-editable-image="sports_award_image"
+                                        data-section-id="sports_award"
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         <div
@@ -795,11 +802,22 @@
                                 data-section-id="civilian">
                                 Образовательные учреждения
                             </h4>
-                            <p class="text-sm text-gray-600 cms-editable"
+                            <p class="text-sm text-gray-600 mb-4 cms-editable"
                                 data-editable="use2_text"
                                 data-section-id="civilian">
                                 Регулярные поставки для колледжей и школ
                             </p>
+                            <div class="flex justify-center">
+                                <div class="award-image-wrapper cursor-pointer" data-section-id="education_award" data-duplicable="true" onclick="openAwardLightbox(event)">
+                                    <img
+                                        src="../images/award2.png"
+                                        alt="Награда образовательным учреждениям"
+                                        class="h-32 object-contain rounded-lg hover:shadow-lg transition"
+                                        data-editable-image="education_award_image"
+                                        data-section-id="education_award"
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         <div
@@ -811,11 +829,22 @@
                                 data-section-id="civilian">
                                 Вендинговые автоматы
                             </h4>
-                            <p class="text-sm text-gray-600 cms-editable"
+                            <p class="text-sm text-gray-600 mb-4 cms-editable"
                                 data-editable="use3_text"
                                 data-section-id="civilian">
                                 Идеально подходят для автоматов быстрого питания
                             </p>
+                            <div class="flex justify-center">
+                                <div class="award-image-wrapper cursor-pointer" data-section-id="vending_award" data-duplicable="true" onclick="openAwardLightbox(event)">
+                                    <img
+                                        src="../images/award2.png"
+                                        alt="Награда вендинговым автоматам"
+                                        class="h-32 object-contain rounded-lg hover:shadow-lg transition"
+                                        data-editable-image="vending_award_image"
+                                        data-section-id="vending_award"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -824,27 +853,20 @@
 
         <!-- Geography Section -->
         <section
-            class="py-20 bg-gradient-to-br from-sage to-mint relative overflow-hidden"
+            class="py-12 bg-gradient-to-br from-sage to-mint relative overflow-hidden"
             id="location" data-section-id="location"
             data-duplicable="false"
         >
-            <div
-                class="decorative-circle w-72 h-72 bg-white absolute bottom-20 right-10"
-            ></div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center mb-12">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-8">
                     <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6 cms-editable"
+                        class="font-display text-3xl md:text-4xl font-black text-gray-800 mb-4 cms-editable"
                         data-editable="title"
                         data-section-id="geography"
                     >
                         География <span class="gradient-text">поставок</span>
                     </h2>
-                    <div
-                        class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto mb-8"
-                    ></div>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto cms-editable"
+                    <p class="text-base text-gray-600 max-w-2xl mx-auto cms-editable"
                         data-editable="subtitle"
                         data-section-id="geography">
                         Продукция компании «НЕОФРУТ» поставляется по
@@ -854,44 +876,44 @@
                 </div>
 
                 <div
-                    class="bg-white rounded-3xl p-10 soft-shadow-lg max-w-4xl mx-auto" data-section-id="location_cities"
+                    class="bg-white rounded-2xl p-6 soft-shadow-lg max-w-3xl mx-auto" data-section-id="location_cities"
                 >
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                        <div class="text-center p-4" data-section-id="city_1" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_1">Барнаул</p>
+                    <div class="grid grid-cols-3 md:grid-cols-4 gap-3">
+                        <div class="text-center p-2" data-section-id="city_1" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_1">Барнаул</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="city_2" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_2">Екатеринбург</p>
+                        <div class="text-center p-2" data-section-id="city_2" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_2">Екатеринбург</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="city_3" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_3">Хабаровск</p>
+                        <div class="text-center p-2" data-section-id="city_3" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_3">Хабаровск</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="city_4" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_4">Петрозаводск</p>
+                        <div class="text-center p-2" data-section-id="city_4" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_4">Петрозаводск</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="city_5" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_5">Краснодар</p>
+                        <div class="text-center p-2" data-section-id="city_5" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_5">Краснодар</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="city_6" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_6">Нижний Новгород</p>
+                        <div class="text-center p-2" data-section-id="city_6" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_6">Нижний Новгород</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="city_7" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_7">Вологда</p>
+                        <div class="text-center p-2" data-section-id="city_7" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_7">Вологда</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="city_8" data-duplicable="true">
-                            <div class="text-3xl mb-2">📍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="city_8">Архангельск</p>
+                        <div class="text-center p-2" data-section-id="city_8" data-duplicable="true">
+                            <div class="text-2xl mb-1">📍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="city_8">Архангельск</p>
                         </div>
-                        <div class="text-center p-4" data-section-id="country_1" data-duplicable="true">
-                            <div class="text-3xl mb-2">🌍</div>
-                            <p class="font-semibold text-gray-800 cms-editable" data-editable="name" data-section-id="country_1">Казахстан</p>
+                        <div class="text-center p-2" data-section-id="country_1" data-duplicable="true">
+                            <div class="text-2xl mb-1">🌍</div>
+                            <p class="font-semibold text-gray-800 text-sm cms-editable" data-editable="name" data-section-id="country_1">Казахстан</p>
                         </div>
                     </div>
                 </div>
