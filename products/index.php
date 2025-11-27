@@ -1,33 +1,30 @@
+<?php
+// Load metatags helper
+require_once '../metatags-helper.php';
+loadMetatagsForPage('products');
+?>
 <!doctype html>
 <html lang="ru">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Primary Meta Tags -->
-        <title>Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов с орехами | Каталог</title>
-        <meta name="title" content="Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов с орехами" />
-        <meta name="description" content="Каталог натуральных фруктовых батончиков НЕО-ФРУТ: абрикосовая пастила с фундуком, абрикосово-сливовая с орехами, чернослив с грецкими орехами. Без сахара, консервантов и ароматизаторов." />
-        <meta name="keywords" content="купить батончики неофрут, абрикосовая пастила, батончики с фундуком, чернослив с орехами, фруктовые батончики каталог, продукция неофрут" />
-        <meta name="author" content="НПК НЕОФРУТ" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://neo-fruit.ru/products/" />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://neo-fruit.ru/products/" />
-        <meta property="og:title" content="Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов" />
-        <meta property="og:description" content="Каталог натуральных фруктовых батончиков: абрикосовая пастила с фундуком, абрикосово-сливовая с орехами, чернослив с грецкими орехами. Без сахара и консервантов." />
-        <meta property="og:image" content="https://neo-fruit.ru/images/products/1%20Абрикосовая%20с%20фундуком.jpg" />
-        <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="НПК НЕОФРУТ" />
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://neo-fruit.ru/products/" />
-        <meta property="twitter:title" content="Продукция НЕО-ФРУТ - Натуральные батончики из сухофруктов" />
-        <meta property="twitter:description" content="Каталог натуральных фруктовых батончиков без сахара и консервантов." />
-        <meta property="twitter:image" content="https://neo-fruit.ru/images/products/1%20Абрикосовая%20с%20фундуком.jpg" />
+        <?php
+        // Render metatags with defaults
+        renderMetatags(array(
+            'title' => 'Продукция НЕО-ФРУТ - Натуральные фруктовые батончики | НПК НЕОФРУТ',
+            'meta_title' => 'Продукция НЕО-ФРУТ - Натуральные фруктовые батончики',
+            'description' => 'Каталог натуральных фруктовых батончиков НЕО-ФРУТ. Абрикосовые, сливовые и черносливовые батончики с орехами. Пастила из сухофруктов без сахара. Здоровые снеки для всей семьи.',
+            'keywords' => 'продукция неофрут, каталог батончиков, купить батончики, фруктовые батончики ассортимент, пастила из сухофруктов',
+            'canonical' => 'https://neo-fruit.ru/products/',
+            'og_url' => 'https://neo-fruit.ru/products/',
+            'og_title' => 'Продукция НЕО-ФРУТ - Натуральные фруктовые батончики',
+            'og_description' => 'Каталог натуральных фруктовых батончиков и пастилы из сухофруктов. Здоровые снеки для всей семьи.',
+            'twitter_url' => 'https://neo-fruit.ru/products/',
+            'twitter_title' => 'Продукция НЕО-ФРУТ - Натуральные фруктовые батончики',
+            'twitter_description' => 'Каталог натуральных фруктовых батончиков и пастилы из сухофруктов.'
+        ));
+        ?>
 
         <!-- Additional SEO -->
         <meta name="format-detection" content="telephone=yes" />
@@ -40,7 +37,8 @@
         />
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="../styles.css" />
-        <link rel="stylesheet" href="../cms-editor.css">
+        <link rel="stylesheet" href="../cms-editor.css" />
+        <link rel="stylesheet" href="../meta-editor.css" />
         <script>
             tailwind.config = {
                 theme: {
@@ -999,5 +997,7 @@
         <script src="../main.js"></script>
         <!-- CMS Editor Script -->
         <script src="../cms-editor.js"></script>
+        <!-- Meta Editor Script -->
+        <script src="../meta-editor.js"></script>
     </body>
 </html>

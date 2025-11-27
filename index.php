@@ -1,33 +1,31 @@
+<?php
+// Load metatags helper
+require_once 'metatags-helper.php';
+loadMetatagsForPage('index');
+?>
 <!doctype html>
 <html lang="ru">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Primary Meta Tags -->
-        <title>НЕО-ФРУТ - Натуральные фруктовые батончики и пастила из сухофруктов | НПК НЕОФРУТ</title>
-        <meta name="title" content="НЕО-ФРУТ - Натуральные фруктовые батончики и пастила из сухофруктов" />
-        <meta name="description" content="Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара. Абрикосовые, сливовые и черносливовые батончики с орехами. Здоровое питание для активной жизни." />
-        <meta name="keywords" content="фруктовые батончики, пастила из сухофруктов, натуральные батончики, батончики без сахара, абрикосовая пастила, батончики с орехами, здоровое питание, НЕО-ФРУТ, неофрут" />
-        <meta name="author" content="НПК НЕОФРУТ" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://neo-fruit.ru/" />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://neo-fruit.ru/" />
-        <meta property="og:title" content="НЕО-ФРУТ - Натуральные фруктовые батончики и пастила" />
-        <meta property="og:description" content="Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара. Здоровое питание для активной жизни." />
-        <meta property="og:image" content="https://neo-fruit.ru/images/hero.jpg" />
-        <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="НПК НЕОФРУТ" />
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://neo-fruit.ru/" />
-        <meta property="twitter:title" content="НЕО-ФРУТ - Натуральные фруктовые батончики и пастила" />
-        <meta property="twitter:description" content="Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара." />
-        <meta property="twitter:image" content="https://neo-fruit.ru/images/hero.jpg" />
+        <?php
+        // Render metatags with defaults
+        renderMetatags(array(
+            'title' => 'НЕО-ФРУТ - Натуральные фруктовые батончики и пастила из сухофруктов | НПК НЕОФРУТ',
+            'meta_title' => 'НЕО-ФРУТ - Натуральные фруктовые батончики и пастила из сухофруктов',
+            'description' => 'Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара. Абрикосовые, сливовые и черносливовые батончики с орехами. Здоровое питание для активной жизни.',
+            'keywords' => 'фруктовые батончики, пастила из сухофруктов, натуральные батончики, батончики без сахара, абрикосовая пастила, батончики с орехами, здоровое питание, НЕО-ФРУТ, неофрут',
+            'canonical' => 'https://neo-fruit.ru/',
+            'og_url' => 'https://neo-fruit.ru/',
+            'og_title' => 'НЕО-ФРУТ - Натуральные фруктовые батончики и пастила',
+            'og_description' => 'Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара. Здоровое питание для активной жизни.',
+            'twitter_url' => 'https://neo-fruit.ru/',
+            'twitter_title' => 'НЕО-ФРУТ - Натуральные фруктовые батончики и пастила',
+            'twitter_description' => 'Производство натуральных фруктовых батончиков и пастилы из сухофруктов без сахара.',
+            'twitter_image' => 'https://neo-fruit.ru/images/hero.jpg'
+        ));
+        ?>
 
         <!-- Additional SEO -->
         <meta name="format-detection" content="telephone=yes" />
@@ -41,6 +39,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="styles.css" />
         <link rel="stylesheet" href="cms-editor.css" />
+        <link rel="stylesheet" href="meta-editor.css" />
         <script>
             tailwind.config = {
                 theme: {
@@ -684,5 +683,7 @@
         <script src="main.js"></script>
         <!-- CMS Editor Script -->
         <script src="cms-editor.js"></script>
+        <!-- Meta Editor Script -->
+        <script src="meta-editor.js"></script>
     </body>
 </html>

@@ -1,33 +1,30 @@
+<?php
+// Load metatags helper
+require_once '../metatags-helper.php';
+loadMetatagsForPage('company');
+?>
 <!doctype html>
 <html lang="ru">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Primary Meta Tags -->
-        <title>О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков | НПК НЕОФРУТ</title>
-        <meta name="title" content="О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков" />
-        <meta name="description" content="НПК НЕОФРУТ - производитель натуральных фруктовых батончиков и пастилы из сухофруктов. Наша миссия - здоровое питание без компромиссов. Качественная продукция из натуральных ингредиентов." />
-        <meta name="keywords" content="о компании неофрут, производитель батончиков, НПК НЕОФРУТ, натуральные продукты, производство пастилы, компания неофрут" />
-        <meta name="author" content="НПК НЕОФРУТ" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://neo-fruit.ru/company/" />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://neo-fruit.ru/company/" />
-        <meta property="og:title" content="О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков" />
-        <meta property="og:description" content="НПК НЕОФРУТ - производитель натуральных фруктовых батончиков и пастилы из сухофруктов. Качественная продукция из натуральных ингредиентов." />
-        <meta property="og:image" content="https://neo-fruit.ru/images/hero.jpg" />
-        <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="НПК НЕОФРУТ" />
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://neo-fruit.ru/company/" />
-        <meta property="twitter:title" content="О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков" />
-        <meta property="twitter:description" content="НПК НЕОФРУТ - производитель натуральных фруктовых батончиков и пастилы из сухофруктов." />
-        <meta property="twitter:image" content="https://neo-fruit.ru/images/hero.jpg" />
+        <?php
+        // Render metatags with defaults
+        renderMetatags(array(
+            'title' => 'О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков | НПК НЕОФРУТ',
+            'meta_title' => 'О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков',
+            'description' => 'НПК НЕОФРУТ - производитель натуральных фруктовых батончиков и пастилы из сухофруктов. Наша миссия - здоровое питание без компромиссов. Качественная продукция из натуральных ингредиентов.',
+            'keywords' => 'о компании неофрут, производитель батончиков, НПК НЕОФРУТ, натуральные продукты, компания неофрут',
+            'canonical' => 'https://neo-fruit.ru/company/',
+            'og_url' => 'https://neo-fruit.ru/company/',
+            'og_title' => 'О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков',
+            'og_description' => 'НПК НЕОФРУТ - производитель натуральных фруктовых батончиков из сухофруктов. Качественная продукция из натуральных ингредиентов.',
+            'twitter_url' => 'https://neo-fruit.ru/company/',
+            'twitter_title' => 'О компании НЕО-ФРУТ - Производитель натуральных фруктовых батончиков',
+            'twitter_description' => 'НПК НЕОФРУТ - производитель натуральных фруктовых батончиков из сухофруктов.'
+        ));
+        ?>
 
         <!-- Additional SEO -->
         <meta name="format-detection" content="telephone=yes" />
@@ -40,7 +37,8 @@
         />
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="../styles.css" />
-        <link rel="stylesheet" href="../cms-editor.css">
+        <link rel="stylesheet" href="../cms-editor.css" />
+        <link rel="stylesheet" href="../meta-editor.css" />
         <script>
             tailwind.config = {
                 theme: {
@@ -1038,6 +1036,8 @@
         <script src="../main.js"></script>
         <!-- CMS Editor Script -->
         <script src="../cms-editor.js"></script>
+        <!-- Meta Editor Script -->
+        <script src="../meta-editor.js"></script>
 
         <!-- Awards & Patents Gallery Script -->
         <script>

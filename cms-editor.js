@@ -62,8 +62,16 @@ class CMSEditor {
             const response = await fetch(this.basePath + 'auth.php?check=1');
             const data = await response.json();
             this.isLoggedIn = data.logged_in;
+
+            // Expose auth status globally for other modules
+            window.cmsAuthStatus = {
+                authenticated: this.isLoggedIn
+            };
         } catch (error) {
             console.error('Auth check failed:', error);
+            window.cmsAuthStatus = {
+                authenticated: false
+            };
         }
     }
 
@@ -86,6 +94,10 @@ class CMSEditor {
                     <button id="cms-version-history" class="cms-menu-btn">
                         <span class="cms-menu-icon">⏮️</span>
                         <span class="cms-menu-text">История версий</span>
+                    </button>
+                    <button id="cms-metatags-btn" class="cms-menu-btn">
+                        <span class="cms-menu-icon">🏷️</span>
+                        <span class="cms-menu-text">Метатеги</span>
                     </button>
                     <button id="cms-reset-original" class="cms-menu-btn cms-menu-btn-warning">
                         <span class="cms-menu-icon">🔄</span>
@@ -138,11 +150,19 @@ class CMSEditor {
         }
     }
 
+    hideDropdown() {
+        const menu = document.getElementById('cms-dropdown-menu');
+        if (menu) {
+            menu.classList.remove('cms-dropdown-show');
+        }
+    }
+
     attachPanelEvents() {
         const loginBtn = document.getElementById('cms-login-btn');
         const logoutBtn = document.getElementById('cms-logout');
         const toggleEditBtn = document.getElementById('cms-toggle-edit');
         const versionHistoryBtn = document.getElementById('cms-version-history');
+        const metatagsBtn = document.getElementById('cms-metatags-btn');
         const resetOriginalBtn = document.getElementById('cms-reset-original');
 
         if (loginBtn) {
@@ -159,6 +179,18 @@ class CMSEditor {
 
         if (versionHistoryBtn) {
             versionHistoryBtn.addEventListener('click', () => this.showVersionHistory());
+        }
+
+        if (metatagsBtn) {
+            metatagsBtn.addEventListener('click', () => {
+                this.hideDropdown();
+                if (window.MetaEditor) {
+                    window.MetaEditor.openMetaEditor();
+                } else {
+                    console.error('MetaEditor not loaded');
+                    alert('Ошибка: редактор метатегов не загружен');
+                }
+            });
         }
 
         if (resetOriginalBtn) {
