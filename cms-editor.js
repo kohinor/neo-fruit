@@ -337,10 +337,14 @@ class CMSEditor {
             if (this.contentData[key]) {
                 element.innerHTML = this.contentData[key];
 
-                // Remove any edit indicators that might be in saved content
+                // Remove any CMS elements that might have been accidentally saved
                 const indicator = element.querySelector('.cms-edit-indicator');
                 if (indicator) {
                     indicator.remove();
+                }
+                const resetBtn = element.querySelector('.cms-block-reset-btn');
+                if (resetBtn) {
+                    resetBtn.remove();
                 }
             }
         });
@@ -391,6 +395,21 @@ class CMSEditor {
         editables.forEach(element => {
             element.classList.add('cms-editable');
             element.contentEditable = 'true';
+
+            // Fix for empty contenteditable bug: ensure element can receive focus
+            // If element is completely empty, add a placeholder <br> to maintain editability
+            if (element.textContent.trim() === '' && element.innerHTML.trim() === '') {
+                element.innerHTML = '<br>';
+            }
+
+            // Add input event listener to handle typing in empty fields
+            element.addEventListener('input', (e) => {
+                // If field becomes empty, add <br> to keep it editable
+                if (element.textContent.trim() === '' && element.innerHTML.trim() === '') {
+                    element.innerHTML = '<br>';
+                }
+            });
+
             element.addEventListener('blur', (e) => {
                 // Don't handle blur if clicking inside toolbar
                 setTimeout(() => {
@@ -408,6 +427,7 @@ class CMSEditor {
             const indicator = document.createElement('span');
             indicator.className = 'cms-edit-indicator';
             indicator.textContent = '✏️';
+            indicator.contentEditable = 'false'; // Prevent cursor from entering indicator
             element.style.position = 'relative';
             element.appendChild(indicator);
 
@@ -493,17 +513,17 @@ class CMSEditor {
             element.classList.remove('cms-editable');
             element.contentEditable = 'false';
 
-            // Remove edit indicator
-            const indicator = element.querySelector('.cms-edit-indicator');
-            if (indicator) {
-                indicator.remove();
-            }
+            // Remove all CMS UI elements
+            const indicators = element.querySelectorAll('.cms-edit-indicator');
+            indicators.forEach(ind => ind.remove());
 
-            // Remove reset button
-            const resetBtn = element.querySelector('.cms-block-reset-btn');
-            if (resetBtn) {
-                resetBtn.remove();
-            }
+            const resetBtns = element.querySelectorAll('.cms-block-reset-btn');
+            resetBtns.forEach(btn => btn.remove());
+
+            // Clone and replace element to remove all event listeners
+            // This is more reliable than trying to track and remove each listener
+            const newElement = element.cloneNode(true);
+            element.parentNode.replaceChild(newElement, element);
         });
 
         // Disable image editing
@@ -511,6 +531,10 @@ class CMSEditor {
 
         // Remove formatting toolbar if exists
         this.hideFormattingToolbar();
+
+        // Remove any orphaned CMS elements that might be outside editable areas
+        document.querySelectorAll('.cms-edit-indicator').forEach(el => el.remove());
+        document.querySelectorAll('.cms-block-reset-btn').forEach(el => el.remove());
     }
 
     showFormattingToolbar(e) {
@@ -828,7 +852,17 @@ class CMSEditor {
         if (indicator) {
             indicator.remove();
         }
-        const content = clone.innerHTML;
+        const resetBtn = clone.querySelector('.cms-block-reset-btn');
+        if (resetBtn) {
+            resetBtn.remove();
+        }
+
+        let content = clone.innerHTML;
+
+        // Remove placeholder content if it's the only content
+        if (content === '&#8203;' || content === '\u200B' || content === '<br>' || content.trim() === '<br>') {
+            content = '';
+        }
 
         const formData = new FormData();
         formData.append('action', 'save_content');
