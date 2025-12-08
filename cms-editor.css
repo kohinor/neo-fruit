@@ -386,6 +386,10 @@ body.cms-edit-mode .cms-editable:focus {
     font-size: 0.75rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     z-index: 10;
 }
 
@@ -406,6 +410,10 @@ body.cms-edit-mode .cms-block-reset-btn {
     font-size: 0.7rem;
     box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     z-index: 11;
     transition: all 0.3s ease;
     opacity: 0;
