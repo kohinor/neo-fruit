@@ -531,7 +531,7 @@ body {
     border-radius: 50%;
     font-size: 24px;
     cursor: pointer;
-    display: flex;
+    display: none; /* Hidden on company page */
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
@@ -575,4 +575,12 @@ body {
 .award-image-wrapper:hover img {
     box-shadow: 0 8px 30px rgba(6, 166, 138, 0.4);
     transform: scale(1.05);
+}
+
+/* Mobile adjustments for civilian use section cards */
+@media (max-width: 767px) {
+    [data-section-id="civilian"] .grid > div.rounded-xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

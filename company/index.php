@@ -677,7 +677,7 @@ loadMetatagsForPage('company');
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div
-                    class="bg-gradient-to-br from-sage/20 to-mint/30 rounded-[3rem] p-12 soft-shadow-lg"
+                    class="bg-gradient-to-br from-sage/20 to-mint/30 rounded-[3rem] p-3 md:p-12 soft-shadow-lg"
                 >
                     <div class="text-center mb-12">
                         <h2
@@ -919,7 +919,7 @@ loadMetatagsForPage('company');
         </section>
 
         <!-- Future Development Section -->
-        <section class="py-20 bg-white relative overflow-hidden">
+        <section class="py-20 bg-white relative overflow-hidden" data-section-id="future_development" data-duplicable="false">
             <div
                 class="decorative-circle w-72 h-72 bg-accent/20 absolute top-20 right-10"
             ></div>
@@ -927,9 +927,11 @@ loadMetatagsForPage('company');
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-12">
                     <h2
-                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6"
+                        class="font-display text-4xl md:text-6xl font-black text-gray-800 mb-6 cms-editable"
+                        data-editable="title"
+                        data-section-id="future_development"
                     >
-                        Разработки <span class="gradient-text">будущего</span>
+                        Новости и разработки <span class="gradient-text">будущего</span>
                     </h2>
                     <div
                         class="w-32 h-1.5 bg-gradient-to-r from-teal via-accent to-teal rounded-full mx-auto"
@@ -937,11 +939,11 @@ loadMetatagsForPage('company');
                 </div>
 
                 <div
-                    class="bg-gradient-to-br from-peach/40 to-orange-50 rounded-3xl p-12 soft-shadow-lg"
+                    class="bg-gradient-to-br from-peach/40 to-orange-50 rounded-3xl p-3 md:p-12 soft-shadow-lg"
                 >
                     <div class="text-center mb-8">
-                        <div class="text-6xl mb-4">🔬</div>
-                        <p class="text-xl text-gray-700 leading-relaxed">
+                        <div class="text-6xl mb-4 cms-editable" data-editable="icon" data-section-id="future_development">🔬</div>
+                        <p class="text-xl text-gray-700 leading-relaxed cms-editable" data-editable="subtitle" data-section-id="future_development">
                             Компания НЕОФРУТ постоянно ведет научные разработки
                             новых технологий и видов продукции
                         </p>
@@ -978,6 +980,8 @@ loadMetatagsForPage('company');
         <!-- CTA Section -->
         <section
             class="py-24 bg-gradient-to-br from-teal via-teal to-accent relative overflow-hidden"
+            data-section-id="cta"
+            data-duplicable="false"
         >
             <div
                 class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC00Yy0xLjEgMC0yIC45LTIgMnY0YzAgMS4xLjkgMiAyIDJoNGMxLjEgMCAyLS45IDItMnYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"
@@ -986,25 +990,33 @@ loadMetatagsForPage('company');
                 class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10"
             >
                 <h2
-                    class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg"
+                    class="font-display text-5xl md:text-6xl font-black mb-8 drop-shadow-lg cms-editable"
+                    data-editable="title"
+                    data-section-id="cta"
                 >
                     Здоровое питание<br />для активной жизни!
                 </h2>
                 <p
-                    class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed"
+                    class="text-xl md:text-2xl mb-10 text-white/95 font-light leading-relaxed cms-editable"
+                    data-editable="subtitle"
+                    data-section-id="cta"
                 >
                     Надеемся на плодотворное сотрудничество
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
                     <a
-                        href="/cms/products/"
-                        class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105"
+                        href="/products/"
+                        class="bg-white text-teal px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105 cms-editable"
+                        data-editable="button1_text"
+                        data-section-id="cta"
                     >
                         Наша продукция
                     </a>
                     <a
                         href="#contacts"
-                        class="bg-accent text-white px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105"
+                        class="bg-accent text-white px-12 py-5 rounded-full font-black text-xl hover:shadow-2xl transition transform hover:scale-105 cms-editable"
+                        data-editable="button2_text"
+                        data-section-id="cta"
                     >
                         Связаться с нами
                     </a>
@@ -1021,12 +1033,6 @@ loadMetatagsForPage('company');
             <div class="lightbox-content">
                 <button class="lightbox-close" onclick="closeLightbox(event)">
                     ×
-                </button>
-                <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1, event)">
-                    ‹
-                </button>
-                <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1, event)">
-                    ›
                 </button>
                 <img id="lightbox-img" src="" alt="" />
             </div>
@@ -1119,33 +1125,11 @@ loadMetatagsForPage('company');
                 }
             }
 
-            // Override navigateLightbox for awards and patents
+            // Override navigateLightbox to disable navigation on company page
             const originalNavigateLightbox = navigateLightbox;
             navigateLightbox = function(direction, event) {
                 event.stopPropagation();
-
-                // Check if we're viewing awards
-                if (currentGalleryType === 'awards' && awardImages.length > 0) {
-                    currentAwardIndex = (currentAwardIndex + direction + awardImages.length) % awardImages.length;
-
-                    const lightboxImg = document.getElementById('lightbox-img');
-                    if (lightboxImg && awardImages[currentAwardIndex]) {
-                        lightboxImg.src = awardImages[currentAwardIndex].src;
-                        lightboxImg.alt = awardImages[currentAwardIndex].alt;
-                    }
-                } else if (currentGalleryType === 'patents' && patentImages.length > 0) {
-                    // Navigate through patents
-                    currentPatentIndex = (currentPatentIndex + direction + patentImages.length) % patentImages.length;
-
-                    const lightboxImg = document.getElementById('lightbox-img');
-                    if (lightboxImg && patentImages[currentPatentIndex]) {
-                        lightboxImg.src = patentImages[currentPatentIndex].src;
-                        lightboxImg.alt = patentImages[currentPatentIndex].alt;
-                    }
-                } else {
-                    // Fall back to original function for product images
-                    originalNavigateLightbox(direction, event);
-                }
+                // Navigation disabled on company page - no image rotation needed
             };
 
             // Reset images when lightbox closes

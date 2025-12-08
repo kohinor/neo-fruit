@@ -256,7 +256,7 @@ function initActiveNavigation() {
 
   // Get all navigation links
   const navLinks = document.querySelectorAll(
-    '.top-nav a[href*="/cms/"], #mobileDrawer a[href*="/cms/"]',
+    '.top-nav a[href*="/"], #mobileDrawer a[href*="/"]',
   );
 
   navLinks.forEach((link) => {
@@ -264,17 +264,17 @@ function initActiveNavigation() {
 
     // Check if current path matches the link
     if (
-      href === "/cms/" &&
-      (currentPath === "/cms/" || currentPath === "/cms/index.php")
+      href === "/" &&
+      (currentPath === "/" || currentPath === "/index.php")
     ) {
       // Homepage link - only highlight on exact match
       link.classList.add("text-teal");
       link.classList.remove("text-gray-700");
-    } else if (href === "/cms/company/" && currentPath.includes("/company")) {
+    } else if (href === "/company/" && currentPath.includes("/company")) {
       // Company page
       link.classList.add("text-teal");
       link.classList.remove("text-gray-700");
-    } else if (href === "/cms/products/" && currentPath.includes("/products")) {
+    } else if (href === "/products/" && currentPath.includes("/products")) {
       // Products page
       link.classList.add("text-teal");
       link.classList.remove("text-gray-700");

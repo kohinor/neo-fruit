@@ -170,7 +170,7 @@ loadMetatagsForPage('index');
                             активной жизни.
                         </p>
                         <div class="flex flex-wrap gap-4 gentle-fade delay-3">
-                            <a href="/cms/products"
+                            <a href="/products"
                                 class="soft-button bg-teal text-white px-8 py-4 rounded-full font-semibold text-lg relative z-10"
                             >
                                 Смотреть продукцию
@@ -436,7 +436,7 @@ loadMetatagsForPage('index');
                                 Абрикосовая с фундуком
                             </h3>
                             <a
-                                href="/cms/products"
+                                href="/products"
                                 class="soft-button bg-teal text-white px-10 py-4 rounded-full font-bold text-lg relative z-10"
                             >
                                 Узнать больше
@@ -476,7 +476,7 @@ loadMetatagsForPage('index');
                                         Абрикосово-сливовая с фундуком
                                     </h3>
                                     <a
-                                        href="/cms/products"
+                                        href="/products"
                                         class="soft-button bg-accent text-white px-8 py-3.5 rounded-full font-bold relative z-10"
                                     >
                                         Узнать больше
@@ -514,7 +514,7 @@ loadMetatagsForPage('index');
                                         Чернослив с орехами
                                     </h3>
                                     <a
-                                        href="/cms/products"
+                                        href="/products"
                                         class="soft-button bg-teal text-white px-8 py-3.5 rounded-full font-bold relative z-10"
                                     >
                                         Узнать больше

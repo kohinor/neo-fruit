@@ -12,6 +12,15 @@
             this.loadCurrentPageMetatags();
         },
 
+        getApiPath: function() {
+            // Detect if we're in a subfolder
+            var path = window.location.pathname;
+            if (path.includes('/company/') || path.includes('/products/')) {
+                return '../meta-api.php';
+            }
+            return 'meta-api.php';
+        },
+
         createMetaButton: function() {
             var self = this;
             var toolbar = document.querySelector('.cms-toolbar');
@@ -33,20 +42,30 @@
 
         detectCurrentPage: function() {
             var path = window.location.pathname;
-            if (path === '/' || path === '/index.php' || path.endsWith('index.php')) {
+
+            // Check for root or index page
+            if (path === '/' || path === '/index.php') {
                 return 'index';
-            } else if (path.includes('/company')) {
+            }
+
+            // Check for specific page folders
+            if (path.includes('/company')) {
                 return 'company';
             }
-            // Extract page name from path
-            var matches = path.match(/\/([^\/]+)\.php$/);
+            if (path.includes('/products')) {
+                return 'products';
+            }
+
+            // Extract page name from path (for future pages)
+            var matches = path.match(/\/([^\/]+)\/index\.php$/);
             if (matches) {
                 return matches[1];
             }
             matches = path.match(/\/([^\/]+)\/?$/);
-            if (matches) {
+            if (matches && matches[1] !== '') {
                 return matches[1];
             }
+
             return 'index';
         },
 
@@ -54,7 +73,7 @@
             var self = this;
             self.currentPage = self.detectCurrentPage();
 
-            fetch('meta-api.php?page=' + self.currentPage)
+            fetch(self.getApiPath() + '?page=' + self.currentPage)
                 .then(function(response) { return response.json(); })
                 .then(function(data) {
                     if (data.success && data.metatags) {
@@ -117,7 +136,7 @@
 
         loadAllPages: function() {
             var self = this;
-            fetch('meta-api.php')
+            fetch(self.getApiPath())
                 .then(function(response) { return response.json(); })
                 .then(function(data) {
                     if (data.success && data.data && data.data.pages) {
@@ -286,7 +305,7 @@
                 twitter_image: ''
             };
 
-            fetch('meta-api.php', {
+            fetch(self.getApiPath(), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -313,7 +332,7 @@
         deletePage: function(pageName) {
             var self = this;
 
-            fetch('meta-api.php', {
+            fetch(self.getApiPath(), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -353,7 +372,7 @@
                 return;
             }
 
-            fetch('meta-api.php', {
+            fetch(self.getApiPath(), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'same-origin',

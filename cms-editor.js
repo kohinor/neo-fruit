@@ -11,7 +11,7 @@ class CMSEditor {
     getBasePath() {
         // Determine the base path relative to current page
         const depth = (window.location.pathname.match(/\//g) || []).length - 1;
-        const projectFolder = '/cms/';
+        const projectFolder = '/';
 
         // If we're in a subfolder (company/, products/), go up one level
         if (window.location.pathname.includes('/company/') || window.location.pathname.includes('/products/')) {
@@ -879,11 +879,18 @@ class CMSEditor {
     addSectionControls() {
         const sections = document.querySelectorAll('[data-duplicable="true"]');
         sections.forEach(section => {
+            const sectionId = section.getAttribute('data-section-id');
+
+            // Check if this is a cloned section (contains _clone_ in the ID)
+            const isCloned = sectionId && sectionId.includes('_clone_');
+
             const controls = document.createElement('div');
             controls.className = 'cms-section-controls';
             controls.contentEditable = 'false';
+
+            // Only show duplicate button for original sections, not cloned ones
             controls.innerHTML = `
-                <button class="cms-btn-icon cms-duplicate-btn" title="Дублировать секцию" contenteditable="false">📋</button>
+                ${!isCloned ? '<button class="cms-btn-icon cms-duplicate-btn" title="Дублировать секцию" contenteditable="false">📋</button>' : ''}
                 <button class="cms-btn-icon cms-reset-btn" title="Сбросить к оригиналу" contenteditable="false">🔄</button>
                 <button class="cms-btn-icon cms-delete-btn" title="Удалить секцию" contenteditable="false">🗑️</button>
             `;
@@ -891,16 +898,21 @@ class CMSEditor {
             section.style.position = 'relative';
             section.insertBefore(controls, section.firstChild);
 
-            const duplicateBtn = controls.querySelector('.cms-duplicate-btn');
-            duplicateBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.duplicateSection(section);
-            });
-            duplicateBtn.addEventListener('mousedown', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
+            // Only add duplicate button handler for original sections
+            if (!isCloned) {
+                const duplicateBtn = controls.querySelector('.cms-duplicate-btn');
+                if (duplicateBtn) {
+                    duplicateBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.duplicateSection(section);
+                    });
+                    duplicateBtn.addEventListener('mousedown', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+                }
+            }
 
             const resetBtn = controls.querySelector('.cms-reset-btn');
             resetBtn.addEventListener('click', (e) => {
