@@ -8,7 +8,8 @@ header('Content-Type: application/json');
 
 // Configuration
 $uploadDir = __DIR__ . '/images/uploads/';
-$allowedTypes = array('image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp');
+$allowedTypes = array('image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/x-webp');
+$allowedExtensions = array('jpg', 'jpeg', 'png', 'gif', 'webp');
 $maxFileSize = 5 * 1024 * 1024; // 5MB
 
 // Create upload directory if it doesn't exist
@@ -32,9 +33,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     $mimeType = finfo_file($finfo, $file['tmp_name']);
     finfo_close($finfo);
 
-    if (!in_array($mimeType, $allowedTypes)) {
+    // Get file extension
+    $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+    // Check both MIME type and extension
+    if (!in_array($mimeType, $allowedTypes) && !in_array($extension, $allowedExtensions)) {
         http_response_code(400);
-        echo json_encode(array('error' => 'Invalid file type. Only JPG, PNG, GIF, WEBP allowed'));
+        echo json_encode(array('error' => 'Invalid file type. Only JPG, PNG, GIF, WEBP allowed. Detected: ' . $mimeType));
+        exit;
+    }
+
+    // Additional security: ensure extension is allowed even if MIME type passes
+    if (!in_array($extension, $allowedExtensions)) {
+        http_response_code(400);
+        echo json_encode(array('error' => 'Invalid file extension. Only .jpg, .jpeg, .png, .gif, .webp allowed'));
         exit;
     }
 
@@ -45,8 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         exit;
     }
 
-    // Generate unique filename
-    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+    // Generate unique filename (extension already extracted above)
     $filename = 'img_' . time() . '_' . uniqid() . '.' . $extension;
     $filepath = $uploadDir . $filename;
 
