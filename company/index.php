@@ -224,7 +224,7 @@ loadMetatagsForPage('company');
                         <div
                             class="p-8 lg:p-10 flex flex-col items-center justify-start"
                         >
-                            <div class="relative w-3/4 angle-image-reverse mb-6">
+                            <div class="relative w-3/4 angle-image-reverse mb-6 cursor-pointer" onclick="openCompanyHeroLightbox(event)">
                                 <div
                                     class="absolute -inset-4 bg-gradient-to-r from-teal to-accent rounded-[3.5rem] opacity-20 blur-2xl"
                                 ></div>
@@ -1052,6 +1052,32 @@ loadMetatagsForPage('company');
             let patentImages = [];
             let currentPatentIndex = 0;
             let currentGalleryType = null; // 'awards' or 'patents'
+
+            /**
+             * Open company hero image lightbox
+             * @param {Event} event - Click event
+             */
+            function openCompanyHeroLightbox(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                // Find the image
+                let clickedImg = event.target;
+                if (clickedImg.tagName !== 'IMG') {
+                    clickedImg = event.currentTarget.querySelector('img');
+                }
+
+                // Open lightbox
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+
+                if (lightbox && lightboxImg && clickedImg) {
+                    lightboxImg.src = clickedImg.src;
+                    lightboxImg.alt = clickedImg.alt;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
 
             /**
              * Open award lightbox
