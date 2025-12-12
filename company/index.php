@@ -232,7 +232,7 @@ loadMetatagsForPage('company');
                                     class="relative soft-shadow-lg rounded-3xl overflow-hidden bg-white p-4"
                                 >
                                     <img
-                                        src="../images/hero.jpg"
+                                        src="../images/neofruit.webp"
                                         alt="НПК НЕОФРУТ"
                                         class="w-full rounded-2xl"
                                         data-editable-image="company_hero_image"
