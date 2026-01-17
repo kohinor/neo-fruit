@@ -76,7 +76,7 @@ loadMetatagsForPage('products');
                     "@type": "Product",
                     "position": 1,
                     "name": "Абрикосовая пастила с фундуком",
-                    "description": "Натуральный батончик из абрикосов с фундуком без сахара",
+                    "description": "Натуральный батончик из абрикосов с фундуком",
                     "image": "https://neo-fruit.ru/images/products/1%20Абрикосовая%20с%20фундуком.jpg",
                     "brand": {
                         "@type": "Brand",
