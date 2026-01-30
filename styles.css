@@ -284,12 +284,13 @@ body {
 
 /* Outlined card */
 .outlined-card {
-    border: 2px solid;
+    border: 2px solid transparent;
     background: #ffffff;
     transition: all 0.3s ease;
 }
 
 .outlined-card:hover {
+    border-color: inherit;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 

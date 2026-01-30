@@ -36,36 +36,10 @@ loadMetatagsForPage('index');
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
             rel="stylesheet"
         />
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="tailwind.min.css" />
         <link rel="stylesheet" href="styles.css" />
         <link rel="stylesheet" href="cms-editor.css" />
         <link rel="stylesheet" href="meta-editor.css" />
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            accent: "#f48a3a",
-                            mint: "#eaf9ef",
-                            teal: "#06a68a",
-                            muted: "#7b7b7b",
-                            cream: "#fff8f0",
-                            peach: "#ffe8d6",
-                            sage: "#d4e8de",
-                        },
-                        fontFamily: {
-                            sans: [
-                                "Montserrat",
-                                "system-ui",
-                                "Arial",
-                                "sans-serif",
-                            ],
-                            display: ["Playfair Display", "serif"],
-                        },
-                    },
-                },
-            };
-        </script>
 
         <!-- Structured Data (JSON-LD) -->
         <script type="application/ld+json">
